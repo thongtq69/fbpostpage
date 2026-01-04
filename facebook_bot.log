@@ -1,0 +1,333 @@
+2026-01-04 10:21:26,023 - INFO - Config loaded successfully.
+2026-01-04 10:21:26,115 - ERROR - Failed to initialize driver: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1081)>
+2026-01-04 10:22:43,564 - INFO - Config loaded successfully.
+2026-01-04 10:22:45,440 - INFO - patching driver executable /Users/bephi/Library/Application Support/undetected_chromedriver/undetected_chromedriver
+2026-01-04 10:22:47,906 - INFO - Driver initialized successfully.
+2026-01-04 10:22:47,906 - INFO - Starting login process...
+2026-01-04 10:22:51,529 - INFO - Already logged in.
+2026-01-04 10:22:51,529 - INFO - Navigating to group: https://www.facebook.com/groups/chocudanvinhomeq9
+2026-01-04 10:22:51,532 - ERROR - Bot execution failed: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=143.0.7499.170)
+Stacktrace:
+0   undetected_chromedriver             0x0000000102951098 undetected_chromedriver + 6295704
+1   undetected_chromedriver             0x000000010294874a undetected_chromedriver + 6260554
+2   undetected_chromedriver             0x00000001023bac4b undetected_chromedriver + 437323
+3   undetected_chromedriver             0x000000010238f5c0 undetected_chromedriver + 259520
+4   undetected_chromedriver             0x000000010243a8a8 undetected_chromedriver + 960680
+5   undetected_chromedriver             0x0000000102459cc8 undetected_chromedriver + 1088712
+6   undetected_chromedriver             0x00000001023fefc7 undetected_chromedriver + 716743
+7   undetected_chromedriver             0x00000001023ffc91 undetected_chromedriver + 720017
+8   undetected_chromedriver             0x000000010290eca1 undetected_chromedriver + 6024353
+9   undetected_chromedriver             0x00000001029130f0 undetected_chromedriver + 6041840
+10  undetected_chromedriver             0x00000001028ea1a0 undetected_chromedriver + 5874080
+11  undetected_chromedriver             0x0000000102913b65 undetected_chromedriver + 6044517
+12  undetected_chromedriver             0x00000001028d8ee1 undetected_chromedriver + 5803745
+13  undetected_chromedriver             0x00000001029357c8 undetected_chromedriver + 6182856
+14  undetected_chromedriver             0x0000000102935983 undetected_chromedriver + 6183299
+15  undetected_chromedriver             0x000000010294834c undetected_chromedriver + 6259532
+16  libsystem_pthread.dylib             0x00007ff8138bc253 _pthread_start + 99
+17  libsystem_pthread.dylib             0x00007ff8138b7bef thread_start + 15
+
+2026-01-04 10:22:51,532 - INFO - Closing driver...
+2026-01-04 10:22:52,340 - INFO - Config loaded successfully.
+2026-01-04 10:22:54,239 - INFO - patching driver executable /Users/bephi/Library/Application Support/undetected_chromedriver/undetected_chromedriver
+2026-01-04 10:22:55,813 - INFO - Driver initialized successfully.
+2026-01-04 10:22:55,814 - INFO - Starting login process...
+2026-01-04 10:23:29,084 - WARNING - 2FA detected. Please enter code manually in browser.
+2026-01-04 10:23:29,084 - INFO - Login successful.
+2026-01-04 10:23:29,084 - INFO - Navigating to group: https://www.facebook.com/groups/chocudanvinhomeq9
+2026-01-04 10:23:56,833 - INFO - Attempting to create post...
+2026-01-04 10:24:22,658 - ERROR - Could not find post button.
+2026-01-04 10:24:22,658 - ERROR - Error creating post: Message: 
+Stacktrace:
+0   undetected_chromedriver             0x00000001014b6098 undetected_chromedriver + 6295704
+1   undetected_chromedriver             0x00000001014ad74a undetected_chromedriver + 6260554
+2   undetected_chromedriver             0x0000000100f1fc4b undetected_chromedriver + 437323
+3   undetected_chromedriver             0x0000000100f71650 undetected_chromedriver + 771664
+4   undetected_chromedriver             0x0000000100f71961 undetected_chromedriver + 772449
+5   undetected_chromedriver             0x0000000100fc1eb4 undetected_chromedriver + 1101492
+6   undetected_chromedriver             0x0000000100fbf2a8 undetected_chromedriver + 1090216
+7   undetected_chromedriver             0x0000000100f63fc7 undetected_chromedriver + 716743
+8   undetected_chromedriver             0x0000000100f64c91 undetected_chromedriver + 720017
+9   undetected_chromedriver             0x0000000101473ca1 undetected_chromedriver + 6024353
+10  undetected_chromedriver             0x00000001014780f0 undetected_chromedriver + 6041840
+11  undetected_chromedriver             0x000000010144f1a0 undetected_chromedriver + 5874080
+12  undetected_chromedriver             0x0000000101478b65 undetected_chromedriver + 6044517
+13  undetected_chromedriver             0x000000010143dee1 undetected_chromedriver + 5803745
+14  undetected_chromedriver             0x000000010149a7c8 undetected_chromedriver + 6182856
+15  undetected_chromedriver             0x000000010149a983 undetected_chromedriver + 6183299
+16  undetected_chromedriver             0x00000001014ad34c undetected_chromedriver + 6259532
+17  libsystem_pthread.dylib             0x00007ff8138bc253 _pthread_start + 99
+18  libsystem_pthread.dylib             0x00007ff8138b7bef thread_start + 15
+
+2026-01-04 10:24:27,133 - ERROR - Bot execution failed: Message: 
+Stacktrace:
+0   undetected_chromedriver             0x00000001014b6098 undetected_chromedriver + 6295704
+1   undetected_chromedriver             0x00000001014ad74a undetected_chromedriver + 6260554
+2   undetected_chromedriver             0x0000000100f1fc4b undetected_chromedriver + 437323
+3   undetected_chromedriver             0x0000000100f71650 undetected_chromedriver + 771664
+4   undetected_chromedriver             0x0000000100f71961 undetected_chromedriver + 772449
+5   undetected_chromedriver             0x0000000100fc1eb4 undetected_chromedriver + 1101492
+6   undetected_chromedriver             0x0000000100fbf2a8 undetected_chromedriver + 1090216
+7   undetected_chromedriver             0x0000000100f63fc7 undetected_chromedriver + 716743
+8   undetected_chromedriver             0x0000000100f64c91 undetected_chromedriver + 720017
+9   undetected_chromedriver             0x0000000101473ca1 undetected_chromedriver + 6024353
+10  undetected_chromedriver             0x00000001014780f0 undetected_chromedriver + 6041840
+11  undetected_chromedriver             0x000000010144f1a0 undetected_chromedriver + 5874080
+12  undetected_chromedriver             0x0000000101478b65 undetected_chromedriver + 6044517
+13  undetected_chromedriver             0x000000010143dee1 undetected_chromedriver + 5803745
+14  undetected_chromedriver             0x000000010149a7c8 undetected_chromedriver + 6182856
+15  undetected_chromedriver             0x000000010149a983 undetected_chromedriver + 6183299
+16  undetected_chromedriver             0x00000001014ad34c undetected_chromedriver + 6259532
+17  libsystem_pthread.dylib             0x00007ff8138bc253 _pthread_start + 99
+18  libsystem_pthread.dylib             0x00007ff8138b7bef thread_start + 15
+
+2026-01-04 10:24:27,133 - INFO - Closing driver...
+2026-01-04 10:24:28,092 - INFO - Config loaded successfully.
+2026-01-04 10:24:31,533 - INFO - patching driver executable /Users/bephi/Library/Application Support/undetected_chromedriver/undetected_chromedriver
+2026-01-04 10:24:33,098 - INFO - Driver initialized successfully.
+2026-01-04 10:24:33,098 - INFO - Starting login process...
+2026-01-04 10:24:50,470 - INFO - Login successful.
+2026-01-04 10:24:50,470 - INFO - Navigating to group: https://www.facebook.com/groups/chocudanvinhomeq9
+2026-01-04 10:25:03,446 - INFO - Attempting to create post...
+2026-01-04 10:25:29,152 - ERROR - Could not find post button.
+2026-01-04 10:25:29,153 - ERROR - Error creating post: Message: 
+Stacktrace:
+0   undetected_chromedriver             0x0000000105109098 undetected_chromedriver + 6295704
+1   undetected_chromedriver             0x000000010510074a undetected_chromedriver + 6260554
+2   undetected_chromedriver             0x0000000104b72c4b undetected_chromedriver + 437323
+3   undetected_chromedriver             0x0000000104bc4650 undetected_chromedriver + 771664
+4   undetected_chromedriver             0x0000000104bc4961 undetected_chromedriver + 772449
+5   undetected_chromedriver             0x0000000104c14eb4 undetected_chromedriver + 1101492
+6   undetected_chromedriver             0x0000000104c122a8 undetected_chromedriver + 1090216
+7   undetected_chromedriver             0x0000000104bb6fc7 undetected_chromedriver + 716743
+8   undetected_chromedriver             0x0000000104bb7c91 undetected_chromedriver + 720017
+9   undetected_chromedriver             0x00000001050c6ca1 undetected_chromedriver + 6024353
+10  undetected_chromedriver             0x00000001050cb0f0 undetected_chromedriver + 6041840
+11  undetected_chromedriver             0x00000001050a21a0 undetected_chromedriver + 5874080
+12  undetected_chromedriver             0x00000001050cbb65 undetected_chromedriver + 6044517
+13  undetected_chromedriver             0x0000000105090ee1 undetected_chromedriver + 5803745
+14  undetected_chromedriver             0x00000001050ed7c8 undetected_chromedriver + 6182856
+15  undetected_chromedriver             0x00000001050ed983 undetected_chromedriver + 6183299
+16  undetected_chromedriver             0x000000010510034c undetected_chromedriver + 6259532
+17  libsystem_pthread.dylib             0x00007ff8138bc253 _pthread_start + 99
+18  libsystem_pthread.dylib             0x00007ff8138b7bef thread_start + 15
+
+2026-01-04 10:25:29,440 - ERROR - Bot execution failed: Message: 
+Stacktrace:
+0   undetected_chromedriver             0x0000000105109098 undetected_chromedriver + 6295704
+1   undetected_chromedriver             0x000000010510074a undetected_chromedriver + 6260554
+2   undetected_chromedriver             0x0000000104b72c4b undetected_chromedriver + 437323
+3   undetected_chromedriver             0x0000000104bc4650 undetected_chromedriver + 771664
+4   undetected_chromedriver             0x0000000104bc4961 undetected_chromedriver + 772449
+5   undetected_chromedriver             0x0000000104c14eb4 undetected_chromedriver + 1101492
+6   undetected_chromedriver             0x0000000104c122a8 undetected_chromedriver + 1090216
+7   undetected_chromedriver             0x0000000104bb6fc7 undetected_chromedriver + 716743
+8   undetected_chromedriver             0x0000000104bb7c91 undetected_chromedriver + 720017
+9   undetected_chromedriver             0x00000001050c6ca1 undetected_chromedriver + 6024353
+10  undetected_chromedriver             0x00000001050cb0f0 undetected_chromedriver + 6041840
+11  undetected_chromedriver             0x00000001050a21a0 undetected_chromedriver + 5874080
+12  undetected_chromedriver             0x00000001050cbb65 undetected_chromedriver + 6044517
+13  undetected_chromedriver             0x0000000105090ee1 undetected_chromedriver + 5803745
+14  undetected_chromedriver             0x00000001050ed7c8 undetected_chromedriver + 6182856
+15  undetected_chromedriver             0x00000001050ed983 undetected_chromedriver + 6183299
+16  undetected_chromedriver             0x000000010510034c undetected_chromedriver + 6259532
+17  libsystem_pthread.dylib             0x00007ff8138bc253 _pthread_start + 99
+18  libsystem_pthread.dylib             0x00007ff8138b7bef thread_start + 15
+
+2026-01-04 10:25:29,440 - INFO - Closing driver...
+2026-01-04 10:25:52,044 - INFO - Config loaded successfully.
+2026-01-04 10:25:54,622 - INFO - patching driver executable /Users/bephi/Library/Application Support/undetected_chromedriver/undetected_chromedriver
+2026-01-04 10:25:56,613 - INFO - Driver initialized successfully.
+2026-01-04 10:25:56,613 - INFO - Starting login process...
+2026-01-04 10:26:01,244 - INFO - Found 8 cookies.
+2026-01-04 10:26:01,268 - INFO - Cookies loaded successfully.
+2026-01-04 10:26:01,268 - INFO - Refreshing page to apply cookies...
+2026-01-04 10:26:12,751 - INFO - Already logged in.
+2026-01-04 10:26:12,751 - INFO - Navigating to group: https://www.facebook.com/groups/chocudanvinhomeq9
+2026-01-04 10:26:26,432 - INFO - Attempting to create post...
+2026-01-04 10:26:52,189 - ERROR - Could not find post button.
+2026-01-04 10:26:52,189 - ERROR - Error creating post: Message: 
+Stacktrace:
+0   undetected_chromedriver             0x000000010463f098 undetected_chromedriver + 6295704
+1   undetected_chromedriver             0x000000010463674a undetected_chromedriver + 6260554
+2   undetected_chromedriver             0x00000001040a8c4b undetected_chromedriver + 437323
+3   undetected_chromedriver             0x00000001040fa650 undetected_chromedriver + 771664
+4   undetected_chromedriver             0x00000001040fa961 undetected_chromedriver + 772449
+5   undetected_chromedriver             0x000000010414aeb4 undetected_chromedriver + 1101492
+6   undetected_chromedriver             0x00000001041482a8 undetected_chromedriver + 1090216
+7   undetected_chromedriver             0x00000001040ecfc7 undetected_chromedriver + 716743
+8   undetected_chromedriver             0x00000001040edc91 undetected_chromedriver + 720017
+9   undetected_chromedriver             0x00000001045fcca1 undetected_chromedriver + 6024353
+10  undetected_chromedriver             0x00000001046010f0 undetected_chromedriver + 6041840
+11  undetected_chromedriver             0x00000001045d81a0 undetected_chromedriver + 5874080
+12  undetected_chromedriver             0x0000000104601b65 undetected_chromedriver + 6044517
+13  undetected_chromedriver             0x00000001045c6ee1 undetected_chromedriver + 5803745
+14  undetected_chromedriver             0x00000001046237c8 undetected_chromedriver + 6182856
+15  undetected_chromedriver             0x0000000104623983 undetected_chromedriver + 6183299
+16  undetected_chromedriver             0x000000010463634c undetected_chromedriver + 6259532
+17  libsystem_pthread.dylib             0x00007ff8138bc253 _pthread_start + 99
+18  libsystem_pthread.dylib             0x00007ff8138b7bef thread_start + 15
+
+2026-01-04 10:26:52,578 - ERROR - Bot execution failed: Message: 
+Stacktrace:
+0   undetected_chromedriver             0x000000010463f098 undetected_chromedriver + 6295704
+1   undetected_chromedriver             0x000000010463674a undetected_chromedriver + 6260554
+2   undetected_chromedriver             0x00000001040a8c4b undetected_chromedriver + 437323
+3   undetected_chromedriver             0x00000001040fa650 undetected_chromedriver + 771664
+4   undetected_chromedriver             0x00000001040fa961 undetected_chromedriver + 772449
+5   undetected_chromedriver             0x000000010414aeb4 undetected_chromedriver + 1101492
+6   undetected_chromedriver             0x00000001041482a8 undetected_chromedriver + 1090216
+7   undetected_chromedriver             0x00000001040ecfc7 undetected_chromedriver + 716743
+8   undetected_chromedriver             0x00000001040edc91 undetected_chromedriver + 720017
+9   undetected_chromedriver             0x00000001045fcca1 undetected_chromedriver + 6024353
+10  undetected_chromedriver             0x00000001046010f0 undetected_chromedriver + 6041840
+11  undetected_chromedriver             0x00000001045d81a0 undetected_chromedriver + 5874080
+12  undetected_chromedriver             0x0000000104601b65 undetected_chromedriver + 6044517
+13  undetected_chromedriver             0x00000001045c6ee1 undetected_chromedriver + 5803745
+14  undetected_chromedriver             0x00000001046237c8 undetected_chromedriver + 6182856
+15  undetected_chromedriver             0x0000000104623983 undetected_chromedriver + 6183299
+16  undetected_chromedriver             0x000000010463634c undetected_chromedriver + 6259532
+17  libsystem_pthread.dylib             0x00007ff8138bc253 _pthread_start + 99
+18  libsystem_pthread.dylib             0x00007ff8138b7bef thread_start + 15
+
+2026-01-04 10:26:52,579 - INFO - Closing driver...
+2026-01-04 10:26:53,517 - INFO - Config loaded successfully.
+2026-01-04 10:27:00,044 - INFO - patching driver executable /Users/bephi/Library/Application Support/undetected_chromedriver/undetected_chromedriver
+2026-01-04 10:27:01,604 - INFO - Driver initialized successfully.
+2026-01-04 10:27:01,604 - INFO - Starting login process...
+2026-01-04 10:27:05,378 - INFO - Found 8 cookies.
+2026-01-04 10:27:05,405 - INFO - Cookies loaded successfully.
+2026-01-04 10:27:05,405 - INFO - Refreshing page to apply cookies...
+2026-01-04 10:27:09,898 - INFO - Already logged in.
+2026-01-04 10:27:09,898 - INFO - Navigating to group: https://www.facebook.com/groups/chocudanvinhomeq9
+2026-01-04 10:27:25,332 - INFO - Attempting to create post...
+2026-01-04 10:27:51,140 - ERROR - Could not find post button.
+2026-01-04 10:27:51,140 - ERROR - Error creating post: Message: 
+Stacktrace:
+0   undetected_chromedriver             0x0000000104811098 undetected_chromedriver + 6295704
+1   undetected_chromedriver             0x000000010480874a undetected_chromedriver + 6260554
+2   undetected_chromedriver             0x000000010427ac4b undetected_chromedriver + 437323
+3   undetected_chromedriver             0x00000001042cc650 undetected_chromedriver + 771664
+4   undetected_chromedriver             0x00000001042cc961 undetected_chromedriver + 772449
+5   undetected_chromedriver             0x000000010431ceb4 undetected_chromedriver + 1101492
+6   undetected_chromedriver             0x000000010431a2a8 undetected_chromedriver + 1090216
+7   undetected_chromedriver             0x00000001042befc7 undetected_chromedriver + 716743
+8   undetected_chromedriver             0x00000001042bfc91 undetected_chromedriver + 720017
+9   undetected_chromedriver             0x00000001047ceca1 undetected_chromedriver + 6024353
+10  undetected_chromedriver             0x00000001047d30f0 undetected_chromedriver + 6041840
+11  undetected_chromedriver             0x00000001047aa1a0 undetected_chromedriver + 5874080
+12  undetected_chromedriver             0x00000001047d3b65 undetected_chromedriver + 6044517
+13  undetected_chromedriver             0x0000000104798ee1 undetected_chromedriver + 5803745
+14  undetected_chromedriver             0x00000001047f57c8 undetected_chromedriver + 6182856
+15  undetected_chromedriver             0x00000001047f5983 undetected_chromedriver + 6183299
+16  undetected_chromedriver             0x000000010480834c undetected_chromedriver + 6259532
+17  libsystem_pthread.dylib             0x00007ff8138bc253 _pthread_start + 99
+18  libsystem_pthread.dylib             0x00007ff8138b7bef thread_start + 15
+
+2026-01-04 10:27:51,532 - ERROR - Bot execution failed: Message: 
+Stacktrace:
+0   undetected_chromedriver             0x0000000104811098 undetected_chromedriver + 6295704
+1   undetected_chromedriver             0x000000010480874a undetected_chromedriver + 6260554
+2   undetected_chromedriver             0x000000010427ac4b undetected_chromedriver + 437323
+3   undetected_chromedriver             0x00000001042cc650 undetected_chromedriver + 771664
+4   undetected_chromedriver             0x00000001042cc961 undetected_chromedriver + 772449
+5   undetected_chromedriver             0x000000010431ceb4 undetected_chromedriver + 1101492
+6   undetected_chromedriver             0x000000010431a2a8 undetected_chromedriver + 1090216
+7   undetected_chromedriver             0x00000001042befc7 undetected_chromedriver + 716743
+8   undetected_chromedriver             0x00000001042bfc91 undetected_chromedriver + 720017
+9   undetected_chromedriver             0x00000001047ceca1 undetected_chromedriver + 6024353
+10  undetected_chromedriver             0x00000001047d30f0 undetected_chromedriver + 6041840
+11  undetected_chromedriver             0x00000001047aa1a0 undetected_chromedriver + 5874080
+12  undetected_chromedriver             0x00000001047d3b65 undetected_chromedriver + 6044517
+13  undetected_chromedriver             0x0000000104798ee1 undetected_chromedriver + 5803745
+14  undetected_chromedriver             0x00000001047f57c8 undetected_chromedriver + 6182856
+15  undetected_chromedriver             0x00000001047f5983 undetected_chromedriver + 6183299
+16  undetected_chromedriver             0x000000010480834c undetected_chromedriver + 6259532
+17  libsystem_pthread.dylib             0x00007ff8138bc253 _pthread_start + 99
+18  libsystem_pthread.dylib             0x00007ff8138b7bef thread_start + 15
+
+2026-01-04 10:27:51,532 - INFO - Closing driver...
+2026-01-04 10:49:41,383 - INFO - Config loaded successfully.
+2026-01-04 10:49:43,636 - INFO - patching driver executable /Users/bephi/Library/Application Support/undetected_chromedriver/undetected_chromedriver
+2026-01-04 10:49:45,206 - INFO - Driver initialized successfully.
+2026-01-04 10:49:45,206 - INFO - Starting login process...
+2026-01-04 10:49:49,120 - INFO - Found 8 cookies.
+2026-01-04 10:49:49,148 - INFO - Cookies loaded successfully.
+2026-01-04 10:49:49,148 - INFO - Refreshing page to apply cookies...
+2026-01-04 10:49:53,264 - INFO - Already logged in.
+2026-01-04 10:49:53,265 - INFO - Navigating to group: https://www.facebook.com/groups/chocudanvinhomeq9
+2026-01-04 10:50:06,121 - INFO - Attempting to create post...
+2026-01-04 10:50:18,569 - INFO - Clicked post button using selector: //span[contains(text(), 'Bạn viết gì đi...')]
+2026-01-04 10:50:28,550 - ERROR - Error creating post: type object 'By' has no attribute 'xpath'
+2026-01-04 10:50:28,827 - ERROR - Bot execution failed: type object 'By' has no attribute 'xpath'
+2026-01-04 10:50:28,827 - INFO - Closing driver...
+2026-01-04 10:59:08,467 - INFO - Config loaded successfully.
+2026-01-04 10:59:10,653 - INFO - patching driver executable /Users/bephi/Library/Application Support/undetected_chromedriver/undetected_chromedriver
+2026-01-04 10:59:12,220 - INFO - Driver initialized successfully.
+2026-01-04 10:59:12,220 - INFO - Starting login process...
+2026-01-04 10:59:15,347 - INFO - Found 8 cookies.
+2026-01-04 10:59:15,365 - INFO - Cookies loaded successfully.
+2026-01-04 10:59:15,365 - INFO - Refreshing page to apply cookies...
+2026-01-04 10:59:20,472 - INFO - Already logged in.
+2026-01-04 10:59:20,473 - INFO - Navigating to group: https://www.facebook.com/groups/chocudanvinhomeq9
+2026-01-04 10:59:32,903 - INFO - Attempting to create post...
+2026-01-04 10:59:45,403 - INFO - Clicked post button using selector: //span[contains(text(), 'Bạn viết gì đi...')]
+2026-01-04 10:59:55,971 - INFO - Post button clicked. Waiting for confirmation...
+2026-01-04 11:00:01,094 - INFO - Finished posting.
+2026-01-04 11:00:01,094 - INFO - Closing driver...
+2026-01-04 11:17:57,945 - INFO - Config loaded successfully.
+2026-01-04 11:18:00,941 - INFO - patching driver executable /Users/bephi/Library/Application Support/undetected_chromedriver/undetected_chromedriver
+2026-01-04 11:18:02,508 - INFO - Driver initialized successfully.
+2026-01-04 11:18:02,508 - INFO - Starting login process...
+2026-01-04 11:18:07,037 - INFO - Found 8 cookies.
+2026-01-04 11:18:07,064 - INFO - Cookies loaded successfully.
+2026-01-04 11:18:07,064 - INFO - Refreshing page to apply cookies...
+2026-01-04 11:18:11,638 - INFO - Already logged in.
+2026-01-04 11:18:11,638 - INFO - Navigating to group: https://www.facebook.com/groups/chocudanvinhomeq9
+2026-01-04 11:18:25,672 - INFO - Attempting to create post...
+2026-01-04 11:18:38,143 - INFO - Clicked post button using selector: //span[contains(text(), 'Bạn viết gì đi...')]
+2026-01-04 11:18:49,197 - ERROR - Error creating post: 'NoneType' object has no attribute 'is_displayed'
+2026-01-04 11:18:49,200 - ERROR - Bot execution failed: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=143.0.7499.170)
+Stacktrace:
+0   undetected_chromedriver             0x0000000100e54098 undetected_chromedriver + 6295704
+1   undetected_chromedriver             0x0000000100e4b74a undetected_chromedriver + 6260554
+2   undetected_chromedriver             0x00000001008bdc4b undetected_chromedriver + 437323
+3   undetected_chromedriver             0x00000001008925c0 undetected_chromedriver + 259520
+4   undetected_chromedriver             0x000000010093d8a8 undetected_chromedriver + 960680
+5   undetected_chromedriver             0x000000010095ccc8 undetected_chromedriver + 1088712
+6   undetected_chromedriver             0x0000000100901fc7 undetected_chromedriver + 716743
+7   undetected_chromedriver             0x0000000100902c91 undetected_chromedriver + 720017
+8   undetected_chromedriver             0x0000000100e11ca1 undetected_chromedriver + 6024353
+9   undetected_chromedriver             0x0000000100e160f0 undetected_chromedriver + 6041840
+10  undetected_chromedriver             0x0000000100ded1a0 undetected_chromedriver + 5874080
+11  undetected_chromedriver             0x0000000100e16b65 undetected_chromedriver + 6044517
+12  undetected_chromedriver             0x0000000100ddbee1 undetected_chromedriver + 5803745
+13  undetected_chromedriver             0x0000000100e387c8 undetected_chromedriver + 6182856
+14  undetected_chromedriver             0x0000000100e38983 undetected_chromedriver + 6183299
+15  undetected_chromedriver             0x0000000100e4b34c undetected_chromedriver + 6259532
+16  libsystem_pthread.dylib             0x00007ff8138bc253 _pthread_start + 99
+17  libsystem_pthread.dylib             0x00007ff8138b7bef thread_start + 15
+
+2026-01-04 11:18:49,200 - INFO - Closing driver...
+2026-01-04 11:19:46,103 - ERROR - Failed to load config: Invalid control character at: line 5 column 53 (char 186)
+2026-01-04 11:20:06,849 - ERROR - Failed to load config: Invalid control character at: line 5 column 53 (char 186)
+2026-01-04 11:20:07,817 - ERROR - Failed to load config: Invalid control character at: line 5 column 53 (char 186)
+2026-01-04 11:20:08,519 - ERROR - Failed to load config: Invalid control character at: line 5 column 53 (char 186)
+2026-01-04 11:21:28,966 - INFO - Config loaded successfully.
+2026-01-04 11:21:31,523 - INFO - patching driver executable /Users/bephi/Library/Application Support/undetected_chromedriver/undetected_chromedriver
+2026-01-04 11:21:33,089 - INFO - Driver initialized successfully.
+2026-01-04 11:21:33,089 - INFO - Starting login process...
+2026-01-04 11:21:36,401 - INFO - Found 8 cookies.
+2026-01-04 11:21:36,428 - INFO - Cookies loaded successfully.
+2026-01-04 11:21:36,428 - INFO - Refreshing page to apply cookies...
+2026-01-04 11:21:40,486 - INFO - Already logged in.
+2026-01-04 11:21:40,486 - INFO - Navigating to group: https://www.facebook.com/groups/chocudanvinhomeq9
+2026-01-04 11:21:53,858 - INFO - Attempting to create post...
+2026-01-04 11:22:06,311 - INFO - Clicked post button using selector: //span[contains(text(), 'Bạn viết gì đi...')]
+2026-01-04 11:23:37,660 - INFO - Post button clicked. Waiting for confirmation...
+2026-01-04 11:23:44,655 - INFO - Finished posting.
+2026-01-04 11:23:44,656 - INFO - Closing driver...
