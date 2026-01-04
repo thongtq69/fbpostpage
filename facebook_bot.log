@@ -331,3 +331,50 @@ Stacktrace:
 2026-01-04 11:23:37,660 - INFO - Post button clicked. Waiting for confirmation...
 2026-01-04 11:23:44,655 - INFO - Finished posting.
 2026-01-04 11:23:44,656 - INFO - Closing driver...
+2026-01-04 15:12:24,710 - INFO - Config loaded successfully.
+2026-01-04 15:12:26,114 - INFO - patching driver executable /Users/bephi/Library/Application Support/undetected_chromedriver/undetected_chromedriver
+2026-01-04 15:12:27,682 - INFO - Driver initialized successfully.
+2026-01-04 15:12:27,682 - INFO - Starting login process...
+2026-01-04 15:12:31,324 - INFO - Found 8 cookies.
+2026-01-04 15:12:31,348 - INFO - Cookies loaded successfully.
+2026-01-04 15:12:31,348 - INFO - Refreshing page to apply cookies...
+2026-01-04 15:12:35,859 - INFO - Already logged in.
+2026-01-04 15:12:35,860 - INFO - Navigating to page to switch profile: https://www.facebook.com/profile.php?id=61585603883149
+2026-01-04 15:12:41,709 - INFO - Clicked 'Switch now' button.
+2026-01-04 15:12:49,510 - INFO - Navigating to group: https://www.facebook.com/groups/chocudanvinhomeq9
+2026-01-04 15:13:04,162 - INFO - Attempting to create post...
+2026-01-04 15:13:16,612 - INFO - Clicked post button using selector: //span[contains(text(), 'Bạn viết gì đi...')]
+2026-01-04 15:14:44,767 - INFO - Post button clicked. Waiting for confirmation...
+2026-01-04 15:14:51,310 - INFO - Finished posting.
+2026-01-04 15:14:51,311 - INFO - Closing driver...
+2026-01-04 15:15:43,715 - INFO - Config loaded successfully.
+2026-01-04 15:15:45,010 - INFO - patching driver executable /Users/bephi/Library/Application Support/undetected_chromedriver/undetected_chromedriver
+2026-01-04 15:15:46,570 - INFO - Driver initialized successfully.
+2026-01-04 15:15:46,570 - INFO - Starting login process...
+2026-01-04 15:15:50,617 - INFO - Found 8 cookies.
+2026-01-04 15:15:50,643 - INFO - Cookies loaded successfully.
+2026-01-04 15:15:50,643 - INFO - Refreshing page to apply cookies...
+2026-01-04 15:15:54,889 - INFO - Already logged in.
+2026-01-04 15:15:54,890 - INFO - Navigating to page to switch profile: https://www.facebook.com/profile.php?id=61585603883149
+2026-01-04 15:16:01,760 - INFO - Clicked 'Switch now' button.
+2026-01-04 15:16:07,427 - INFO - Navigating to group: https://www.facebook.com/groups/chocudanvinhomeq9
+2026-01-04 15:16:20,104 - INFO - Attempting to create post...
+2026-01-04 15:16:32,551 - INFO - Clicked post button using selector: //span[contains(text(), 'Bạn viết gì đi...')]
+2026-01-04 15:23:50,693 - INFO - Loaded 9 images from config and 'pic' folder.
+2026-01-04 15:23:50,693 - INFO - Config loaded successfully.
+2026-01-04 15:23:52,236 - INFO - patching driver executable /Users/bephi/Library/Application Support/undetected_chromedriver/undetected_chromedriver
+2026-01-04 15:23:53,798 - INFO - Driver initialized successfully.
+2026-01-04 15:23:53,798 - INFO - Starting login process...
+2026-01-04 15:23:58,433 - INFO - Found 8 cookies.
+2026-01-04 15:23:58,453 - INFO - Cookies loaded successfully.
+2026-01-04 15:23:58,453 - INFO - Refreshing page to apply cookies...
+2026-01-04 15:24:03,076 - INFO - Already logged in.
+2026-01-04 15:24:03,077 - INFO - Navigating to page to switch profile: https://www.facebook.com/profile.php?id=61585603883149
+2026-01-04 15:24:08,020 - INFO - Clicked 'Switch now' button.
+2026-01-04 15:24:15,857 - INFO - Navigating to group: https://www.facebook.com/groups/chocudanvinhomeq9
+2026-01-04 15:24:28,528 - INFO - Attempting to create post...
+2026-01-04 15:24:40,970 - INFO - Clicked post button using selector: //span[contains(text(), 'Bạn viết gì đi...')]
+2026-01-04 15:26:09,850 - INFO - Images uploaded.
+2026-01-04 15:26:17,651 - INFO - Post button clicked. Waiting for confirmation...
+2026-01-04 15:26:24,474 - INFO - Finished posting.
+2026-01-04 15:26:24,475 - INFO - Closing driver...

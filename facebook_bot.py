@@ -92,6 +92,21 @@ class FacebookBot:
         try:
             with open(config_path, 'r', encoding='utf-8') as f:
                 self.config = json.load(f)
+            
+            # Auto-load images from 'pic' folder
+            pic_folder = os.path.join(os.getcwd(), 'pic')
+            if os.path.isdir(pic_folder):
+                valid_extensions = ('.png', '.jpg', '.jpeg', '.gif', '.bmp')
+                for filename in os.listdir(pic_folder):
+                    if filename.lower().endswith(valid_extensions):
+                        full_path = os.path.join(pic_folder, filename)
+                        if 'image_paths' not in self.config:
+                            self.config['image_paths'] = []
+                        # Avoid duplicates if multiple runs or if manually added
+                        if full_path not in self.config['image_paths']:
+                            self.config['image_paths'].append(full_path)
+                logging.info(f"Loaded {len(self.config.get('image_paths', []))} images from config and 'pic' folder.")
+
             logging.info("Config loaded successfully.")
         except Exception as e:
             logging.error(f"Failed to load config: {e}")
@@ -307,9 +322,49 @@ class FacebookBot:
         except Exception as e:
             logging.error(f"Failed to upload images: {e}")
 
+    def switch_to_page(self):
+        page_url = self.config.get('page_url')
+        if not page_url:
+            logging.info("No page_url provided, skipping switch.")
+            return
+
+        logging.info(f"Navigating to page to switch profile: {page_url}")
+        self.driver.get(page_url)
+        self.random_sleep(3, 5)
+
+        # Look for "Switch now" or "Chuyển ngay" button
+        # Button often has aria-label or text
+        switch_selectors = [
+            "//div[@aria-label='Chuyển ngay']",
+            "//span[contains(text(), 'Chuyển ngay')]",
+            "//div[@aria-label='Switch now']",
+            "//span[contains(text(), 'Switch now')]",
+             # Fallback to menu interactions if needed (omitted for simplicity unless requested)
+        ]
+
+        switched = False
+        for selector in switch_selectors:
+            try:
+                btn = WebDriverWait(self.driver, 5).until(
+                    EC.element_to_be_clickable((By.XPATH, selector))
+                )
+                btn.click()
+                switched = True
+                logging.info("Clicked 'Switch now' button.")
+                self.random_sleep(5, 8) # Wait for reload
+                break
+            except:
+                continue
+        
+        if not switched:
+            logging.warning("Could not find 'Switch now' button. Assuming already on correct profile or button hidden.")
+
     def run(self):
         try:
             self.login()
+            if self.config.get('page_url'):
+                self.switch_to_page()
+                
             if self.config.get('group_url'):
                 self.navigate_to_group()
                 self.create_post()
