@@ -76,15 +76,20 @@ import undetected_chromedriver as uc
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
 
+# Get the directory of the current script
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
 # Logging setup
 logging.basicConfig(
-    filename='facebook_bot.log',
+    filename=os.path.join(BASE_DIR, 'facebook_bot.log'),
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
 
 class FacebookBot:
-    def __init__(self, config_path='config.json'):
+    def __init__(self, config_path=None):
+        if config_path is None:
+            config_path = os.path.join(BASE_DIR, 'config.json')
         self.load_config(config_path)
         self.setup_driver()
 
@@ -94,7 +99,7 @@ class FacebookBot:
                 self.config = json.load(f)
             
             # Auto-load images from 'pic' folder
-            pic_folder = os.path.join(os.getcwd(), 'pic')
+            pic_folder = os.path.join(BASE_DIR, 'pic')
             if os.path.isdir(pic_folder):
                 valid_extensions = ('.png', '.jpg', '.jpeg', '.gif', '.bmp')
                 for filename in os.listdir(pic_folder):
@@ -112,13 +117,29 @@ class FacebookBot:
             logging.error(f"Failed to load config: {e}")
             raise
 
+    def get_chrome_version(self):
+        try:
+            import subprocess
+            cmd = ['/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', '--version']
+            output = subprocess.check_output(cmd).decode('utf-8')
+            # Extract major version, e.g., "Google Chrome 145.0.7632.117" -> 145
+            version = int(output.split()[-1].split('.')[0])
+            return version
+        except Exception as e:
+            logging.warning(f"Could not detect Chrome version: {e}")
+            return None
+
     def setup_driver(self):
         options = uc.ChromeOptions()
         options.add_argument("--disable-notifications")
-        # Add random user agent if needed, but UC handles it well usually
+        
+        chrome_version = self.get_chrome_version()
+        if chrome_version:
+            logging.info(f"Detected Chrome version: {chrome_version}")
         
         try:
-            self.driver = uc.Chrome(options=options, use_subprocess=True)
+            # Pass version_main to ensure the driver matches the browser
+            self.driver = uc.Chrome(options=options, use_subprocess=True, version_main=chrome_version)
             self.driver.maximize_window()
             logging.info("Driver initialized successfully.")
         except Exception as e:
@@ -133,11 +154,14 @@ class FacebookBot:
         time.sleep(random.uniform(min_time, max_time))
 
     def human_typing(self, element, text):
+        text = str(text)
         for char in text:
             element.send_keys(char)
             time.sleep(random.uniform(0.05, 0.2))
 
-    def load_cookies_from_file(self, cookie_path='cookies.json'):
+    def load_cookies_from_file(self, cookie_path=None):
+        if cookie_path is None:
+            cookie_path = os.path.join(BASE_DIR, 'cookies.json')
         if not os.path.exists(cookie_path):
             logging.info("No cookies file found at " + cookie_path)
             return False
@@ -165,52 +189,162 @@ class FacebookBot:
             logging.error(f"Error loading cookies: {e}")
             return False
 
+    def save_cookies_to_file(self, cookie_path=None):
+        if cookie_path is None:
+            cookie_path = os.path.join(BASE_DIR, 'cookies.json')
+        try:
+            cookies = self.driver.get_cookies()
+            with open(cookie_path, 'w') as f:
+                json.dump(cookies, f)
+            logging.info(f"Saved {len(cookies)} cookies to {cookie_path}")
+        except Exception as e:
+            logging.error(f"Error saving cookies: {e}")
+
     def login(self):
         logging.info("Starting login process...")
         self.driver.get("https://www.facebook.com")
         self.random_sleep(2, 4)
 
-        # Try to load cookies
+        # Handle Cookie Banners if they appear
+        cookie_banners = [
+            "//button[@data-cookiebanner='accept_button']",
+            "//button[contains(text(), 'Allow all cookies')]",
+            "//button[contains(text(), 'Cho phép tất cả cookie')]",
+            "//div[@aria-label='Cho phép tất cả cookie']",
+            "//div[@aria-label='Allow all cookies']"
+        ]
+        for selector in cookie_banners:
+            try:
+                btn = self.driver.find_element(By.XPATH, selector)
+                btn.click()
+                logging.info(f"Accepted cookies using: {selector}")
+                self.random_sleep(1, 2)
+                break
+            except:
+                continue
+
+        # Try to load cookies from file
         if self.load_cookies_from_file():
             logging.info("Refreshing page to apply cookies...")
             self.driver.refresh()
             self.random_sleep(3, 5)
 
         try:
-            # Check if already logged in (look for search bar or generic logged-in element)
-            try:
-                self.driver.find_element(By.CSS_SELECTOR, "input[type='search']")
-                logging.info("Already logged in.")
-                return
-            except:
-                pass
+            # Improved check for "Already Logged In"
+            logged_in_indicators = [
+                "input[type='search']",
+                "[aria-label='Facebook']",
+                "[role='navigation']",
+                "a[href='/home.php']",
+                "[aria-label*='Trang chủ']",
+                "[aria-label*='Home']"
+            ]
+            
+            for indicator in logged_in_indicators:
+                try:
+                    if self.driver.find_elements(By.CSS_SELECTOR, indicator):
+                        logging.info(f"Already logged in (detected via {indicator}).")
+                        return
+                except:
+                    continue
 
-            email_input = WebDriverWait(self.driver, 10).until(
-                EC.presence_of_element_located((By.ID, "email"))
-            )
+            # If not logged in, look for email/pass fields
+            email_selectors = [
+                 (By.ID, "email"),
+                 (By.NAME, "email"),
+                 (By.CSS_SELECTOR, "input[name='email']"),
+                 (By.CSS_SELECTOR, "input[placeholder*='Email']")
+            ]
+            
+            email_input = None
+            for by, selector in email_selectors:
+                try:
+                    email_input = WebDriverWait(self.driver, 5).until(
+                        EC.presence_of_element_located((by, selector))
+                    )
+                    if email_input:
+                        break
+                except:
+                    continue
+            
+            if not email_input:
+                logging.error("Could not find email input field.")
+                self.driver.save_screenshot(os.path.join(BASE_DIR, "login_error_email.png"))
+                raise Exception("Email field not found")
+
             self.human_typing(email_input, self.config['email'])
-            self.random_sleep()
+            self.random_sleep(1, 2)
 
-            pass_input = self.driver.find_element(By.ID, "pass")
+            # Pass field
+            pass_selectors = [
+                (By.ID, "pass"),
+                (By.NAME, "pass"),
+                (By.CSS_SELECTOR, "input[type='password']"),
+                (By.CSS_SELECTOR, "input[name='pass']")
+            ]
+            
+            pass_input = None
+            for by, selector in pass_selectors:
+                try:
+                    pass_input = self.driver.find_element(by, selector)
+                    if pass_input:
+                        break
+                except:
+                    continue
+            
+            if not pass_input:
+                logging.error("Could not find password field.")
+                raise Exception("Password field not found")
+
             self.human_typing(pass_input, self.config['password'])
-            self.random_sleep()
+            self.random_sleep(1, 2)
 
-            login_btn = self.driver.find_element(By.NAME, "login")
-            login_btn.click()
+            # Login Button
+            login_selectors = [
+                (By.NAME, "login"),
+                (By.CSS_SELECTOR, "button[type='submit']"),
+                (By.CSS_SELECTOR, "[role='button'][name='login']"),
+                (By.XPATH, "//button[contains(text(), 'Log In')]"),
+                (By.XPATH, "//button[contains(text(), 'Đăng nhập')]")
+            ]
+            
+            login_clicked = False
+            for by, selector in login_selectors:
+                try:
+                    btn = self.driver.find_element(by, selector)
+                    if btn.is_displayed():
+                        btn.click()
+                        login_clicked = True
+                        logging.info(f"Clicked login button using {selector}")
+                        break
+                except:
+                    continue
+            
+            if not login_clicked:
+                logging.warning("Login button not found or not clickable, trying to press ENTER...")
+                pass_input.send_keys(Keys.ENTER)
             
             # Wait for navigation or potential 2FA
             self.random_sleep(5, 7)
             
-            # Check for 2FA
-            if "checkpoint" in self.driver.current_url or "two_step_verification" in self.driver.page_source:
-                logging.warning("2FA detected. Please enter code manually in browser.")
-                input("2FA detected. Press Enter here after you have verified and are on the homepage...")
+            # Check for 2FA or Checkpoints
+            current_url = self.driver.current_url
+            if "checkpoint" in current_url or "two_step_verification" in self.driver.page_source:
+                logging.warning("2FA/Checkpoint detected. Waiting for user to verify manually...")
+                print("\n" + "!" * 60)
+                print("PHÁT HIỆN XÁC THỰC 2 LỚP (2FA) HOẶC KIỂM TRA BẢO MẬT.")
+                print("Vui lòng thực hiện xác minh trên trình duyệt Chrome đang mở.")
+                print("Sau khi xác minh xong và vào được trang chủ Facebook, hãy quay lại đây.")
+                input(">>> Nhấn phím ENTER tại đây để tiếp tục các bước post bài...")
+                print("!" * 60 + "\n")
             
-            logging.info("Login successful.")
+            # Save cookies after successful login/verification
+            self.save_cookies_to_file()
+            logging.info("Login process completed.")
 
         except Exception as e:
             logging.error(f"Error during login: {e}")
-            self.driver.save_screenshot("login_error.png")
+            self.driver.save_screenshot(os.path.join(BASE_DIR, "login_error.png"))
             raise
 
     def navigate_to_group(self):
