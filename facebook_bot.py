@@ -200,7 +200,7 @@ class FacebookBot:
         except Exception as e:
             logging.error(f"Error saving cookies: {e}")
 
-    def login(self):
+    def login(self, is_gui=False):
         logging.info("Starting login process...")
         self.driver.get("https://www.facebook.com")
         self.random_sleep(2, 4)
@@ -330,13 +330,18 @@ class FacebookBot:
             # Check for 2FA or Checkpoints
             current_url = self.driver.current_url
             if "checkpoint" in current_url or "two_step_verification" in self.driver.page_source:
-                logging.warning("2FA/Checkpoint detected. Waiting for user to verify manually...")
-                print("\n" + "!" * 60)
-                print("PHÁT HIỆN XÁC THỰC 2 LỚP (2FA) HOẶC KIỂM TRA BẢO MẬT.")
-                print("Vui lòng thực hiện xác minh trên trình duyệt Chrome đang mở.")
-                print("Sau khi xác minh xong và vào được trang chủ Facebook, hãy quay lại đây.")
-                input(">>> Nhấn phím ENTER tại đây để tiếp tục các bước post bài...")
-                print("!" * 60 + "\n")
+                logging.warning("2FA/Checkpoint detected.")
+                if is_gui:
+                    logging.info("GUI Mode: Waiting 60s for manual verification...")
+                    # In GUI mode, we just wait a long time for the user to do it
+                    time.sleep(60)
+                else:
+                    print("\n" + "!" * 60)
+                    print("PHÁT HIỆN XÁC THỰC 2 LỚP (2FA) HOẶC KIỂM TRA BẢO MẬT.")
+                    print("Vui lòng thực hiện xác minh trên trình duyệt Chrome đang mở.")
+                    print("Sau khi xác minh xong và vào được trang chủ Facebook, hãy quay lại đây.")
+                    input(">>> Nhấn phím ENTER tại đây để tiếp tục các bước post bài...")
+                    print("!" * 60 + "\n")
             
             # Save cookies after successful login/verification
             self.save_cookies_to_file()
@@ -347,19 +352,32 @@ class FacebookBot:
             self.driver.save_screenshot(os.path.join(BASE_DIR, "login_error.png"))
             raise
 
-    def navigate_to_group(self):
-        logging.info(f"Navigating to group: {self.config['group_url']}")
-        self.driver.get(self.config['group_url'])
-        self.random_sleep(3, 5)
+
+    def navigate_to_group(self, group_url=None):
+        if not group_url:
+            group_url = self.config.get('group_url')
         
-        # Scroll down a bit to load content
-        for _ in range(3):
-            self.driver.execute_script("window.scrollBy(0, 500);")
+        if not group_url:
+            logging.error("No group URL provided.")
+            return False
+
+        logging.info(f"Navigating to group: {group_url}")
+        try:
+            self.driver.get(group_url)
+            self.random_sleep(3, 5)
+            
+            # Scroll down a bit to load content
+            for _ in range(3):
+                self.driver.execute_script("window.scrollBy(0, 500);")
+                self.random_sleep(1, 2)
+            
+            # Scroll back up
+            self.driver.execute_script("window.scrollTo(0, 0);")
             self.random_sleep(1, 2)
-        
-        # Scroll back up
-        self.driver.execute_script("window.scrollTo(0, 0);")
-        self.random_sleep()
+            return True
+        except Exception as e:
+            logging.error(f"Navigation failed to {group_url}: {e}")
+            return False
 
     def create_post(self):
         logging.info("Attempting to create post...")
@@ -493,22 +511,51 @@ class FacebookBot:
         if not switched:
             logging.warning("Could not find 'Switch now' button. Assuming already on correct profile or button hidden.")
 
-    def run(self):
+    def run(self, is_gui=False):
         try:
-            self.login()
+            self.login(is_gui=is_gui)
             if self.config.get('page_url'):
                 self.switch_to_page()
                 
-            if self.config.get('group_url'):
-                self.navigate_to_group()
-                self.create_post()
-            else:
-                 logging.warning("No group URL provided in config.")
+            # Support both single string and list for groups
+            groups = self.config.get('group_urls', [])
+            if not groups and self.config.get('group_url'):
+                groups = [self.config['group_url']]
+
+            if not groups:
+                logging.warning("No group URLs provided in config.")
+                return
+
+            logging.info(f"Starting post cycle for {len(groups)} groups.")
+            
+            for i, url in enumerate(groups):
+                try:
+                    if self.navigate_to_group(url):
+                        self.create_post()
+                        
+                        # Only wait if not the last group in this cycle
+                        if i < len(groups) - 1:
+                            delay_min = self.config.get('between_groups_min', 60)
+                            delay_max = self.config.get('between_groups_max', 180)
+                            logging.info(f"Waiting {delay_min}-{delay_max}s before next group...")
+                            self.random_sleep(delay_min, delay_max)
+                    else:
+                        logging.warning(f"Skipping post for {url} due to navigation failure.")
+                except Exception as group_err:
+                    logging.error(f"Failed to post to {url}: {group_err}")
+                    self.driver.save_screenshot(os.path.join(BASE_DIR, f"post_error_{i}.png"))
+                    
+            logging.info("Completed post cycle for all groups.")
+            
         except Exception as e:
             logging.error(f"Bot execution failed: {e}")
+            raise
         finally:
             logging.info("Closing driver...")
-            self.driver.quit()
+            try:
+                self.driver.quit()
+            except:
+                pass
 
 if __name__ == "__main__":
     bot = FacebookBot()
