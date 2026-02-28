@@ -155,9 +155,13 @@ class FacebookBot:
 
     def human_typing(self, element, text):
         text = str(text)
-        for char in text:
-            element.send_keys(char)
-            time.sleep(random.uniform(0.05, 0.2))
+        # Tăng tốc độ bằng cách nhập theo cụm (chunk) ngẫu nhiên thay vì từng ký tự một
+        i = 0
+        while i < len(text):
+            chunk_size = random.randint(4, 10)
+            element.send_keys(text[i:i+chunk_size])
+            time.sleep(random.uniform(0.01, 0.03))
+            i += chunk_size
 
     def load_cookies_from_file(self, cookie_path=None):
         if cookie_path is None:
