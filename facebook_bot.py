@@ -488,6 +488,8 @@ class FacebookBot:
                  "//span[contains(text(), 'Bạn viết gì đi...')]",
                  "//span[contains(text(), 'Bạn đang bán gì?')]",
                  "//span[contains(text(), 'What are you selling?')]",
+                 "//span[contains(text(), 'Viết nội dung gì đó')]",
+                 "//span[contains(text(), 'Viết gì đó')]",
                  "//div[@aria-label='Tạo bài viết']",
                  "//div[@aria-label='Create post']",
                  "//div[@aria-label='Write something...']",
@@ -522,16 +524,29 @@ class FacebookBot:
                      logging.error("Could not find post button via selectors or fallback.")
                      raise e
 
-            self.random_sleep(2, 4)
+            self.random_sleep(3, 5)
 
-            # Check if we triggered a "Buy/Sell" wizard or standard post
-            # Sometimes simpler is better: interacting with the active element or looking for the text input
-            
-            # Input Text
-            # Content editable dive
+            # Wait explicitly for the popup's textbox to be ready and interactable
+            # Some groups open a 'Buy/Sell' popup, others 'Discussion'. 
+            # Searching for the contenteditable textbox is usually safer than just assuming the active element.
+            try:
+                textbox = WebDriverWait(self.driver, 10).until(
+                    EC.presence_of_element_located((By.XPATH, "//div[@role='textbox' and @contenteditable='true']"))
+                )
+                try:
+                    textbox.click()
+                except:
+                    self.driver.execute_script("arguments[0].focus();", textbox)
+                self.random_sleep(1, 2)
+            except Exception as wait_err:
+                logging.warning(f"Did not find explicit textbox to click, relying on active element: {wait_err}")
+
             active_element = self.driver.switch_to.active_element
             if self.config.get('post_content'):
-                 self.human_typing(active_element, self.config['post_content'])
+                try:
+                    self.human_typing(active_element, self.config['post_content'])
+                except Exception as type_err:
+                    logging.error(f"Failed to type content into active element: {type_err}")
             
             self.random_sleep()
 
@@ -542,10 +557,19 @@ class FacebookBot:
             self.random_sleep(2, 4)
             
             # Click Post
-            post_btn = WebDriverWait(self.driver, 10).until(
-                EC.element_to_be_clickable((By.XPATH, "//div[@aria-label='Đăng' or @aria-label='Post']"))
-            )
-            post_btn.click()
+            for _ in range(3):
+                try:
+                    post_btn = WebDriverWait(self.driver, 10).until(
+                        EC.element_to_be_clickable((By.XPATH, "//div[@aria-label='Đăng' or @aria-label='Post']"))
+                    )
+                    post_btn.click()
+                    break
+                except Exception as stale_err:
+                    logging.warning(f"Failed to click post, retrying: {stale_err}")
+                    self.random_sleep(1, 2)
+            else:
+                logging.error("Failed to click post button after retries.")
+                raise Exception("Could not interact with post button.")
             
             logging.info("Post button clicked. Waiting for confirmation...")
             self.random_sleep(5, 7)
@@ -561,12 +585,14 @@ class FacebookBot:
         # This is tricky because the input[type=file] is often hidden
         # Common pattern: find the input type=file
         try:
-            file_input = self.driver.find_element(By.XPATH, "//input[@type='file' and @multiple]")
-            
+            # Sometime input file tags are regenerated, we use an explicit wait
+            file_input = WebDriverWait(self.driver, 10).until(
+                EC.presence_of_element_located((By.XPATH, "//input[@type='file' and @multiple]"))
+            )
             paths = "\n".join([os.path.abspath(p) for p in self.config['image_paths']])
             file_input.send_keys(paths)
             logging.info("Images uploaded.")
-            self.random_sleep(3, 5) # Wait for upload
+            self.random_sleep(4, 6) # Wait for upload preview
         except Exception as e:
             logging.error(f"Failed to upload images: {e}")
 
