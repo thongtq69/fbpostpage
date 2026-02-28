@@ -117,3 +117,50 @@ Stacktrace:
 2026-02-28 17:41:29,870 - INFO - Post button clicked. Waiting for confirmation...
 2026-02-28 17:41:36,695 - INFO - Finished posting.
 2026-02-28 17:41:36,697 - INFO - Waiting 60-120s before next group...
+2026-02-28 17:43:12,250 - INFO - Checking pending posts at: https://www.facebook.com/groups/813436286236743/my_pending_content
+2026-02-28 17:43:18,616 - INFO - Explicit 'no pending posts' message found. Proceeding to post.
+2026-02-28 17:43:18,616 - INFO - Navigating to group: https://www.facebook.com/groups/813436286236743
+2026-02-28 17:43:37,762 - INFO - Attempting to create post...
+2026-02-28 17:43:50,144 - INFO - Clicked post button using selector: //span[contains(text(), 'Bạn viết gì đi...')]
+2026-02-28 17:44:00,416 - INFO - Images uploaded.
+2026-02-28 17:44:07,462 - INFO - Post button clicked. Waiting for confirmation...
+2026-02-28 17:44:12,608 - INFO - Finished posting.
+2026-02-28 17:44:12,608 - INFO - Waiting 60-120s before next group...
+2026-02-28 17:45:44,899 - INFO - Checking pending posts at: https://www.facebook.com/groups/thietkewebchatluong/my_pending_content
+2026-02-28 17:45:54,562 - INFO - Explicit 'no pending posts' message found. Proceeding to post.
+2026-02-28 17:45:54,562 - INFO - Navigating to group: https://www.facebook.com/groups/thietkewebchatluong/
+2026-02-28 17:46:07,338 - INFO - Attempting to create post...
+2026-02-28 17:46:19,772 - INFO - Clicked post button using selector: //span[contains(text(), 'Bạn viết gì đi...')]
+2026-02-28 17:46:30,120 - INFO - Images uploaded.
+2026-02-28 17:46:36,424 - INFO - Post button clicked. Waiting for confirmation...
+2026-02-28 17:46:43,138 - INFO - Finished posting.
+2026-02-28 17:46:43,139 - INFO - Waiting 60-120s before next group...
+2026-02-28 17:47:54,465 - INFO - Checking pending posts at: https://www.facebook.com/groups/3868126263305226/my_pending_content
+2026-02-28 17:48:00,076 - INFO - Explicit 'no pending posts' message found. Proceeding to post.
+2026-02-28 17:48:00,076 - INFO - Navigating to group: https://www.facebook.com/groups/3868126263305226
+2026-02-28 17:48:18,838 - ERROR - Navigation failed to https://www.facebook.com/groups/3868126263305226: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=145.0.7632.117)
+Stacktrace:
+0   undetected_chromedriver             0x0000000102d9d5c8 undetected_chromedriver + 6698440
+1   undetected_chromedriver             0x0000000102d94e4a undetected_chromedriver + 6663754
+2   undetected_chromedriver             0x00000001027a8ba5 undetected_chromedriver + 453541
+3   undetected_chromedriver             0x000000010277bf98 undetected_chromedriver + 270232
+4   undetected_chromedriver             0x000000010282c148 undetected_chromedriver + 991560
+5   undetected_chromedriver             0x0000000102845f78 undetected_chromedriver + 1097592
+6   undetected_chromedriver             0x00000001027ef387 undetected_chromedriver + 742279
+7   undetected_chromedriver             0x00000001027f0161 undetected_chromedriver + 745825
+8   undetected_chromedriver             0x0000000102d57171 undetected_chromedriver + 6410609
+9   undetected_chromedriver             0x0000000102d5b582 undetected_chromedriver + 6428034
+10  undetected_chromedriver             0x0000000102d38169 undetected_chromedriver + 6283625
+11  undetected_chromedriver             0x0000000102d5bfd8 undetected_chromedriver + 6430680
+12  undetected_chromedriver             0x0000000102d26c20 undetected_chromedriver + 6212640
+13  undetected_chromedriver             0x0000000102d81c98 undetected_chromedriver + 6585496
+14  undetected_chromedriver             0x0000000102d81e52 undetected_chromedriver + 6585938
+15  undetected_chromedriver             0x0000000102d94a56 undetected_chromedriver + 6662742
+16  libsystem_pthread.dylib             0x00007ff81b614e4d _pthread_start + 115
+17  libsystem_pthread.dylib             0x00007ff81b610857 thread_start + 15
+
+2026-02-28 17:48:18,838 - WARNING - Skipping post for https://www.facebook.com/groups/3868126263305226 due to navigation failure.
+2026-02-28 17:48:18,839 - INFO - Completed post cycle for all groups.
+2026-02-28 17:48:18,839 - INFO - Closing driver...

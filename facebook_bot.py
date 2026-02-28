@@ -677,5 +677,28 @@ class FacebookBot:
                 pass
 
 if __name__ == "__main__":
-    bot = FacebookBot()
-    bot.run()
+    import time
+    import random
+    
+    print("Bot is starting in continuous mode. Press Ctrl+C to stop.")
+    while True:
+        try:
+            bot = FacebookBot()
+            bot.run()
+            
+            # If the bot finishes a full posting cycle, it checks config for rest time before looping back
+            # or defaults to 5-10 minutes if not set.
+            rest_min = bot.config.get('loop_rest_min', 300)
+            rest_max = bot.config.get('loop_rest_max', 600)
+            
+            rest_time = random.randint(rest_min, rest_max)
+            logging.info(f"== Cycle completed. Resting {rest_time} seconds before the next loop... ==")
+            time.sleep(rest_time)
+            
+        except KeyboardInterrupt:
+            logging.info("Bot stopped by user (Ctrl+C). Exiting.")
+            break
+        except Exception as main_e:
+            logging.error(f"FATAL ERROR! Bot crashed: {main_e}")
+            logging.info("Restarting bot in 30 seconds to recover from crash...")
+            time.sleep(30)
