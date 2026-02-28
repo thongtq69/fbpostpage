@@ -73,6 +73,20 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException, NoSuchElementException
 import undetected_chromedriver as uc
+
+# Suppress OSError during Chrome.__del__ on Windows
+try:
+    original_del = uc.Chrome.__del__
+    def safe_del(self):
+        try:
+            original_del(self)
+        except OSError:
+            pass
+        except Exception:
+            pass
+    uc.Chrome.__del__ = safe_del
+except Exception:
+    pass
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
 
@@ -120,11 +134,18 @@ class FacebookBot:
     def get_chrome_version(self):
         try:
             import subprocess
-            cmd = ['/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', '--version']
-            output = subprocess.check_output(cmd).decode('utf-8')
-            # Extract major version, e.g., "Google Chrome 145.0.7632.117" -> 145
-            version = int(output.split()[-1].split('.')[0])
-            return version
+            import platform
+            if platform.system() == "Windows":
+                cmd = ['reg', 'query', 'HKEY_CURRENT_USER\\Software\\Google\\Chrome\\BLBeacon', '/v', 'version']
+                output = subprocess.check_output(cmd, stderr=subprocess.DEVNULL).decode('utf-8')
+                version = int(output.strip().split()[-1].split('.')[0])
+                return version
+            else:
+                cmd = ['/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', '--version']
+                output = subprocess.check_output(cmd).decode('utf-8')
+                # Extract major version, e.g., "Google Chrome 145.0.7632.117" -> 145
+                version = int(output.split()[-1].split('.')[0])
+                return version
         except Exception as e:
             logging.warning(f"Could not detect Chrome version: {e}")
             return None
