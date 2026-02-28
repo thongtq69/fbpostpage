@@ -353,6 +353,61 @@ class FacebookBot:
             raise
 
 
+    def check_pending_posts(self, group_url):
+        if not group_url:
+            return False
+            
+        pending_url = group_url.rstrip('/') + "/my_pending_content"
+        logging.info(f"Checking pending posts at: {pending_url}")
+        
+        try:
+            self.driver.get(pending_url)
+            self.random_sleep(4, 6)
+            
+            # Verify we didn't get redirected to the main page (happens if tab isn't available)
+            if "my_pending_content" not in self.driver.current_url:
+                logging.info("Redirected away from pending content. Proceeding to post.")
+                return False
+            
+            # Check for generic post elements (articles)
+            articles = self.driver.find_elements(By.CSS_SELECTOR, "div[role='article']")
+            if len(articles) > 0:
+                # We found pending posts. Let's check the first one (most recent).
+                first_article = articles[0]
+                text_content = first_article.text
+                lines = text_content.split('\n')
+                
+                is_recent = False
+                for line in lines[:6]:
+                    line_lower = line.lower()
+                    # Check lines that are short and contain typical time indicators for < 24h
+                    # VN: phút, giờ, vừa xong. EN: min, hr, hour, just now
+                    if len(line) < 40 and (
+                        "phút" in line_lower or 
+                        "giờ" in line_lower or 
+                        "vừa xong" in line_lower or
+                        " min" in line_lower or
+                        " hr" in line_lower or
+                        " hour" in line_lower or
+                        "just now" in line_lower
+                    ):
+                        is_recent = True
+                        logging.info(f"Found recent pending post (< 24h, timestamp: '{line}'). Skipping group.")
+                        break
+                
+                if is_recent:
+                    return True # Skip
+                else:
+                    logging.info("Found pending posts, but they are older than 24h. Proceeding to post.")
+                    return False # Don't skip
+                
+            logging.info("No pending posts articles found. Proceeding to post.")
+            return False
+            
+        except Exception as e:
+            logging.error(f"Error checking pending posts: {e}")
+            return False
+
     def navigate_to_group(self, group_url=None):
         if not group_url:
             group_url = self.config.get('group_url')
@@ -530,17 +585,24 @@ class FacebookBot:
             
             for i, url in enumerate(groups):
                 try:
-                    if self.navigate_to_group(url):
-                        self.create_post()
-                        
-                        # Only wait if not the last group in this cycle
-                        if i < len(groups) - 1:
-                            delay_min = self.config.get('between_groups_min', 60)
-                            delay_max = self.config.get('between_groups_max', 180)
-                            logging.info(f"Waiting {delay_min}-{delay_max}s before next group...")
-                            self.random_sleep(delay_min, delay_max)
+                    # Check for pending posts before anything else
+                    has_pending = self.check_pending_posts(url)
+                    
+                    if not has_pending:
+                        if self.navigate_to_group(url):
+                            self.create_post()
+                            
+                            # Only wait if not the last group in this cycle
+                            if i < len(groups) - 1:
+                                delay_min = self.config.get('between_groups_min', 60)
+                                delay_max = self.config.get('between_groups_max', 180)
+                                logging.info(f"Waiting {delay_min}-{delay_max}s before next group...")
+                                self.random_sleep(delay_min, delay_max)
+                        else:
+                            logging.warning(f"Skipping post for {url} due to navigation failure.")
                     else:
-                        logging.warning(f"Skipping post for {url} due to navigation failure.")
+                        logging.info(f"Skipped {url} due to existing pending post.")
+                        
                 except Exception as group_err:
                     logging.error(f"Failed to post to {url}: {group_err}")
                     self.driver.save_screenshot(os.path.join(BASE_DIR, f"post_error_{i}.png"))
