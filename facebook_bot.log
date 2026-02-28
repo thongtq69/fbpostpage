@@ -1,262 +1,119 @@
-2026-02-26 12:50:57,107 - INFO - Loaded 9 images from config and 'pic' folder.
-2026-02-26 12:50:57,107 - INFO - Config loaded successfully.
-2026-02-26 12:50:57,383 - INFO - Detected Chrome version: 145
-2026-02-26 12:50:59,219 - INFO - patching driver executable /Users/bephi/Library/Application Support/undetected_chromedriver/undetected_chromedriver
-2026-02-26 12:51:02,668 - INFO - Driver initialized successfully.
-2026-02-26 12:51:02,668 - INFO - Starting login process...
-2026-02-26 12:51:07,785 - INFO - No cookies file found at /Users/bephi/post-page/fbpostpage/cookies.json
-2026-02-26 12:51:18,081 - WARNING - Standard email field not found, trying multi-selector approach...
-2026-02-26 12:51:26,327 - ERROR - Error during login: Message: no such element: Unable to locate element: {"method":"css selector","selector":"button[type='submit'], [role='button'][name='login']"}
-  (Session info: chrome=145.0.7632.117); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
-Stacktrace:
-0   undetected_chromedriver             0x000000010272e5c8 undetected_chromedriver + 6698440
-1   undetected_chromedriver             0x0000000102725e4a undetected_chromedriver + 6663754
-2   undetected_chromedriver             0x0000000102139ba5 undetected_chromedriver + 453541
-3   undetected_chromedriver             0x000000010218e28b undetected_chromedriver + 799371
-4   undetected_chromedriver             0x000000010218e5d1 undetected_chromedriver + 800209
-5   undetected_chromedriver             0x00000001021da404 undetected_chromedriver + 1111044
-6   undetected_chromedriver             0x00000001021d7559 undetected_chromedriver + 1099097
-7   undetected_chromedriver             0x0000000102180387 undetected_chromedriver + 742279
-8   undetected_chromedriver             0x0000000102181161 undetected_chromedriver + 745825
-9   undetected_chromedriver             0x00000001026e8171 undetected_chromedriver + 6410609
-10  undetected_chromedriver             0x00000001026ec582 undetected_chromedriver + 6428034
-11  undetected_chromedriver             0x00000001026c9169 undetected_chromedriver + 6283625
-12  undetected_chromedriver             0x00000001026ecfd8 undetected_chromedriver + 6430680
-13  undetected_chromedriver             0x00000001026b7c20 undetected_chromedriver + 6212640
-14  undetected_chromedriver             0x0000000102712c98 undetected_chromedriver + 6585496
-15  undetected_chromedriver             0x0000000102712e52 undetected_chromedriver + 6585938
-16  undetected_chromedriver             0x0000000102725a56 undetected_chromedriver + 6662742
-17  libsystem_pthread.dylib             0x00007ff81b614e4d _pthread_start + 115
-18  libsystem_pthread.dylib             0x00007ff81b610857 thread_start + 15
-
-2026-02-26 12:51:26,569 - ERROR - Bot execution failed: Message: no such element: Unable to locate element: {"method":"css selector","selector":"button[type='submit'], [role='button'][name='login']"}
-  (Session info: chrome=145.0.7632.117); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
-Stacktrace:
-0   undetected_chromedriver             0x000000010272e5c8 undetected_chromedriver + 6698440
-1   undetected_chromedriver             0x0000000102725e4a undetected_chromedriver + 6663754
-2   undetected_chromedriver             0x0000000102139ba5 undetected_chromedriver + 453541
-3   undetected_chromedriver             0x000000010218e28b undetected_chromedriver + 799371
-4   undetected_chromedriver             0x000000010218e5d1 undetected_chromedriver + 800209
-5   undetected_chromedriver             0x00000001021da404 undetected_chromedriver + 1111044
-6   undetected_chromedriver             0x00000001021d7559 undetected_chromedriver + 1099097
-7   undetected_chromedriver             0x0000000102180387 undetected_chromedriver + 742279
-8   undetected_chromedriver             0x0000000102181161 undetected_chromedriver + 745825
-9   undetected_chromedriver             0x00000001026e8171 undetected_chromedriver + 6410609
-10  undetected_chromedriver             0x00000001026ec582 undetected_chromedriver + 6428034
-11  undetected_chromedriver             0x00000001026c9169 undetected_chromedriver + 6283625
-12  undetected_chromedriver             0x00000001026ecfd8 undetected_chromedriver + 6430680
-13  undetected_chromedriver             0x00000001026b7c20 undetected_chromedriver + 6212640
-14  undetected_chromedriver             0x0000000102712c98 undetected_chromedriver + 6585496
-15  undetected_chromedriver             0x0000000102712e52 undetected_chromedriver + 6585938
-16  undetected_chromedriver             0x0000000102725a56 undetected_chromedriver + 6662742
-17  libsystem_pthread.dylib             0x00007ff81b614e4d _pthread_start + 115
-18  libsystem_pthread.dylib             0x00007ff81b610857 thread_start + 15
-
-2026-02-26 12:51:26,569 - INFO - Closing driver...
-2026-02-26 12:52:24,400 - INFO - Loaded 9 images from config and 'pic' folder.
-2026-02-26 12:52:24,400 - INFO - Config loaded successfully.
-2026-02-26 12:52:24,814 - INFO - Detected Chrome version: 145
-2026-02-26 12:52:26,654 - INFO - patching driver executable /Users/bephi/Library/Application Support/undetected_chromedriver/undetected_chromedriver
-2026-02-26 12:52:30,119 - INFO - Driver initialized successfully.
-2026-02-26 12:52:30,119 - INFO - Starting login process...
-2026-02-26 12:52:34,422 - INFO - No cookies file found at /Users/bephi/post-page/fbpostpage/cookies.json
-2026-02-26 12:52:45,907 - WARNING - Login button not found or not clickable, trying to press ENTER...
-2026-02-26 12:52:56,049 - WARNING - 2FA/Checkpoint detected. Please handle manually in browser if window is visible.
-2026-02-26 12:53:20,292 - INFO - Login process completed.
-2026-02-26 12:53:20,292 - INFO - Navigating to page to switch profile: https://www.facebook.com/profile.php?id=61585603883149
-2026-02-26 12:53:24,427 - INFO - Closing driver...
-2026-02-26 12:54:19,166 - INFO - Loaded 9 images from config and 'pic' folder.
-2026-02-26 12:54:19,166 - INFO - Config loaded successfully.
-2026-02-26 12:54:19,755 - INFO - Detected Chrome version: 145
-2026-02-26 12:54:21,498 - INFO - patching driver executable /Users/bephi/Library/Application Support/undetected_chromedriver/undetected_chromedriver
-2026-02-26 12:54:23,060 - INFO - Driver initialized successfully.
-2026-02-26 12:54:23,060 - INFO - Starting login process...
-2026-02-26 12:54:27,339 - INFO - No cookies file found at /Users/bephi/post-page/fbpostpage/cookies.json
-2026-02-26 12:54:39,512 - WARNING - Login button not found or not clickable, trying to press ENTER...
-2026-02-26 12:54:48,025 - WARNING - 2FA/Checkpoint detected. Please handle manually in browser if window is visible.
-2026-02-26 12:55:16,023 - INFO - Login process completed.
-2026-02-26 12:55:16,023 - INFO - Navigating to page to switch profile: https://www.facebook.com/profile.php?id=61585603883149
-2026-02-26 12:55:49,856 - WARNING - Could not find 'Switch now' button. Assuming already on correct profile or button hidden.
-2026-02-26 12:55:49,856 - INFO - Navigating to group: https://www.facebook.com/groups/chocudanvinhomeq9
-2026-02-26 12:56:03,384 - ERROR - Bot execution failed: Message: no such window: target window already closed
+2026-02-28 17:28:11,275 - INFO - Loaded 9 images from config and 'pic' folder.
+2026-02-28 17:28:11,275 - INFO - Config loaded successfully.
+2026-02-28 17:28:11,647 - INFO - Detected Chrome version: 145
+2026-02-28 17:28:13,450 - INFO - patching driver executable /Users/bephi/Library/Application Support/undetected_chromedriver/undetected_chromedriver
+2026-02-28 17:28:15,441 - INFO - Driver initialized successfully.
+2026-02-28 17:28:15,441 - INFO - Starting login process...
+2026-02-28 17:28:18,704 - INFO - Found 8 cookies.
+2026-02-28 17:28:18,719 - INFO - Cookies loaded successfully.
+2026-02-28 17:28:18,721 - INFO - Refreshing page to apply cookies...
+2026-02-28 17:28:33,087 - INFO - Already logged in (detected via input[type='search']).
+2026-02-28 17:28:33,087 - INFO - Navigating to page to switch profile: https://www.facebook.com/profile.php?id=61585603883149
+2026-02-28 17:28:51,521 - INFO - Clicked 'Switch now' button.
+2026-02-28 17:28:56,789 - INFO - Starting post cycle for 4 groups.
+2026-02-28 17:28:56,789 - INFO - Checking pending posts at: https://www.facebook.com/groups/chocudanvinhomeq9/my_pending_content
+2026-02-28 17:29:18,553 - INFO - Saved debug view to /Users/bephi/post-page/fbpostpage/debug_pending_chocudanvinhomeq9.txt and /Users/bephi/post-page/fbpostpage/debug_pending_chocudanvinhomeq9.png
+2026-02-28 17:29:18,558 - INFO - No definitive pending posts found. Proceeding to post.
+2026-02-28 17:29:18,558 - INFO - Navigating to group: https://www.facebook.com/groups/chocudanvinhomeq9
+2026-02-28 17:31:18,555 - INFO - Loaded 9 images from config and 'pic' folder.
+2026-02-28 17:31:18,555 - INFO - Config loaded successfully.
+2026-02-28 17:31:19,038 - INFO - Detected Chrome version: 145
+2026-02-28 17:31:20,886 - INFO - patching driver executable /Users/bephi/Library/Application Support/undetected_chromedriver/undetected_chromedriver
+2026-02-28 17:31:22,442 - INFO - Driver initialized successfully.
+2026-02-28 17:31:22,442 - INFO - Starting login process...
+2026-02-28 17:31:26,961 - INFO - Found 8 cookies.
+2026-02-28 17:31:26,975 - INFO - Cookies loaded successfully.
+2026-02-28 17:31:26,975 - INFO - Refreshing page to apply cookies...
+2026-02-28 17:31:34,756 - INFO - Already logged in (detected via input[type='search']).
+2026-02-28 17:31:34,758 - INFO - Navigating to page to switch profile: https://www.facebook.com/profile.php?id=61585603883149
+2026-02-28 17:31:45,946 - INFO - Clicked 'Switch now' button.
+2026-02-28 17:31:52,415 - INFO - Starting post cycle for 4 groups.
+2026-02-28 17:31:52,415 - INFO - Checking pending posts at: https://www.facebook.com/groups/chocudanvinhomeq9/my_pending_content
+2026-02-28 17:32:20,412 - INFO - Saved debug view to /Users/bephi/post-page/fbpostpage/debug_pending_chocudanvinhomeq9.txt and /Users/bephi/post-page/fbpostpage/debug_pending_chocudanvinhomeq9.png
+2026-02-28 17:32:20,417 - INFO - Detected pending posts by header count regex. Skipping group.
+2026-02-28 17:32:20,417 - INFO - Skipped https://www.facebook.com/groups/chocudanvinhomeq9 due to existing pending post.
+2026-02-28 17:32:20,417 - INFO - Checking pending posts at: https://www.facebook.com/groups/813436286236743/my_pending_content
+2026-02-28 17:32:29,652 - INFO - Saved debug view to /Users/bephi/post-page/fbpostpage/debug_pending_813436286236743.txt and /Users/bephi/post-page/fbpostpage/debug_pending_813436286236743.png
+2026-02-28 17:32:29,655 - INFO - Detected pending posts by header count regex. Skipping group.
+2026-02-28 17:32:29,655 - INFO - Skipped https://www.facebook.com/groups/813436286236743 due to existing pending post.
+2026-02-28 17:32:29,655 - INFO - Checking pending posts at: https://www.facebook.com/groups/thietkewebchatluong/my_pending_content
+2026-02-28 17:32:38,811 - INFO - Saved debug view to /Users/bephi/post-page/fbpostpage/debug_pending_thietkewebchatluong.txt and /Users/bephi/post-page/fbpostpage/debug_pending_thietkewebchatluong.png
+2026-02-28 17:32:38,814 - INFO - Detected pending posts by header count regex. Skipping group.
+2026-02-28 17:32:38,814 - INFO - Skipped https://www.facebook.com/groups/thietkewebchatluong/ due to existing pending post.
+2026-02-28 17:32:38,814 - INFO - Checking pending posts at: https://www.facebook.com/groups/3868126263305226/my_pending_content
+2026-02-28 17:32:44,732 - INFO - Saved debug view to /Users/bephi/post-page/fbpostpage/debug_pending_3868126263305226.txt and /Users/bephi/post-page/fbpostpage/debug_pending_3868126263305226.png
+2026-02-28 17:32:44,732 - INFO - Explicit 'no pending posts' message found. Proceeding to post.
+2026-02-28 17:32:44,732 - INFO - Navigating to group: https://www.facebook.com/groups/3868126263305226
+2026-02-28 17:33:03,558 - INFO - Attempting to create post...
+2026-02-28 17:33:15,857 - INFO - Clicked post button using selector: //span[contains(text(), 'Bạn viết gì đi...')]
+2026-02-28 17:33:24,791 - INFO - Images uploaded.
+2026-02-28 17:33:30,851 - ERROR - Error creating post: 'NoneType' object has no attribute 'is_displayed'
+2026-02-28 17:33:30,852 - ERROR - Failed to post to https://www.facebook.com/groups/3868126263305226: Message: no such window: target window already closed
 from unknown error: web view not found
   (Session info: chrome=145.0.7632.117)
 Stacktrace:
-0   undetected_chromedriver             0x0000000102e365c8 undetected_chromedriver + 6698440
-1   undetected_chromedriver             0x0000000102e2de4a undetected_chromedriver + 6663754
-2   undetected_chromedriver             0x0000000102841ba5 undetected_chromedriver + 453541
-3   undetected_chromedriver             0x0000000102814f98 undetected_chromedriver + 270232
-4   undetected_chromedriver             0x00000001028c5148 undetected_chromedriver + 991560
-5   undetected_chromedriver             0x00000001028def78 undetected_chromedriver + 1097592
-6   undetected_chromedriver             0x0000000102888387 undetected_chromedriver + 742279
-7   undetected_chromedriver             0x0000000102889161 undetected_chromedriver + 745825
-8   undetected_chromedriver             0x0000000102df0171 undetected_chromedriver + 6410609
-9   undetected_chromedriver             0x0000000102df4582 undetected_chromedriver + 6428034
-10  undetected_chromedriver             0x0000000102dd1169 undetected_chromedriver + 6283625
-11  undetected_chromedriver             0x0000000102df4fd8 undetected_chromedriver + 6430680
-12  undetected_chromedriver             0x0000000102dbfc20 undetected_chromedriver + 6212640
-13  undetected_chromedriver             0x0000000102e1ac98 undetected_chromedriver + 6585496
-14  undetected_chromedriver             0x0000000102e1ae52 undetected_chromedriver + 6585938
-15  undetected_chromedriver             0x0000000102e2da56 undetected_chromedriver + 6662742
+0   undetected_chromedriver             0x00000001032675c8 undetected_chromedriver + 6698440
+1   undetected_chromedriver             0x000000010325ee4a undetected_chromedriver + 6663754
+2   undetected_chromedriver             0x0000000102c72ba5 undetected_chromedriver + 453541
+3   undetected_chromedriver             0x0000000102c45f98 undetected_chromedriver + 270232
+4   undetected_chromedriver             0x0000000102cf6148 undetected_chromedriver + 991560
+5   undetected_chromedriver             0x0000000102d0ff78 undetected_chromedriver + 1097592
+6   undetected_chromedriver             0x0000000102cb9387 undetected_chromedriver + 742279
+7   undetected_chromedriver             0x0000000102cba161 undetected_chromedriver + 745825
+8   undetected_chromedriver             0x0000000103221171 undetected_chromedriver + 6410609
+9   undetected_chromedriver             0x0000000103225582 undetected_chromedriver + 6428034
+10  undetected_chromedriver             0x0000000103202169 undetected_chromedriver + 6283625
+11  undetected_chromedriver             0x0000000103225fd8 undetected_chromedriver + 6430680
+12  undetected_chromedriver             0x00000001031f0c20 undetected_chromedriver + 6212640
+13  undetected_chromedriver             0x000000010324bc98 undetected_chromedriver + 6585496
+14  undetected_chromedriver             0x000000010324be52 undetected_chromedriver + 6585938
+15  undetected_chromedriver             0x000000010325ea56 undetected_chromedriver + 6662742
 16  libsystem_pthread.dylib             0x00007ff81b614e4d _pthread_start + 115
 17  libsystem_pthread.dylib             0x00007ff81b610857 thread_start + 15
 
-2026-02-26 12:56:03,384 - INFO - Closing driver...
-2026-02-26 12:56:31,437 - INFO - Loaded 9 images from config and 'pic' folder.
-2026-02-26 12:56:31,437 - INFO - Config loaded successfully.
-2026-02-26 12:56:31,794 - INFO - Detected Chrome version: 145
-2026-02-26 12:56:33,849 - INFO - patching driver executable /Users/bephi/Library/Application Support/undetected_chromedriver/undetected_chromedriver
-2026-02-26 12:56:35,417 - INFO - Driver initialized successfully.
-2026-02-26 12:56:35,417 - INFO - Starting login process...
-2026-02-26 12:56:39,770 - INFO - No cookies file found at /Users/bephi/post-page/fbpostpage/cookies.json
-2026-02-26 12:56:51,624 - WARNING - Login button not found or not clickable, trying to press ENTER...
-2026-02-26 12:56:58,331 - WARNING - 2FA/Checkpoint detected. Please handle manually in browser if window is visible.
-2026-02-26 12:57:26,898 - INFO - Login process completed.
-2026-02-26 12:57:26,899 - INFO - Navigating to page to switch profile: https://www.facebook.com/profile.php?id=61585603883149
-2026-02-26 12:58:30,061 - INFO - Loaded 9 images from config and 'pic' folder.
-2026-02-26 12:58:30,061 - INFO - Config loaded successfully.
-2026-02-26 12:58:31,243 - INFO - Detected Chrome version: 145
-2026-02-26 12:58:33,121 - INFO - patching driver executable /Users/bephi/Library/Application Support/undetected_chromedriver/undetected_chromedriver
-2026-02-26 12:58:34,682 - INFO - Driver initialized successfully.
-2026-02-26 12:58:34,682 - INFO - Starting login process...
-2026-02-26 12:58:38,906 - INFO - No cookies file found at /Users/bephi/post-page/fbpostpage/cookies.json
-2026-02-26 12:58:51,970 - WARNING - Login button not found or not clickable, trying to press ENTER...
-2026-02-26 12:58:57,397 - WARNING - 2FA/Checkpoint detected. Waiting for user to verify manually...
-2026-02-26 13:00:04,006 - INFO - Saved 8 cookies to /Users/bephi/post-page/fbpostpage/cookies.json
-2026-02-26 13:00:04,006 - INFO - Login process completed.
-2026-02-26 13:00:04,006 - INFO - Navigating to page to switch profile: https://www.facebook.com/profile.php?id=61585603883149
-2026-02-26 13:00:28,318 - INFO - Clicked 'Switch now' button.
-2026-02-26 13:00:34,293 - INFO - Navigating to group: https://www.facebook.com/groups/chocudanvinhomeq9
-2026-02-26 13:01:17,397 - INFO - Attempting to create post...
-2026-02-26 13:01:29,874 - INFO - Clicked post button using selector: //span[contains(text(), 'Bạn viết gì đi...')]
-2026-02-26 13:02:59,913 - ERROR - Failed to upload images: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//input[@type='file' and @multiple]"}
-  (Session info: chrome=145.0.7632.117); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
-Stacktrace:
-0   undetected_chromedriver             0x0000000100b1f5c8 undetected_chromedriver + 6698440
-1   undetected_chromedriver             0x0000000100b16e4a undetected_chromedriver + 6663754
-2   undetected_chromedriver             0x000000010052aba5 undetected_chromedriver + 453541
-3   undetected_chromedriver             0x000000010057f28b undetected_chromedriver + 799371
-4   undetected_chromedriver             0x000000010057f5d1 undetected_chromedriver + 800209
-5   undetected_chromedriver             0x00000001005cb404 undetected_chromedriver + 1111044
-6   undetected_chromedriver             0x00000001005c8559 undetected_chromedriver + 1099097
-7   undetected_chromedriver             0x0000000100571387 undetected_chromedriver + 742279
-8   undetected_chromedriver             0x0000000100572161 undetected_chromedriver + 745825
-9   undetected_chromedriver             0x0000000100ad9171 undetected_chromedriver + 6410609
-10  undetected_chromedriver             0x0000000100add582 undetected_chromedriver + 6428034
-11  undetected_chromedriver             0x0000000100aba169 undetected_chromedriver + 6283625
-12  undetected_chromedriver             0x0000000100addfd8 undetected_chromedriver + 6430680
-13  undetected_chromedriver             0x0000000100aa8c20 undetected_chromedriver + 6212640
-14  undetected_chromedriver             0x0000000100b03c98 undetected_chromedriver + 6585496
-15  undetected_chromedriver             0x0000000100b03e52 undetected_chromedriver + 6585938
-16  undetected_chromedriver             0x0000000100b16a56 undetected_chromedriver + 6662742
-17  libsystem_pthread.dylib             0x00007ff81b614e4d _pthread_start + 115
-18  libsystem_pthread.dylib             0x00007ff81b610857 thread_start + 15
-
-2026-02-26 13:04:14,529 - INFO - Loaded 9 images from config and 'pic' folder.
-2026-02-26 13:04:14,529 - INFO - Config loaded successfully.
-2026-02-26 13:04:14,917 - INFO - Detected Chrome version: 145
-2026-02-26 13:04:16,730 - INFO - patching driver executable /Users/bephi/Library/Application Support/undetected_chromedriver/undetected_chromedriver
-2026-02-26 13:04:18,707 - INFO - Driver initialized successfully.
-2026-02-26 13:04:18,707 - INFO - Starting login process...
-2026-02-26 13:04:22,602 - INFO - Found 8 cookies.
-2026-02-26 13:04:22,616 - INFO - Cookies loaded successfully.
-2026-02-26 13:04:22,616 - INFO - Refreshing page to apply cookies...
-2026-02-26 13:04:26,123 - ERROR - Could not find email input field.
-2026-02-26 13:04:26,130 - ERROR - Error during login: Message: no such window: target window already closed
+2026-02-28 17:33:30,852 - ERROR - Bot execution failed: Message: no such window: target window already closed
 from unknown error: web view not found
   (Session info: chrome=145.0.7632.117)
 Stacktrace:
-0   undetected_chromedriver             0x000000010077d5c8 undetected_chromedriver + 6698440
-1   undetected_chromedriver             0x0000000100774e4a undetected_chromedriver + 6663754
-2   undetected_chromedriver             0x0000000100188ba5 undetected_chromedriver + 453541
-3   undetected_chromedriver             0x000000010015bf98 undetected_chromedriver + 270232
-4   undetected_chromedriver             0x000000010020c148 undetected_chromedriver + 991560
-5   undetected_chromedriver             0x0000000100225f78 undetected_chromedriver + 1097592
-6   undetected_chromedriver             0x00000001001cf387 undetected_chromedriver + 742279
-7   undetected_chromedriver             0x00000001001d0161 undetected_chromedriver + 745825
-8   undetected_chromedriver             0x0000000100737171 undetected_chromedriver + 6410609
-9   undetected_chromedriver             0x000000010073b582 undetected_chromedriver + 6428034
-10  undetected_chromedriver             0x0000000100718169 undetected_chromedriver + 6283625
-11  undetected_chromedriver             0x000000010073bfd8 undetected_chromedriver + 6430680
-12  undetected_chromedriver             0x0000000100706c20 undetected_chromedriver + 6212640
-13  undetected_chromedriver             0x0000000100761c98 undetected_chromedriver + 6585496
-14  undetected_chromedriver             0x0000000100761e52 undetected_chromedriver + 6585938
-15  undetected_chromedriver             0x0000000100774a56 undetected_chromedriver + 6662742
+0   undetected_chromedriver             0x00000001032675c8 undetected_chromedriver + 6698440
+1   undetected_chromedriver             0x000000010325ee4a undetected_chromedriver + 6663754
+2   undetected_chromedriver             0x0000000102c72ba5 undetected_chromedriver + 453541
+3   undetected_chromedriver             0x0000000102c45f98 undetected_chromedriver + 270232
+4   undetected_chromedriver             0x0000000102cf6148 undetected_chromedriver + 991560
+5   undetected_chromedriver             0x0000000102d0ff78 undetected_chromedriver + 1097592
+6   undetected_chromedriver             0x0000000102cb9387 undetected_chromedriver + 742279
+7   undetected_chromedriver             0x0000000102cba161 undetected_chromedriver + 745825
+8   undetected_chromedriver             0x0000000103221171 undetected_chromedriver + 6410609
+9   undetected_chromedriver             0x0000000103225582 undetected_chromedriver + 6428034
+10  undetected_chromedriver             0x0000000103202169 undetected_chromedriver + 6283625
+11  undetected_chromedriver             0x0000000103225fd8 undetected_chromedriver + 6430680
+12  undetected_chromedriver             0x00000001031f0c20 undetected_chromedriver + 6212640
+13  undetected_chromedriver             0x000000010324bc98 undetected_chromedriver + 6585496
+14  undetected_chromedriver             0x000000010324be52 undetected_chromedriver + 6585938
+15  undetected_chromedriver             0x000000010325ea56 undetected_chromedriver + 6662742
 16  libsystem_pthread.dylib             0x00007ff81b614e4d _pthread_start + 115
 17  libsystem_pthread.dylib             0x00007ff81b610857 thread_start + 15
 
-2026-02-26 13:04:26,132 - ERROR - Bot execution failed: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=145.0.7632.117)
-Stacktrace:
-0   undetected_chromedriver             0x000000010077d5c8 undetected_chromedriver + 6698440
-1   undetected_chromedriver             0x0000000100774e4a undetected_chromedriver + 6663754
-2   undetected_chromedriver             0x0000000100188ba5 undetected_chromedriver + 453541
-3   undetected_chromedriver             0x000000010015bf98 undetected_chromedriver + 270232
-4   undetected_chromedriver             0x000000010020c148 undetected_chromedriver + 991560
-5   undetected_chromedriver             0x0000000100225f78 undetected_chromedriver + 1097592
-6   undetected_chromedriver             0x00000001001cf387 undetected_chromedriver + 742279
-7   undetected_chromedriver             0x00000001001d0161 undetected_chromedriver + 745825
-8   undetected_chromedriver             0x0000000100737171 undetected_chromedriver + 6410609
-9   undetected_chromedriver             0x000000010073b582 undetected_chromedriver + 6428034
-10  undetected_chromedriver             0x0000000100718169 undetected_chromedriver + 6283625
-11  undetected_chromedriver             0x000000010073bfd8 undetected_chromedriver + 6430680
-12  undetected_chromedriver             0x0000000100706c20 undetected_chromedriver + 6212640
-13  undetected_chromedriver             0x0000000100761c98 undetected_chromedriver + 6585496
-14  undetected_chromedriver             0x0000000100761e52 undetected_chromedriver + 6585938
-15  undetected_chromedriver             0x0000000100774a56 undetected_chromedriver + 6662742
-16  libsystem_pthread.dylib             0x00007ff81b614e4d _pthread_start + 115
-17  libsystem_pthread.dylib             0x00007ff81b610857 thread_start + 15
-
-2026-02-26 13:04:26,138 - INFO - Closing driver...
-2026-02-26 13:11:43,355 - INFO - Loaded 9 images from config and 'pic' folder.
-2026-02-26 13:11:43,355 - INFO - Config loaded successfully.
-2026-02-26 13:11:43,765 - INFO - Detected Chrome version: 145
-2026-02-26 13:11:46,669 - INFO - patching driver executable /Users/bephi/Library/Application Support/undetected_chromedriver/undetected_chromedriver
-2026-02-26 13:11:48,654 - INFO - Driver initialized successfully.
-2026-02-26 13:11:48,654 - INFO - Starting login process...
-2026-02-26 13:11:52,623 - INFO - Found 8 cookies.
-2026-02-26 13:11:52,628 - INFO - Cookies loaded successfully.
-2026-02-26 13:11:52,628 - INFO - Refreshing page to apply cookies...
-2026-02-26 13:11:52,629 - ERROR - Bot execution failed: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=145.0.7632.117)
-Stacktrace:
-0   undetected_chromedriver             0x0000000102bb45c8 undetected_chromedriver + 6698440
-1   undetected_chromedriver             0x0000000102babe4a undetected_chromedriver + 6663754
-2   undetected_chromedriver             0x00000001025bfba5 undetected_chromedriver + 453541
-3   undetected_chromedriver             0x0000000102592f98 undetected_chromedriver + 270232
-4   undetected_chromedriver             0x0000000102643148 undetected_chromedriver + 991560
-5   undetected_chromedriver             0x000000010265cf78 undetected_chromedriver + 1097592
-6   undetected_chromedriver             0x0000000102606387 undetected_chromedriver + 742279
-7   undetected_chromedriver             0x0000000102607161 undetected_chromedriver + 745825
-8   undetected_chromedriver             0x0000000102b6e171 undetected_chromedriver + 6410609
-9   undetected_chromedriver             0x0000000102b72582 undetected_chromedriver + 6428034
-10  undetected_chromedriver             0x0000000102b4f169 undetected_chromedriver + 6283625
-11  undetected_chromedriver             0x0000000102b72fd8 undetected_chromedriver + 6430680
-12  undetected_chromedriver             0x0000000102b3dc20 undetected_chromedriver + 6212640
-13  undetected_chromedriver             0x0000000102b98c98 undetected_chromedriver + 6585496
-14  undetected_chromedriver             0x0000000102b98e52 undetected_chromedriver + 6585938
-15  undetected_chromedriver             0x0000000102baba56 undetected_chromedriver + 6662742
-16  libsystem_pthread.dylib             0x00007ff81b614e4d _pthread_start + 115
-17  libsystem_pthread.dylib             0x00007ff81b610857 thread_start + 15
-
-2026-02-26 13:11:52,629 - INFO - Closing driver...
-2026-02-26 13:12:06,044 - INFO - Loaded 9 images from config and 'pic' folder.
-2026-02-26 13:12:06,044 - INFO - Config loaded successfully.
-2026-02-26 13:12:06,217 - INFO - Detected Chrome version: 145
-2026-02-26 13:12:08,052 - INFO - patching driver executable /Users/bephi/Library/Application Support/undetected_chromedriver/undetected_chromedriver
-2026-02-26 13:12:09,612 - INFO - Driver initialized successfully.
-2026-02-26 13:12:09,612 - INFO - Starting login process...
-2026-02-26 13:12:12,975 - INFO - Found 8 cookies.
-2026-02-26 13:12:12,990 - INFO - Cookies loaded successfully.
-2026-02-26 13:12:12,991 - INFO - Refreshing page to apply cookies...
-2026-02-26 14:30:36,064 - INFO - Loaded 9 images from config and 'pic' folder.
-2026-02-26 14:30:36,064 - INFO - Config loaded successfully.
-2026-02-26 14:30:36,476 - INFO - Detected Chrome version: 145
-2026-02-26 14:30:38,445 - INFO - patching driver executable /Users/bephi/Library/Application Support/undetected_chromedriver/undetected_chromedriver
-2026-02-26 14:30:40,004 - INFO - Driver initialized successfully.
-2026-02-26 14:30:40,004 - INFO - Starting login process...
-2026-02-26 14:30:43,462 - INFO - Found 8 cookies.
-2026-02-26 14:30:43,478 - INFO - Cookies loaded successfully.
-2026-02-26 14:30:43,478 - INFO - Refreshing page to apply cookies...
+2026-02-28 17:33:30,852 - INFO - Closing driver...
+2026-02-28 17:40:04,139 - INFO - Loaded 9 images from config and 'pic' folder.
+2026-02-28 17:40:04,139 - INFO - Config loaded successfully.
+2026-02-28 17:40:04,796 - INFO - Detected Chrome version: 145
+2026-02-28 17:40:07,608 - INFO - patching driver executable /Users/bephi/Library/Application Support/undetected_chromedriver/undetected_chromedriver
+2026-02-28 17:40:09,169 - INFO - Driver initialized successfully.
+2026-02-28 17:40:09,169 - INFO - Starting login process...
+2026-02-28 17:40:12,645 - INFO - Found 8 cookies.
+2026-02-28 17:40:12,657 - INFO - Cookies loaded successfully.
+2026-02-28 17:40:12,657 - INFO - Refreshing page to apply cookies...
+2026-02-28 17:40:27,205 - INFO - Already logged in (detected via input[type='search']).
+2026-02-28 17:40:27,211 - INFO - Navigating to page to switch profile: https://www.facebook.com/profile.php?id=61585603883149
+2026-02-28 17:40:35,651 - INFO - Clicked 'Switch now' button.
+2026-02-28 17:40:41,673 - INFO - Starting post cycle for 4 groups (Resuming from index 0).
+2026-02-28 17:40:41,674 - INFO - Checking pending posts at: https://www.facebook.com/groups/chocudanvinhomeq9/my_pending_content
+2026-02-28 17:40:48,387 - INFO - Explicit 'no pending posts' message found. Proceeding to post.
+2026-02-28 17:40:48,388 - INFO - Navigating to group: https://www.facebook.com/groups/chocudanvinhomeq9
+2026-02-28 17:41:01,150 - INFO - Attempting to create post...
+2026-02-28 17:41:13,530 - INFO - Clicked post button using selector: //span[contains(text(), 'Bạn viết gì đi...')]
+2026-02-28 17:41:23,018 - INFO - Images uploaded.
+2026-02-28 17:41:29,870 - INFO - Post button clicked. Waiting for confirmation...
+2026-02-28 17:41:36,695 - INFO - Finished posting.
+2026-02-28 17:41:36,697 - INFO - Waiting 60-120s before next group...

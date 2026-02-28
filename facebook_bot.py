@@ -73,6 +73,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException, NoSuchElementException
 import undetected_chromedriver as uc
+import re
 
 # Suppress OSError during Chrome.__del__ on Windows
 try:
@@ -106,30 +107,47 @@ class FacebookBot:
             config_path = os.path.join(BASE_DIR, 'config.json')
         self.load_config(config_path)
         self.setup_driver()
+        self.current_post_index = self.load_state()
 
-    def load_config(self, config_path):
+    def load_config(self, config_path=None):
+        if config_path is None:
+            config_path = os.path.join(BASE_DIR, 'config.json')
         try:
             with open(config_path, 'r', encoding='utf-8') as f:
                 self.config = json.load(f)
             
-            # Auto-load images from 'pic' folder
-            pic_folder = os.path.join(BASE_DIR, 'pic')
-            if os.path.isdir(pic_folder):
-                valid_extensions = ('.png', '.jpg', '.jpeg', '.gif', '.bmp')
-                for filename in os.listdir(pic_folder):
-                    if filename.lower().endswith(valid_extensions):
-                        full_path = os.path.join(pic_folder, filename)
-                        if 'image_paths' not in self.config:
-                            self.config['image_paths'] = []
-                        # Avoid duplicates if multiple runs or if manually added
-                        if full_path not in self.config['image_paths']:
-                            self.config['image_paths'].append(full_path)
-                logging.info(f"Loaded {len(self.config.get('image_paths', []))} images from config and 'pic' folder.")
-
+            # Auto-load images from 'pic' folder if empty
+            if not self.config.get('image_paths'):
+                pic_dir = os.path.join(BASE_DIR, 'pic')
+                if os.path.exists(pic_dir):
+                    valid_exts = ('.jpg', '.jpeg', '.png', '.gif')
+                    self.config['image_paths'] = [
+                        os.path.join(pic_dir, f) for f in os.listdir(pic_dir)
+                        if f.lower().endswith(valid_exts)
+                    ]
+                    logging.info(f"Loaded {len(self.config['image_paths'])} images from config and 'pic' folder.")
             logging.info("Config loaded successfully.")
         except Exception as e:
             logging.error(f"Failed to load config: {e}")
             raise
+
+    def load_state(self):
+        state_file = os.path.join(BASE_DIR, 'bot_state.json')
+        if os.path.exists(state_file):
+            try:
+                with open(state_file, 'r', encoding='utf-8') as f:
+                    return json.load(f).get('current_index', 0)
+            except:
+                pass
+        return 0
+
+    def save_state(self, index):
+        state_file = os.path.join(BASE_DIR, 'bot_state.json')
+        try:
+            with open(state_file, 'w', encoding='utf-8') as f:
+                json.dump({'current_index': index}, f)
+        except Exception as e:
+            logging.warning(f"Failed to save state: {e}")
 
     def get_chrome_version(self):
         try:
@@ -394,39 +412,36 @@ class FacebookBot:
                 logging.info("Redirected away from pending content. Proceeding to post.")
                 return False
             
-            # Check for generic post elements (articles)
+            # Detect by checking text content for common indicators or checking feed container
+            body_text = self.driver.find_element(By.TAG_NAME, "body").text.lower()
+
+            
+            # 1. Check if explicit "empty" message is displayed
+            if "không có bài" in body_text or "không có bài viết nào để hiển thị" in body_text or "nothing to show here" in body_text or "no posts to show" in body_text or "no pending posts" in body_text:
+                logging.info("Explicit 'no pending posts' message found. Proceeding to post.")
+                return False
+                
+            # 2. Check for actual post elements (articles)
             articles = self.driver.find_elements(By.CSS_SELECTOR, "div[role='article']")
             if len(articles) > 0:
-                # We found pending posts. Let's check the first one (most recent).
-                first_article = articles[0]
-                text_content = first_article.text
-                lines = text_content.split('\n')
+                logging.info(f"Found {len(articles)} pending post articles. Skipping group.")
+                return True
                 
-                is_recent = False
-                for line in lines[:6]:
-                    line_lower = line.lower()
-                    # Check lines that are short and contain typical time indicators for < 24h
-                    # VN: phút, giờ, vừa xong. EN: min, hr, hour, just now
-                    if len(line) < 40 and (
-                        "phút" in line_lower or 
-                        "giờ" in line_lower or 
-                        "vừa xong" in line_lower or
-                        " min" in line_lower or
-                        " hr" in line_lower or
-                        " hour" in line_lower or
-                        "just now" in line_lower
-                    ):
-                        is_recent = True
-                        logging.info(f"Found recent pending post (< 24h, timestamp: '{line}'). Skipping group.")
-                        break
+            # 3. Check if the header shows a count like "đang chờ\n · 2" or "pending\n · 1" using regex
+            # because Facebook's text layout often injects newlines
+            if re.search(r'(đang chờ|pending( posts)?)\s*\n*\s*·\s*\d+', body_text):
+                logging.info("Detected pending posts by header count regex. Skipping group.")
+                return True
                 
-                if is_recent:
-                    return True # Skip
-                else:
-                    logging.info("Found pending posts, but they are older than 24h. Proceeding to post.")
-                    return False # Don't skip
-                
-            logging.info("No pending posts articles found. Proceeding to post.")
+            # 4. Fallback check for action buttons typical of pending posts
+            if ("chỉnh sửa" in body_text and "xóa" in body_text) or ("edit" in body_text and "delete" in body_text):
+                # Ensure we are actually on a list that has these actions
+                if "đang chờ" in body_text or "pending" in body_text:
+                    logging.info("Detected pending post action buttons (Edit/Delete). Skipping group.")
+                    return True
+                    
+            # If none of the above, default to safe assumption: no pending
+            logging.info("No definitive pending posts found. Proceeding to post.")
             return False
             
         except Exception as e:
@@ -606,9 +621,13 @@ class FacebookBot:
                 logging.warning("No group URLs provided in config.")
                 return
 
-            logging.info(f"Starting post cycle for {len(groups)} groups.")
+            start_idx = self.load_state()
+            if start_idx >= len(groups):
+                start_idx = 0
+                
+            logging.info(f"Starting post cycle for {len(groups)} groups (Resuming from index {start_idx}).")
             
-            for i, url in enumerate(groups):
+            for i, url in enumerate(groups[start_idx:], start=start_idx):
                 try:
                     # Check for pending posts before anything else
                     has_pending = self.check_pending_posts(url)
@@ -628,10 +647,23 @@ class FacebookBot:
                     else:
                         logging.info(f"Skipped {url} due to existing pending post.")
                         
+                    # Save progression index reliably
+                    self.save_state(i + 1)
+                        
                 except Exception as group_err:
                     logging.error(f"Failed to post to {url}: {group_err}")
-                    self.driver.save_screenshot(os.path.join(BASE_DIR, f"post_error_{i}.png"))
+                    try:
+                        self.driver.save_screenshot(os.path.join(BASE_DIR, f"post_error_{i}.png"))
+                    except:
+                        pass
                     
+                    # Force raise if driver is unrecoverably dead so app.py restarts bot
+                    err_str = str(group_err).lower()
+                    if "no such window" in err_str or "unreachable" in err_str or "disconnected" in err_str:
+                        raise group_err
+                    
+            # Loop completely finished, reset saved index for the next cycle
+            self.save_state(0)
             logging.info("Completed post cycle for all groups.")
             
         except Exception as e:
