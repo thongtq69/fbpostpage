@@ -108,6 +108,7 @@ class FacebookBot:
         self.load_config(config_path)
         self.setup_driver()
         self.current_post_index = self.load_state()
+        self.is_active = True
 
     def load_config(self, config_path=None):
         if config_path is None:
@@ -606,65 +607,93 @@ class FacebookBot:
         if not switched:
             logging.warning("Could not find 'Switch now' button. Assuming already on correct profile or button hidden.")
 
-    def run(self, is_gui=False):
+    def run(self, is_gui=False, continuous=True):
         try:
             self.login(is_gui=is_gui)
-            if self.config.get('page_url'):
+            if getattr(self, "is_active", True) and self.config.get('page_url'):
                 self.switch_to_page()
                 
-            # Support both single string and list for groups
-            groups = self.config.get('group_urls', [])
-            if not groups and self.config.get('group_url'):
-                groups = [self.config['group_url']]
-
-            if not groups:
-                logging.warning("No group URLs provided in config.")
-                return
-
-            start_idx = self.load_state()
-            if start_idx >= len(groups):
-                start_idx = 0
-                
-            logging.info(f"Starting post cycle for {len(groups)} groups (Resuming from index {start_idx}).")
-            
-            for i, url in enumerate(groups[start_idx:], start=start_idx):
+            while getattr(self, "is_active", True):
+                # Reload config dynamicly for each cycle
                 try:
-                    # Check for pending posts before anything else
-                    has_pending = self.check_pending_posts(url)
+                    self.load_config()
+                except Exception as e:
+                    logging.warning(f"Could not reload config: {e}")
                     
-                    if not has_pending:
-                        if self.navigate_to_group(url):
-                            self.create_post()
-                            
-                            # Only wait if not the last group in this cycle
-                            if i < len(groups) - 1:
-                                delay_min = self.config.get('between_groups_min', 60)
-                                delay_max = self.config.get('between_groups_max', 180)
-                                logging.info(f"Waiting {delay_min}-{delay_max}s before next group...")
-                                self.random_sleep(delay_min, delay_max)
-                        else:
-                            logging.warning(f"Skipping post for {url} due to navigation failure.")
-                    else:
-                        logging.info(f"Skipped {url} due to existing pending post.")
+                groups = self.config.get('group_urls', [])
+                if not groups and self.config.get('group_url'):
+                    groups = [self.config['group_url']]
+
+                if not groups:
+                    logging.warning("No group URLs provided in config.")
+                    break
+
+                start_idx = self.load_state()
+                if start_idx >= len(groups):
+                    start_idx = 0
+                    
+                logging.info(f"Starting post cycle for {len(groups)} groups (Resuming from index {start_idx}).")
+                
+                for i, url in enumerate(groups[start_idx:], start=start_idx):
+                    if not getattr(self, "is_active", True):
+                        break
                         
-                    # Save progression index reliably
-                    self.save_state(i + 1)
-                        
-                except Exception as group_err:
-                    logging.error(f"Failed to post to {url}: {group_err}")
                     try:
-                        self.driver.save_screenshot(os.path.join(BASE_DIR, f"post_error_{i}.png"))
-                    except:
-                        pass
+                        # Check for pending posts before anything else
+                        has_pending = self.check_pending_posts(url)
+                        
+                        if not has_pending:
+                            if self.navigate_to_group(url):
+                                self.create_post()
+                                
+                                # Only wait if not the last group in this cycle OR if continuous
+                                if i < len(groups) - 1 or continuous:
+                                    delay_min = self.config.get('between_groups_min', 60)
+                                    delay_max = self.config.get('between_groups_max', 180)
+                                    logging.info(f"Waiting {delay_min}-{delay_max}s before next group...")
+                                    self.random_sleep(delay_min, delay_max)
+                            else:
+                                logging.warning(f"Skipping post for {url} due to navigation failure.")
+                        else:
+                            logging.info(f"Skipped {url} due to existing pending post.")
+                            
+                        # Save progression index reliably
+                        self.save_state(i + 1)
+                            
+                    except Exception as group_err:
+                        logging.error(f"Failed to post to {url}: {group_err}")
+                        try:
+                            self.driver.save_screenshot(os.path.join(BASE_DIR, f"post_error_{i}.png"))
+                        except:
+                            pass
+                        
+                        # Force raise if driver is unrecoverably dead so app.py restarts bot
+                        err_str = str(group_err).lower()
+                        if "no such window" in err_str or "unreachable" in err_str or "disconnected" in err_str:
+                            raise group_err
+                        
+                if not getattr(self, "is_active", True):
+                    break
                     
-                    # Force raise if driver is unrecoverably dead so app.py restarts bot
-                    err_str = str(group_err).lower()
-                    if "no such window" in err_str or "unreachable" in err_str or "disconnected" in err_str:
-                        raise group_err
+                # Loop completely finished, reset saved index for the next cycle
+                self.save_state(0)
+                logging.info("Completed post cycle for all groups.")
+                
+                if not continuous:
+                    break
                     
-            # Loop completely finished, reset saved index for the next cycle
-            self.save_state(0)
-            logging.info("Completed post cycle for all groups.")
+                # Sleep before cycling all groups again
+                rest_min = self.config.get('loop_rest_min', 3600)
+                rest_max = self.config.get('loop_rest_max', 7200)
+                rest_time = random.randint(rest_min, rest_max)
+                logging.info(f"== Cycle completed. Resting {rest_time} seconds before the next loop (Browser stays open)... ==")
+                
+                import time
+                start_rest = time.time()
+                while time.time() - start_rest < rest_time:
+                    if not getattr(self, "is_active", True):
+                        break
+                    time.sleep(1)
             
         except Exception as e:
             logging.error(f"Bot execution failed: {e}")
@@ -678,27 +707,18 @@ class FacebookBot:
 
 if __name__ == "__main__":
     import time
-    import random
     
     print("Bot is starting in continuous mode. Press Ctrl+C to stop.")
     while True:
         try:
             bot = FacebookBot()
-            bot.run()
-            
-            # If the bot finishes a full posting cycle, it checks config for rest time before looping back
-            # or defaults to 5-10 minutes if not set.
-            rest_min = bot.config.get('loop_rest_min', 300)
-            rest_max = bot.config.get('loop_rest_max', 600)
-            
-            rest_time = random.randint(rest_min, rest_max)
-            logging.info(f"== Cycle completed. Resting {rest_time} seconds before the next loop... ==")
-            time.sleep(rest_time)
-            
+            bot.run(continuous=True)
+            # If run completes without exception, it was normally stopped via is_active = False or Ctrl+C
+            break
         except KeyboardInterrupt:
             logging.info("Bot stopped by user (Ctrl+C). Exiting.")
             break
         except Exception as main_e:
             logging.error(f"FATAL ERROR! Bot crashed: {main_e}")
-            logging.info("Restarting bot in 30 seconds to recover from crash...")
+            logging.info("Restarting entirely in 30 seconds to recover from crash...")
             time.sleep(30)

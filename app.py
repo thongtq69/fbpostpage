@@ -44,24 +44,11 @@ def run_bot_task():
         try:
             logging.info("--- STARTING NEW FULL CYCLE ---")
             bot_instance = FacebookBot()
-            bot_instance.run(is_gui=True)
+            bot_instance.run(is_gui=True, continuous=True)
             
-            # One pass completed. Now rest before next cycle.
-            if not is_running: break
-            
-            # Use current config for rest interval
-            config_data = bot_instance.config
-            rest_min = config_data.get('loop_rest_min', 3600)
-            rest_max = config_data.get('loop_rest_max', 7200)
-            
-            rest_time = random.uniform(rest_min, rest_max)
-            logging.info(f"Cycle finished. Resting for {rest_time/60:.1f} minutes before next run...")
-            
-            # Sleep in chunks to allow fast stop
-            start_rest = time.time()
-            while time.time() - start_rest < rest_time:
-                if not is_running: break
-                time.sleep(1)
+            # If run completes normally (is_active became False), break the outer loop
+            if not is_running or not getattr(bot_instance, 'is_active', True):
+                break
                 
         except Exception as e:
             logging.error(f"FATAL: Bot crashed during run: {e}. Restarting in 60s...")
@@ -119,11 +106,13 @@ async def stop_bot():
         return {"status": "not running"}
     
     # Simple stop: quit driver if exists
-    if bot_instance and hasattr(bot_instance, 'driver'):
-        try:
-            bot_instance.driver.quit()
-        except:
-            pass
+    if bot_instance:
+        bot_instance.is_active = False
+        if hasattr(bot_instance, 'driver'):
+            try:
+                bot_instance.driver.quit()
+            except:
+                pass
     is_running = False
     return {"status": "stopping"}
 
