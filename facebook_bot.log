@@ -783,3 +783,46 @@ Stacktrace:
 2026-03-01 13:14:36,493 - INFO - Found 8 cookies.
 2026-03-01 13:14:36,508 - INFO - Cookies loaded successfully.
 2026-03-01 13:14:36,508 - INFO - Refreshing page to apply cookies...
+2026-03-01 21:05:37,961 - INFO - Loaded 9 images from config and 'pic' folder.
+2026-03-01 21:05:37,962 - INFO - Config loaded successfully.
+2026-03-01 21:05:38,136 - INFO - Detected Chrome version: 145
+2026-03-01 21:05:40,372 - INFO - Loaded 9 images from config and 'pic' folder.
+2026-03-01 21:05:40,372 - INFO - Config loaded successfully.
+2026-03-01 21:05:40,397 - INFO - Detected Chrome version: 145
+2026-03-01 21:05:42,085 - INFO - patching driver executable /Users/bephi/Library/Application Support/undetected_chromedriver/undetected_chromedriver
+2026-03-01 21:05:44,069 - INFO - Driver initialized successfully.
+2026-03-01 21:05:44,070 - INFO - Starting login process...
+2026-03-01 21:05:48,441 - INFO - Found 8 cookies.
+2026-03-01 21:05:48,457 - INFO - Cookies loaded successfully.
+2026-03-01 21:05:48,457 - INFO - Refreshing page to apply cookies...
+2026-03-01 21:06:15,850 - INFO - Already logged in (detected via input[type='search']).
+2026-03-01 21:06:15,851 - INFO - Navigating to page to switch profile: https://www.facebook.com/profile.php?id=61585603883149
+2026-03-01 21:06:51,383 - INFO - Clicked 'Switch now' button.
+2026-03-01 21:06:58,889 - INFO - ==========> Kiểm tra và xoá nhóm: https://www.facebook.com/groups/chocudanvinhomeq9 <==========
+2026-03-01 21:07:32,910 - INFO - Gặp trang lỗi kỹ thuật, đã bấm 'Tải lại trang'.
+2026-03-01 21:07:39,366 - INFO - Đã bấm nút 'Quản lý bài viết'.
+2026-03-01 21:07:39,441 - INFO - Tìm thấy 1 nút Xóa. Tiến hành xóa liên tục...
+2026-03-01 21:07:41,475 - INFO - Đã xóa bài 1/1
+2026-03-01 21:07:43,843 - INFO - Hoàn tất! Đã xóa 1 bài viết chờ trong nhóm này.
+2026-03-01 21:07:43,844 - INFO - ==========> Kiểm tra và xoá nhóm: https://www.facebook.com/groups/813436286236743 <==========
+2026-03-01 21:08:00,127 - INFO - Gặp trang lỗi kỹ thuật, đã bấm 'Tải lại trang'.
+2026-03-01 21:08:07,040 - INFO - Đã bấm nút 'Quản lý bài viết'.
+2026-03-01 21:08:07,062 - INFO - Đã DỌN SẠCH (hoặc không có) bài viết chờ trong nhóm này.
+2026-03-01 21:08:07,062 - INFO - ==========> Kiểm tra và xoá nhóm: https://www.facebook.com/groups/thietkewebchatluong/ <==========
+2026-03-01 21:08:18,384 - INFO - Gặp trang lỗi kỹ thuật, đã bấm 'Tải lại trang'.
+2026-03-01 21:08:23,999 - INFO - Đã bấm nút 'Quản lý bài viết'.
+2026-03-01 21:08:24,116 - INFO - Tìm thấy 2 nút Xóa. Tiến hành xóa liên tục...
+2026-03-01 21:08:26,211 - INFO - Đã xóa bài 1/2
+2026-03-01 21:08:31,029 - INFO - Đã xóa bài 2/2
+2026-03-01 21:08:33,369 - INFO - Hoàn tất! Đã xóa 2 bài viết chờ trong nhóm này.
+2026-03-01 21:08:33,369 - INFO - ==========> Kiểm tra và xoá nhóm: https://www.facebook.com/groups/3868126263305226 <==========
+2026-03-01 21:08:47,304 - INFO - Gặp trang lỗi kỹ thuật, đã bấm 'Tải lại trang'.
+2026-03-01 21:08:52,902 - INFO - Đã bấm nút 'Quản lý bài viết'.
+2026-03-01 21:08:52,992 - INFO - Tìm thấy 1 nút Xóa. Tiến hành xóa liên tục...
+2026-03-01 21:08:55,273 - INFO - Đã xóa bài 1/1
+2026-03-01 21:08:58,259 - INFO - Hoàn tất! Đã xóa 1 bài viết chờ trong nhóm này.
+2026-03-01 21:08:58,259 - INFO - ==========> ĐÃ DỌN DẸP HOÀN TẤT TẤT CẢ CÁC NHÓM <==========
+2026-03-01 21:08:58,259 - INFO - Đang đóng trình duyệt...
+2026-03-01 21:11:04,898 - INFO - Loaded 9 images from config and 'pic' folder.
+2026-03-01 21:11:04,899 - INFO - Config loaded successfully.
+2026-03-01 21:11:05,369 - INFO - Detected Chrome version: 145

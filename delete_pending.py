@@ -109,60 +109,88 @@ def delete_all_pending(bot, url):
         logging.info(f"Đã DỌN SẠCH (hoặc không có) bài viết chờ trong nhóm này.")
         return
     
-    # Tìm tất cả nút Xóa trên trang
-    delete_btns = find_delete_buttons(bot)
+def delete_all_pending(bot, url):
+    logging.info(f"==========> Kiểm tra và xoá nhóm: {url} <==========")
     
-    if not delete_btns:
-        logging.info("Không tìm thấy nút Xoá nào. Chuyển nhóm...")
+    if not navigate_to_pending(bot, url):
+        logging.info("Không thể truy cập trang bài viết chờ. Bỏ qua nhóm này.")
         return
     
-    total = len(delete_btns)
     deleted = 0
-    logging.info(f"Tìm thấy {total} nút Xóa. Tiến hành xóa liên tục...")
+    consecutive_empty_checks = 0
+    max_empty_checks = 3 # Thử scroll vài lần trước khi thực sự bỏ cuộc
     
-    # Xóa tất cả bài viết liên tục KHÔNG tải lại trang
-    for i in range(total):
+    while True:
         try:
-            # Tìm lại nút sau mỗi lần xóa vì DOM có thể thay đổi
-            current_btns = find_delete_buttons(bot)
-            if not current_btns:
-                logging.info("Hết nút Xóa trên trang.")
+            # 1. Kiểm tra trạng thái rỗng
+            body_text = bot.driver.find_element(By.TAG_NAME, "body").text.lower()
+            if "không có bài" in body_text or "nothing to show" in body_text or "no posts to show" in body_text or "no pending posts" in body_text:
+                logging.info(f"Đã DỌN SẠCH (hoặc không có) bài viết chờ trong nhóm này.")
                 break
+                
+            # 2. Lấy danh sách nút Xoá hiện có
+            delete_btns = find_delete_buttons(bot)
             
-            btn = current_btns[0]  # Luôn lấy nút đầu tiên còn lại
+            if not delete_btns:
+                # Nếu không thấy nút, thử scroll xuống xem có bài mới load lên không
+                logging.info("Chưa thấy nút Xoá, đang scroll xuống...")
+                bot.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+                bot.random_sleep(3, 5)
+                consecutive_empty_checks += 1
+                
+                if consecutive_empty_checks >= max_empty_checks:
+                    logging.info("Đã scroll nhiều lần vẫn không thấy bài mới. Chuyển nhóm...")
+                    break
+                continue
             
-            # Cuộn vào giữa màn hình
-            bot.driver.execute_script(
-                "arguments[0].scrollIntoView({block: 'center', inline: 'nearest'});", btn
-            )
-            time.sleep(0.5)
+            # Reset check khi thấy có bài
+            consecutive_empty_checks = 0
             
-            # Click nút Xóa
-            js_click(bot.driver, btn)
-            bot.random_sleep(1, 2)
-            
-            # Tìm và bấm nút Xác nhận trong hộp thoại
-            xpath_confirm = "//div[@role='dialog']//div[@role='button' and (contains(., 'Xóa') or contains(., 'Xoá') or contains(., 'Delete') or contains(., 'Confirm') or contains(., 'Xác nhận'))]"
-            
+            # 3. Tiến hành xoá bài đầu tiên nhìn thấy
+            btn = delete_btns[0]
             try:
-                confirm_btn = WebDriverWait(bot.driver, 5).until(
-                    EC.element_to_be_clickable((By.XPATH, xpath_confirm))
+                # Cuộn vào giữa màn hình
+                bot.driver.execute_script(
+                    "arguments[0].scrollIntoView({block: 'center', inline: 'nearest'});", btn
                 )
-                js_click(bot.driver, confirm_btn)
-                deleted += 1
-                logging.info(f"Đã xóa bài {deleted}/{total}")
-                bot.random_sleep(2, 3)  # Đợi Facebook xử lý xóa
-            except:
-                logging.warning("Không tìm thấy nút Xác nhận. Đóng dialog và thử bài tiếp theo...")
-                from selenium.webdriver.common.keys import Keys
-                bot.driver.find_element(By.TAG_NAME, 'body').send_keys(Keys.ESCAPE)
+                time.sleep(1)
+                
+                # Click nút Xóa
+                js_click(bot.driver, btn)
                 bot.random_sleep(1, 2)
                 
-        except Exception as click_err:
-            logging.warning(f"Lỗi khi xóa bài thứ {i+1}: {click_err}")
-            continue
-    
-    logging.info(f"Hoàn tất! Đã xóa {deleted} bài viết chờ trong nhóm này.")
+                # Tìm và bấm nút Xác nhận trong hộp thoại (Dialog)
+                xpath_confirm = "//div[@role='dialog']//div[@role='button' and (contains(., 'Xóa') or contains(., 'Xoá') or contains(., 'Delete') or contains(., 'Confirm') or contains(., 'Xác nhận'))]"
+                
+                try:
+                    # Chờ hộp thoại confirm hiện lên
+                    confirm_btn = WebDriverWait(bot.driver, 5).until(
+                        EC.element_to_be_clickable((By.XPATH, xpath_confirm))
+                    )
+                    js_click(bot.driver, confirm_btn)
+                    deleted += 1
+                    logging.info(f"Đã xoá bài thứ {deleted}...")
+                    
+                    # Đợi bài biến mất khỏi danh sách (Fade out)
+                    bot.random_sleep(3, 4) 
+                except:
+                    # Nếu lỗi dialog, thử bấm ESC để đóng và tiếp tục
+                    logging.warning("Không thấy nút Xác nhận xoá, đang đóng dialog...")
+                    from selenium.webdriver.common.keys import Keys
+                    bot.driver.find_element(By.TAG_NAME, 'body').send_keys(Keys.ESCAPE)
+                    bot.random_sleep(1, 2)
+            
+            except Exception as e:
+                logging.warning(f"Lỗi khi xử lý 1 article: {e}")
+                # Nếu rủi ro kẹt bài này, scroll qua nó hoặc reload nhẹ
+                bot.driver.execute_script("window.scrollBy(0, 300);")
+                bot.random_sleep(1, 2)
+
+        except Exception as e:
+            logging.error(f"Lỗi vòng lặp xoá: {e}")
+            break
+            
+    logging.info(f"Hoàn tất nhóm! Tổng cộng đã xoá {deleted} bài bài viết chờ.")
 
 
 def main():
