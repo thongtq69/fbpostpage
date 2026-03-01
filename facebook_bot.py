@@ -529,24 +529,37 @@ class FacebookBot:
             # Wait explicitly for the popup's textbox to be ready and interactable
             # Some groups open a 'Buy/Sell' popup, others 'Discussion'. 
             # Searching for the contenteditable textbox is usually safer than just assuming the active element.
+            textbox = None
             try:
-                textbox = WebDriverWait(self.driver, 10).until(
-                    EC.presence_of_element_located((By.XPATH, "//div[@role='textbox' and @contenteditable='true']"))
+                # Tìm element text box chính (thường là cái rộng trãi nhất và có aria-label liên quan đến tạo bài)
+                textbox_xpath = "//div[@role='textbox' and @contenteditable='true']"
+                textboxes = WebDriverWait(self.driver, 10).until(
+                    EC.presence_of_all_elements_located((By.XPATH, textbox_xpath))
                 )
+                
+                # Nếu có nhiều textbox (VD trong form Bán hàng có Tiêu đề và Mô tả), 
+                # thường cái cuối cùng hoặc cái có aria-label là chỗ thích hợp nhất để viết (Mô tả).
+                textbox = textboxes[-1] 
+                
                 try:
                     textbox.click()
                 except:
                     self.driver.execute_script("arguments[0].focus();", textbox)
                 self.random_sleep(1, 2)
             except Exception as wait_err:
-                logging.warning(f"Did not find explicit textbox to click, relying on active element: {wait_err}")
+                logging.warning(f"Did not find explicit textbox to click: {wait_err}")
 
-            active_element = self.driver.switch_to.active_element
             if self.config.get('post_content'):
                 try:
-                    self.human_typing(active_element, self.config['post_content'])
+                    # Type trực tiếp vào textbox nếu tìm thấy thẻ an toàn
+                    if textbox:
+                        self.human_typing(textbox, self.config['post_content'])
+                    else:
+                        # Fallback cuối cùng mới dùng active element
+                        active_element = self.driver.switch_to.active_element
+                        self.human_typing(active_element, self.config['post_content'])
                 except Exception as type_err:
-                    logging.error(f"Failed to type content into active element: {type_err}")
+                    logging.error(f"Failed to type content: {type_err}")
             
             self.random_sleep()
 
