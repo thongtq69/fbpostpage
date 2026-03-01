@@ -1,19 +1,30 @@
 {
-    "email": "thong.quoc.791790",
-    "password": "qthong69@",
     "group_url": "",
+    "between_groups_min": 60,
+    "loop_rest_min": 60,
+    "between_groups_max": 120,
+    "password": "qthong69@",
+    "max_delay": 3,
+    "post_content": "Dạ em chào mọi ngườii, em hỗ trợ:\nThiết kế website theo yêu cầu\nSEO website lên top tìm kiếm\nTích hợp AI – trợ lý AI hỗ trợ đến 95% công việc\nXử lý & tối ưu mạng xã hội với chi phí cực kỳ mềm\nChỉ từ 500k (hoàn thành mới thanh toán)\nAnh/chị có ngay thương hiệu cá nhân chuyên nghiệp – hiện đại,\ngiúp kinh doanh & bán hàng hiệu quả hơn rõ rệt\nAnh/chị nhắn tin trực tiếp cho em để được tư vấn\nSĐT: 0 chín️ 7 1 bốn️ 5 0 bốn️ năm️ 4\nSẵn sàng hỗ trợ gặp trao đổi trực tiếp \nTư vấn tận tâm – Làm nhanh – Hỗ trợ lâu dài\nWebsite: winterfrost.tech",
+    "page_url": "https://www.facebook.com/profile.php?id=61585603883149",
+    "loop_rest_max": 120,
     "group_urls": [
         "https://www.facebook.com/groups/chocudanvinhomeq9",
         "https://www.facebook.com/groups/813436286236743",
         "https://www.facebook.com/groups/thietkewebchatluong/",
-        "https://www.facebook.com/groups/3868126263305226"
+        "https://www.facebook.com/groups/3868126263305226",
+        "https://www.facebook.com/groups/toolwebapp/",
+        "https://www.facebook.com/groups/thietkewebvietnam/",
+        "https://www.facebook.com/groups/1685891735047297/",
+        "https://www.facebook.com/groups/606643771643699/",
+        "https://www.facebook.com/groups/1712169349298592/",
+        "https://www.facebook.com/groups/hoithietkewebsiteviet/",
+        "https://www.facebook.com/groups/1998083910206781/",
+        "https://www.facebook.com/groups/1953768764898561",
+        "https://www.facebook.com/groups/canhovhgpthuduc",
+        "https://www.facebook.com/groups/1253003428939928",
+        "https://www.facebook.com/groups/197773610041069"
     ],
-    "page_url": "https://www.facebook.com/profile.php?id=61585603883149",
-    "post_content": "Dạ em chào mọi ngườii, em hỗ trợ:\nThiết kế website theo yêu cầu\nSEO website lên top tìm kiếm\nTích hợp AI – trợ lý AI hỗ trợ đến 95% công việc\nXử lý & tối ưu mạng xã hội với chi phí cực kỳ mềm\nChỉ từ 500k (hoàn thành mới thanh toán)\nAnh/chị có ngay thương hiệu cá nhân chuyên nghiệp – hiện đại,\ngiúp kinh doanh & bán hàng hiệu quả hơn rõ rệt\nAnh/chị nhắn tin trực tiếp cho em để được tư vấn\nSĐT: 0 chín️ 7 1 bốn️ 5 0 bốn️ năm️ 4\nSẵn sàng hỗ trợ gặp trao đổi trực tiếp \nTư vấn tận tâm – Làm nhanh – Hỗ trợ lâu dài\nWebsite: winterfrost.tech",
     "min_delay": 1,
-    "max_delay": 3,
-    "between_groups_min": 60,
-    "between_groups_max": 120,
-    "loop_rest_min": 60,
-    "loop_rest_max": 120
+    "email": "thong.quoc.791790"
 }

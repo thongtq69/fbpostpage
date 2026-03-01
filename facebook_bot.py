@@ -404,6 +404,16 @@ class FacebookBot:
         self.driver.get(group_url)
         self.random_sleep(3, 5)
         
+        # Step 2: Find and click "Quản lý bài viết" / "Manage posts" button
+        manage_selectors = [
+            "//span[contains(text(), 'Quản lý bài viết')]",
+            "//a[contains(text(), 'Quản lý bài viết')]",
+            "//span[contains(text(), 'Manage posts')]",
+            "//a[contains(text(), 'Manage posts')]",
+            "//a[contains(@href, 'my_pending_content')]",
+            "//div[@role='button' and contains(., 'Quản lý bài viết')]",
+        ]
+        
         for selector in manage_selectors:
             try:
                 btn = WebDriverWait(self.driver, 3).until(
