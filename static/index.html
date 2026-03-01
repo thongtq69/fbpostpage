@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook Bot Manager</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: #0f0f1a;
+            color: #e0e0e0;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 28px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 24px;
+        }
+
+        .card {
+            background: #1a1a2e;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 16px;
+            border: 1px solid #2a2a4a;
+        }
+
+        .card h2 {
+            font-size: 16px;
+            color: #8b8bbd;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        label {
+            display: block;
+            font-size: 13px;
+            color: #9090b0;
+            margin-bottom: 4px;
+            margin-top: 12px;
+        }
+
+        label:first-of-type {
+            margin-top: 0;
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px 12px;
+            background: #12121f;
+            border: 1px solid #333360;
+            border-radius: 8px;
+            color: #e0e0e0;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: #667eea;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+            font-family: inherit;
+        }
+
+        .row {
+            display: flex;
+            gap: 12px;
+        }
+
+        .row>div {
+            flex: 1;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 16px;
+        }
+
+        button {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            flex: 1;
+        }
+
+        .btn-save {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-save:hover {
+            background: #5a6fd6;
+        }
+
+        .btn-start {
+            background: #22c55e;
+            color: white;
+        }
+
+        .btn-start:hover {
+            background: #16a34a;
+        }
+
+        .btn-stop {
+            background: #ef4444;
+            color: white;
+        }
+
+        .btn-stop:hover {
+            background: #dc2626;
+        }
+
+        .status-bar {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            background: #12121f;
+            border-radius: 8px;
+            margin-bottom: 12px;
+        }
+
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #666;
+        }
+
+        .status-dot.running {
+            background: #22c55e;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.4;
+            }
+        }
+
+        .log-box {
+            background: #0a0a14;
+            border: 1px solid #2a2a4a;
+            border-radius: 8px;
+            padding: 12px;
+            height: 300px;
+            overflow-y: auto;
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 12px;
+            line-height: 1.6;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+
+        .toast {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 12px 20px;
+            background: #22c55e;
+            color: white;
+            border-radius: 8px;
+            font-weight: 600;
+            display: none;
+            z-index: 100;
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>🤖 Facebook Bot Manager</h1>
+
+        <div class="card">
+            <h2>Trạng thái</h2>
+            <div class="status-bar">
+                <div class="status-dot" id="statusDot"></div>
+                <span id="statusText">Đang kiểm tra...</span>
+                <span style="margin-left: auto; font-size: 12px; color: #666;" id="imgCount"></span>
+            </div>
+            <div class="btn-group">
+                <button class="btn-start" onclick="startBot()">▶ Bắt đầu</button>
+                <button class="btn-stop" onclick="stopBot()">⏹ Dừng lại</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Cấu hình</h2>
+            <label>Page URL (để chuyển Profile)</label>
+            <input type="text" id="page_url" placeholder="https://www.facebook.com/profile.php?id=...">
+
+            <label>Group URLs (mỗi dòng 1 link)</label>
+            <textarea id="group_urls"
+                placeholder="https://www.facebook.com/groups/group1&#10;https://www.facebook.com/groups/group2"></textarea>
+
+            <label>Nội dung bài viết</label>
+            <textarea id="post_content" placeholder="Nội dung bài đăng..."></textarea>
+
+            <div class="row">
+                <div>
+                    <label>Nghỉ giữa Groups (giây min)</label>
+                    <input type="number" id="between_groups_min" value="60">
+                </div>
+                <div>
+                    <label>Nghỉ giữa Groups (giây max)</label>
+                    <input type="number" id="between_groups_max" value="180">
+                </div>
+            </div>
+
+            <div class="row">
+                <div>
+                    <label>Nghỉ giữa vòng lặp (giây min)</label>
+                    <input type="number" id="loop_rest_min" value="3600">
+                </div>
+                <div>
+                    <label>Nghỉ giữa vòng lặp (giây max)</label>
+                    <input type="number" id="loop_rest_max" value="7200">
+                </div>
+            </div>
+
+            <div class="btn-group">
+                <button class="btn-save" onclick="saveConfig()">💾 Lưu cấu hình</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Nhật ký hoạt động</h2>
+            <div class="log-box" id="logBox">Đang tải logs...</div>
+        </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script>
+        function showToast(msg, color = '#22c55e') {
+            const t = document.getElementById('toast');
+            t.textContent = msg;
+            t.style.background = color;
+            t.style.display = 'block';
+            setTimeout(() => t.style.display = 'none', 2500);
+        }
+
+        async function loadConfig() {
+            try {
+                const res = await fetch('/api/config');
+                const cfg = await res.json();
+                document.getElementById('page_url').value = cfg.page_url || '';
+                document.getElementById('group_urls').value = (cfg.group_urls || []).join('\n');
+                document.getElementById('post_content').value = cfg.post_content || '';
+                document.getElementById('between_groups_min').value = cfg.between_groups_min || 60;
+                document.getElementById('between_groups_max').value = cfg.between_groups_max || 180;
+                document.getElementById('loop_rest_min').value = cfg.loop_rest_min || 3600;
+                document.getElementById('loop_rest_max').value = cfg.loop_rest_max || 7200;
+            } catch (e) { console.error(e); }
+        }
+
+        async function saveConfig() {
+            const groupText = document.getElementById('group_urls').value;
+            const groups = groupText.split('\n').map(s => s.trim()).filter(s => s.length > 0);
+            const data = {
+                page_url: document.getElementById('page_url').value,
+                group_urls: groups,
+                post_content: document.getElementById('post_content').value,
+                between_groups_min: parseInt(document.getElementById('between_groups_min').value) || 60,
+                between_groups_max: parseInt(document.getElementById('between_groups_max').value) || 180,
+                loop_rest_min: parseInt(document.getElementById('loop_rest_min').value) || 3600,
+                loop_rest_max: parseInt(document.getElementById('loop_rest_max').value) || 7200,
+            };
+            try {
+                await fetch('/api/config', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                showToast('✅ Đã lưu cấu hình!');
+            } catch (e) {
+                showToast('❌ Lỗi!', '#ef4444');
+            }
+        }
+
+        async function startBot() {
+            const res = await fetch('/api/start', { method: 'POST' });
+            const d = await res.json();
+            showToast('🚀 ' + d.status);
+            checkStatus();
+        }
+
+        async function stopBot() {
+            const res = await fetch('/api/stop', { method: 'POST' });
+            const d = await res.json();
+            showToast('⏹ ' + d.status, '#ef4444');
+            checkStatus();
+        }
+
+        async function checkStatus() {
+            try {
+                const res = await fetch('/api/status');
+                const d = await res.json();
+                const dot = document.getElementById('statusDot');
+                const txt = document.getElementById('statusText');
+                const img = document.getElementById('imgCount');
+                if (d.running) {
+                    dot.classList.add('running');
+                    txt.textContent = 'Đang chạy...';
+                } else {
+                    dot.classList.remove('running');
+                    txt.textContent = 'Đã dừng';
+                }
+                img.textContent = d.image_count + ' ảnh trong thư mục pic/';
+            } catch (e) { }
+        }
+
+        async function loadLogs() {
+            try {
+                const res = await fetch('/api/logs');
+                const d = await res.json();
+                const box = document.getElementById('logBox');
+                box.textContent = d.logs || 'Chưa có logs.';
+                box.scrollTop = box.scrollHeight;
+            } catch (e) { }
+        }
+
+        loadConfig();
+        checkStatus();
+        loadLogs();
+        setInterval(checkStatus, 5000);
+        setInterval(loadLogs, 5000);
+    </script>
+</body>
+
+</html>
