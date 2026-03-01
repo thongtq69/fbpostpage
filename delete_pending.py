@@ -33,6 +33,21 @@ def navigate_to_pending(bot, group_url):
             )
             btn.click()
             bot.random_sleep(3, 5)
+            
+            # Sau khi bấm, nếu gặp lỗi "Trang này hiện không hiển thị" thì bấm Tải lại
+            try:
+                body_now = bot.driver.find_element(By.TAG_NAME, "body").text.lower()
+                if "trang này hiện không hiển thị" in body_now or "trang này không hiển thị" in body_now:
+                    reload_btn_xpath = "//div[@role='button' and contains(., 'Tải lại trang')]"
+                    r_btn = WebDriverWait(bot.driver, 5).until(
+                        EC.element_to_be_clickable((By.XPATH, reload_btn_xpath))
+                    )
+                    r_btn.click()
+                    logging.info("Gặp trang lỗi kỹ thuật, đã bấm 'Tải lại trang'.")
+                    bot.random_sleep(5, 7)
+            except:
+                pass
+
             logging.info(f"Đã bấm nút 'Quản lý bài viết'.")
             return True
         except:
@@ -42,6 +57,19 @@ def navigate_to_pending(bot, group_url):
     logging.info(f"Không tìm thấy nút, thử URL trực tiếp: {pending_url}")
     bot.driver.get(pending_url)
     bot.random_sleep(4, 6)
+    
+    # Kiểm tra lỗi ở đây nữa nếu đi bằng URL trực tiếp
+    try:
+        body_now = bot.driver.find_element(By.TAG_NAME, "body").text.lower()
+        if "trang này hiện không hiển thị" in body_now or "trang này không hiển thị" in body_now:
+            reload_btn_xpath = "//div[@role='button' and contains(., 'Tải lại trang')]"
+            r_btns = bot.driver.find_elements(By.XPATH, reload_btn_xpath)
+            if r_btns:
+                r_btns[0].click()
+                logging.info("Gặp trang lỗi kỹ thuật (URL), đã bấm 'Tải lại trang'.")
+                bot.random_sleep(5, 7)
+    except:
+        pass
     
     body_text = bot.driver.find_element(By.TAG_NAME, "body").text.lower()
     if "trang này không hiển thị" in body_text or "this page isn't available" in body_text or "liên kết đã hỏng" in body_text:

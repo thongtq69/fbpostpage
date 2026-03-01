@@ -404,15 +404,6 @@ class FacebookBot:
         self.driver.get(group_url)
         self.random_sleep(3, 5)
         
-        # Step 2: Find and click "Quản lý bài viết" / "Manage posts" button
-        manage_selectors = [
-            "//span[contains(text(), 'Quản lý bài viết')]",
-            "//a[contains(text(), 'Quản lý bài viết')]",
-            "//span[contains(text(), 'Manage posts')]",
-            "//a[contains(text(), 'Manage posts')]",
-            "//a[contains(@href, 'my_pending_content')]",
-        ]
-        
         for selector in manage_selectors:
             try:
                 btn = WebDriverWait(self.driver, 3).until(
@@ -420,6 +411,21 @@ class FacebookBot:
                 )
                 btn.click()
                 self.random_sleep(3, 5)
+                
+                # Sau khi bấm, nếu gặp lỗi "Trang này hiện không hiển thị" thì bấm Tải lại
+                try:
+                    body_now = self.driver.find_element(By.TAG_NAME, "body").text.lower()
+                    if "trang này hiện không hiển thị" in body_now or "trang này không hiển thị" in body_now:
+                        reload_btn_xpath = "//div[@role='button' and contains(., 'Tải lại trang')]"
+                        r_btn = WebDriverWait(self.driver, 5).until(
+                            EC.element_to_be_clickable((By.XPATH, reload_btn_xpath))
+                        )
+                        r_btn.click()
+                        logging.info("Gặp trang lỗi kỹ thuật, đã bấm 'Tải lại trang'.")
+                        self.random_sleep(5, 7)
+                except:
+                    pass
+
                 logging.info(f"Clicked 'Quản lý bài viết' button.")
                 return True
             except:
@@ -430,6 +436,19 @@ class FacebookBot:
         logging.info(f"Button not found, trying direct URL: {pending_url}")
         self.driver.get(pending_url)
         self.random_sleep(4, 6)
+        
+        # Kiểm tra lỗi ở đây nữa nếu đi bằng URL trực tiếp
+        try:
+            body_now = self.driver.find_element(By.TAG_NAME, "body").text.lower()
+            if "trang này hiện không hiển thị" in body_now or "trang này không hiển thị" in body_now:
+                reload_btn_xpath = "//div[@role='button' and contains(., 'Tải lại trang')]"
+                r_btns = self.driver.find_elements(By.XPATH, reload_btn_xpath)
+                if r_btns:
+                    r_btns[0].click()
+                    logging.info("Gặp trang lỗi kỹ thuật (URL), đã bấm 'Tải lại trang'.")
+                    self.random_sleep(5, 7)
+        except:
+            pass
         
         # Check if page loaded correctly (not error page)
         body_text = self.driver.find_element(By.TAG_NAME, "body").text.lower()
