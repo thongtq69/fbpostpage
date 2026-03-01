@@ -632,3 +632,154 @@ Stacktrace:
 2026-03-01 12:53:33,087 - INFO - Không xoá được bài nào trong lượt này. Dừng lại tránh lặp vô tận!
 2026-03-01 12:53:33,087 - INFO - ==========> ĐÃ DỌN DẸP HOÀN TẤT TẤT CẢ CÁC NHÓM <==========
 2026-03-01 12:53:33,087 - INFO - Đang đóng trình duyệt...
+2026-03-01 13:11:19,966 - INFO - Loaded 9 images from config and 'pic' folder.
+2026-03-01 13:11:19,967 - INFO - Config loaded successfully.
+2026-03-01 13:11:20,369 - INFO - Detected Chrome version: 145
+2026-03-01 13:11:22,295 - INFO - patching driver executable /Users/bephi/Library/Application Support/undetected_chromedriver/undetected_chromedriver
+2026-03-01 13:11:24,264 - INFO - Driver initialized successfully.
+2026-03-01 13:11:24,266 - INFO - Starting login process...
+2026-03-01 13:11:27,635 - INFO - Found 8 cookies.
+2026-03-01 13:11:27,648 - INFO - Cookies loaded successfully.
+2026-03-01 13:11:27,648 - INFO - Refreshing page to apply cookies...
+2026-03-01 13:11:46,573 - INFO - Already logged in (detected via input[type='search']).
+2026-03-01 13:11:46,574 - INFO - Navigating to page to switch profile: https://www.facebook.com/profile.php?id=61585603883149
+2026-03-01 13:12:25,321 - INFO - Clicked 'Switch now' button.
+2026-03-01 13:12:31,889 - INFO - Loaded 9 images from config and 'pic' folder.
+2026-03-01 13:12:31,890 - INFO - Config loaded successfully.
+2026-03-01 13:12:31,890 - INFO - Starting post cycle for 4 groups (Resuming from index 0).
+2026-03-01 13:12:31,890 - INFO - Checking pending posts for: https://www.facebook.com/groups/chocudanvinhomeq9
+2026-03-01 13:13:06,190 - INFO - Clicked 'Quản lý bài viết' button.
+2026-03-01 13:13:06,228 - INFO - Explicit 'no pending posts' message found. Proceeding to post.
+2026-03-01 13:13:06,228 - INFO - Navigating to group: https://www.facebook.com/groups/chocudanvinhomeq9
+2026-03-01 13:13:17,916 - INFO - Attempting to create post...
+2026-03-01 13:13:30,343 - INFO - Clicked post button using selector: //span[contains(text(), 'Bạn viết gì đi...')]
+2026-03-01 13:13:42,712 - INFO - Images uploaded.
+2026-03-01 13:13:49,853 - WARNING - Failed to click post, retrying: 'NoneType' object has no attribute 'is_displayed'
+2026-03-01 13:13:51,782 - WARNING - Failed to click post, retrying: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=145.0.7632.117)
+Stacktrace:
+0   undetected_chromedriver             0x0000000104fcc5c8 undetected_chromedriver + 6698440
+1   undetected_chromedriver             0x0000000104fc3e4a undetected_chromedriver + 6663754
+2   undetected_chromedriver             0x00000001049d7ba5 undetected_chromedriver + 453541
+3   undetected_chromedriver             0x00000001049aaf98 undetected_chromedriver + 270232
+4   undetected_chromedriver             0x0000000104a5b148 undetected_chromedriver + 991560
+5   undetected_chromedriver             0x0000000104a74f78 undetected_chromedriver + 1097592
+6   undetected_chromedriver             0x0000000104a1e387 undetected_chromedriver + 742279
+7   undetected_chromedriver             0x0000000104a1f161 undetected_chromedriver + 745825
+8   undetected_chromedriver             0x0000000104f86171 undetected_chromedriver + 6410609
+9   undetected_chromedriver             0x0000000104f8a582 undetected_chromedriver + 6428034
+10  undetected_chromedriver             0x0000000104f67169 undetected_chromedriver + 6283625
+11  undetected_chromedriver             0x0000000104f8afd8 undetected_chromedriver + 6430680
+12  undetected_chromedriver             0x0000000104f55c20 undetected_chromedriver + 6212640
+13  undetected_chromedriver             0x0000000104fb0c98 undetected_chromedriver + 6585496
+14  undetected_chromedriver             0x0000000104fb0e52 undetected_chromedriver + 6585938
+15  undetected_chromedriver             0x0000000104fc3a56 undetected_chromedriver + 6662742
+16  libsystem_pthread.dylib             0x00007ff81b614e4d _pthread_start + 115
+17  libsystem_pthread.dylib             0x00007ff81b610857 thread_start + 15
+
+2026-03-01 13:13:53,607 - WARNING - Failed to click post, retrying: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=145.0.7632.117)
+Stacktrace:
+0   undetected_chromedriver             0x0000000104fcc5c8 undetected_chromedriver + 6698440
+1   undetected_chromedriver             0x0000000104fc3e4a undetected_chromedriver + 6663754
+2   undetected_chromedriver             0x00000001049d7ba5 undetected_chromedriver + 453541
+3   undetected_chromedriver             0x00000001049aaf98 undetected_chromedriver + 270232
+4   undetected_chromedriver             0x0000000104a5b148 undetected_chromedriver + 991560
+5   undetected_chromedriver             0x0000000104a74f78 undetected_chromedriver + 1097592
+6   undetected_chromedriver             0x0000000104a1e387 undetected_chromedriver + 742279
+7   undetected_chromedriver             0x0000000104a1f161 undetected_chromedriver + 745825
+8   undetected_chromedriver             0x0000000104f86171 undetected_chromedriver + 6410609
+9   undetected_chromedriver             0x0000000104f8a582 undetected_chromedriver + 6428034
+10  undetected_chromedriver             0x0000000104f67169 undetected_chromedriver + 6283625
+11  undetected_chromedriver             0x0000000104f8afd8 undetected_chromedriver + 6430680
+12  undetected_chromedriver             0x0000000104f55c20 undetected_chromedriver + 6212640
+13  undetected_chromedriver             0x0000000104fb0c98 undetected_chromedriver + 6585496
+14  undetected_chromedriver             0x0000000104fb0e52 undetected_chromedriver + 6585938
+15  undetected_chromedriver             0x0000000104fc3a56 undetected_chromedriver + 6662742
+16  libsystem_pthread.dylib             0x00007ff81b614e4d _pthread_start + 115
+17  libsystem_pthread.dylib             0x00007ff81b610857 thread_start + 15
+
+2026-03-01 13:13:54,906 - ERROR - Failed to click post button after retries.
+2026-03-01 13:13:54,906 - ERROR - Error creating post: Could not interact with post button.
+2026-03-01 13:13:54,907 - ERROR - Failed to post to https://www.facebook.com/groups/chocudanvinhomeq9: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=145.0.7632.117)
+Stacktrace:
+0   undetected_chromedriver             0x0000000104fcc5c8 undetected_chromedriver + 6698440
+1   undetected_chromedriver             0x0000000104fc3e4a undetected_chromedriver + 6663754
+2   undetected_chromedriver             0x00000001049d7ba5 undetected_chromedriver + 453541
+3   undetected_chromedriver             0x00000001049aaf98 undetected_chromedriver + 270232
+4   undetected_chromedriver             0x0000000104a5b148 undetected_chromedriver + 991560
+5   undetected_chromedriver             0x0000000104a74f78 undetected_chromedriver + 1097592
+6   undetected_chromedriver             0x0000000104a1e387 undetected_chromedriver + 742279
+7   undetected_chromedriver             0x0000000104a1f161 undetected_chromedriver + 745825
+8   undetected_chromedriver             0x0000000104f86171 undetected_chromedriver + 6410609
+9   undetected_chromedriver             0x0000000104f8a582 undetected_chromedriver + 6428034
+10  undetected_chromedriver             0x0000000104f67169 undetected_chromedriver + 6283625
+11  undetected_chromedriver             0x0000000104f8afd8 undetected_chromedriver + 6430680
+12  undetected_chromedriver             0x0000000104f55c20 undetected_chromedriver + 6212640
+13  undetected_chromedriver             0x0000000104fb0c98 undetected_chromedriver + 6585496
+14  undetected_chromedriver             0x0000000104fb0e52 undetected_chromedriver + 6585938
+15  undetected_chromedriver             0x0000000104fc3a56 undetected_chromedriver + 6662742
+16  libsystem_pthread.dylib             0x00007ff81b614e4d _pthread_start + 115
+17  libsystem_pthread.dylib             0x00007ff81b610857 thread_start + 15
+
+2026-03-01 13:13:54,908 - ERROR - Bot execution failed: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=145.0.7632.117)
+Stacktrace:
+0   undetected_chromedriver             0x0000000104fcc5c8 undetected_chromedriver + 6698440
+1   undetected_chromedriver             0x0000000104fc3e4a undetected_chromedriver + 6663754
+2   undetected_chromedriver             0x00000001049d7ba5 undetected_chromedriver + 453541
+3   undetected_chromedriver             0x00000001049aaf98 undetected_chromedriver + 270232
+4   undetected_chromedriver             0x0000000104a5b148 undetected_chromedriver + 991560
+5   undetected_chromedriver             0x0000000104a74f78 undetected_chromedriver + 1097592
+6   undetected_chromedriver             0x0000000104a1e387 undetected_chromedriver + 742279
+7   undetected_chromedriver             0x0000000104a1f161 undetected_chromedriver + 745825
+8   undetected_chromedriver             0x0000000104f86171 undetected_chromedriver + 6410609
+9   undetected_chromedriver             0x0000000104f8a582 undetected_chromedriver + 6428034
+10  undetected_chromedriver             0x0000000104f67169 undetected_chromedriver + 6283625
+11  undetected_chromedriver             0x0000000104f8afd8 undetected_chromedriver + 6430680
+12  undetected_chromedriver             0x0000000104f55c20 undetected_chromedriver + 6212640
+13  undetected_chromedriver             0x0000000104fb0c98 undetected_chromedriver + 6585496
+14  undetected_chromedriver             0x0000000104fb0e52 undetected_chromedriver + 6585938
+15  undetected_chromedriver             0x0000000104fc3a56 undetected_chromedriver + 6662742
+16  libsystem_pthread.dylib             0x00007ff81b614e4d _pthread_start + 115
+17  libsystem_pthread.dylib             0x00007ff81b610857 thread_start + 15
+
+2026-03-01 13:13:54,908 - INFO - Closing driver...
+2026-03-01 13:13:55,441 - ERROR - FATAL ERROR! Bot crashed: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=145.0.7632.117)
+Stacktrace:
+0   undetected_chromedriver             0x0000000104fcc5c8 undetected_chromedriver + 6698440
+1   undetected_chromedriver             0x0000000104fc3e4a undetected_chromedriver + 6663754
+2   undetected_chromedriver             0x00000001049d7ba5 undetected_chromedriver + 453541
+3   undetected_chromedriver             0x00000001049aaf98 undetected_chromedriver + 270232
+4   undetected_chromedriver             0x0000000104a5b148 undetected_chromedriver + 991560
+5   undetected_chromedriver             0x0000000104a74f78 undetected_chromedriver + 1097592
+6   undetected_chromedriver             0x0000000104a1e387 undetected_chromedriver + 742279
+7   undetected_chromedriver             0x0000000104a1f161 undetected_chromedriver + 745825
+8   undetected_chromedriver             0x0000000104f86171 undetected_chromedriver + 6410609
+9   undetected_chromedriver             0x0000000104f8a582 undetected_chromedriver + 6428034
+10  undetected_chromedriver             0x0000000104f67169 undetected_chromedriver + 6283625
+11  undetected_chromedriver             0x0000000104f8afd8 undetected_chromedriver + 6430680
+12  undetected_chromedriver             0x0000000104f55c20 undetected_chromedriver + 6212640
+13  undetected_chromedriver             0x0000000104fb0c98 undetected_chromedriver + 6585496
+14  undetected_chromedriver             0x0000000104fb0e52 undetected_chromedriver + 6585938
+15  undetected_chromedriver             0x0000000104fc3a56 undetected_chromedriver + 6662742
+16  libsystem_pthread.dylib             0x00007ff81b614e4d _pthread_start + 115
+17  libsystem_pthread.dylib             0x00007ff81b610857 thread_start + 15
+
+2026-03-01 13:13:55,441 - INFO - Restarting entirely in 30 seconds to recover from crash...
+2026-03-01 13:14:25,449 - INFO - Loaded 9 images from config and 'pic' folder.
+2026-03-01 13:14:25,449 - INFO - Config loaded successfully.
+2026-03-01 13:14:26,082 - INFO - Detected Chrome version: 145
+2026-03-01 13:14:29,135 - INFO - patching driver executable /Users/bephi/Library/Application Support/undetected_chromedriver/undetected_chromedriver
+2026-03-01 13:14:31,120 - INFO - Driver initialized successfully.
+2026-03-01 13:14:31,121 - INFO - Starting login process...
+2026-03-01 13:14:36,493 - INFO - Found 8 cookies.
+2026-03-01 13:14:36,508 - INFO - Cookies loaded successfully.
+2026-03-01 13:14:36,508 - INFO - Refreshing page to apply cookies...
