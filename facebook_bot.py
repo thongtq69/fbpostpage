@@ -397,25 +397,130 @@ class FacebookBot:
             raise
 
 
+    def _navigate_to_pending_via_menu(self, group_url):
+        """Navigate to group's pending content by clicking the 3-dot menu → 'Nội dung của bạn'.
+        Returns True if successfully navigated to pending content page, False otherwise."""
+        
+        self.driver.get(group_url)
+        self.random_sleep(4, 6)
+        
+        # Scroll up to make sure header area is visible
+        self.driver.execute_script("window.scrollTo(0, 0);")
+        self.random_sleep(1, 2)
+        
+        # Find the 3-dot menu button near the group header tabs area.
+        # The correct "⋯" is typically the one INSIDE the group header/navigation bar,
+        # NOT the ones on individual posts. We target the one near tabs like "Thảo luận", "Giới thiệu", etc.
+        three_dot_selectors = [
+            # The 3-dot menu near tabs (aria-label based)
+            "//div[contains(@aria-label,'Menu') or contains(@aria-label,'Thêm') or contains(@aria-label,'More')][@role='button']",
+            # Generic: look for the last "..." button in the group header section
+            "//div[@role='tablist']/../..//div[@aria-label='Thêm'][@role='button']",
+            # Broader fallback: find a button with "..." text near the header
+        ]
+        
+        menu_clicked = False
+        for selector in three_dot_selectors:
+            try:
+                btns = self.driver.find_elements(By.XPATH, selector)
+                for btn in btns:
+                    if btn.is_displayed():
+                        self.driver.execute_script("arguments[0].scrollIntoView({block:'center'});", btn)
+                        self.random_sleep(0.5, 1)
+                        btn.click()
+                        menu_clicked = True
+                        self.random_sleep(2, 3)
+                        break
+                if menu_clicked:
+                    break
+            except:
+                continue
+        
+        if not menu_clicked:
+            logging.warning("Could not find 3-dot menu on group page. Falling back to direct URL.")
+            return False
+            
+        # Now find "Nội dung của bạn" / "Your content" in the dropdown menu
+        content_selectors = [
+            "//span[contains(text(),'Nội dung của bạn') or contains(text(),'nội dung của bạn')]",
+            "//span[contains(text(),'Your content') or contains(text(),'your content')]",
+            "//div[@role='menuitem']//span[contains(text(),'Nội dung')]",
+            "//div[@role='menuitem']//span[contains(text(),'content')]",
+        ]
+        
+        for selector in content_selectors:
+            try:
+                items = self.driver.find_elements(By.XPATH, selector)
+                for item in items:
+                    if item.is_displayed():
+                        item.click()
+                        logging.info("Clicked 'Nội dung của bạn' from menu.")
+                        self.random_sleep(4, 6)
+                        return True
+            except:
+                continue
+        
+        logging.warning("Could not find 'Nội dung của bạn' in menu. Falling back to direct URL.")
+        # Close any open menu by pressing Escape
+        try:
+            from selenium.webdriver.common.keys import Keys
+            self.driver.find_element(By.TAG_NAME, 'body').send_keys(Keys.ESCAPE)
+            self.random_sleep(1, 2)
+        except:
+            pass
+        return False
+
     def check_pending_posts(self, group_url):
         if not group_url:
             return False
             
-        pending_url = group_url.rstrip('/') + "/my_pending_content"
-        logging.info(f"Checking pending posts at: {pending_url}")
+        logging.info(f"Checking pending posts for: {group_url}")
         
         try:
-            self.driver.get(pending_url)
-            self.random_sleep(4, 6)
+            # Try navigating via the 3-dot menu (human-like, avoids rate limit)
+            navigated = self._navigate_to_pending_via_menu(group_url)
+            
+            if not navigated:
+                # Fallback: direct URL (may get blocked if used too frequently)
+                pending_url = group_url.rstrip('/') + "/my_pending_content"
+                logging.info(f"Falling back to direct URL: {pending_url}")
+                self.driver.get(pending_url)
+                self.random_sleep(4, 6)
+                
+                # Check if we got blocked
+                body_text_check = self.driver.find_element(By.TAG_NAME, "body").text.lower()
+                if "tạm thời bị chặn" in body_text_check or "temporarily blocked" in body_text_check:
+                    logging.warning("Blocked by Facebook rate limit. Skipping pending check, proceeding to post.")
+                    return False
             
             # Verify we didn't get redirected to the main page (happens if tab isn't available)
-            if "my_pending_content" not in self.driver.current_url:
-                logging.info("Redirected away from pending content. Proceeding to post.")
-                return False
-            
-            # Detect by checking text content for common indicators or checking feed container
-            body_text = self.driver.find_element(By.TAG_NAME, "body").text.lower()
+            if "my_pending_content" not in self.driver.current_url and "pending" not in self.driver.current_url:
+                # Could be on "Nội dung của bạn" page which shows pending tab
+                body_text = self.driver.find_element(By.TAG_NAME, "body").text.lower()
+                # Check if we see the "Đang chờ" tab on the content page
+                if "đang chờ" not in body_text and "pending" not in body_text:
+                    logging.info("Not on pending content page. Proceeding to post.")
+                    return False
 
+            # Click on 'Đang chờ' tab if visible (on the "Nội dung của bạn" page)
+            try:
+                pending_tab_selectors = [
+                    "//span[text()='Đang chờ']",
+                    "//span[text()='Pending']",
+                    "//a[contains(@href,'pending')]",
+                ]
+                for sel in pending_tab_selectors:
+                    tabs = self.driver.find_elements(By.XPATH, sel)
+                    for tab in tabs:
+                        if tab.is_displayed():
+                            tab.click()
+                            self.random_sleep(3, 4)
+                            break
+            except:
+                pass
+
+            # Now analyze the page content
+            body_text = self.driver.find_element(By.TAG_NAME, "body").text.lower()
             
             # 1. Check if explicit "empty" message is displayed
             if "không có bài" in body_text or "không có bài viết nào để hiển thị" in body_text or "nothing to show here" in body_text or "no posts to show" in body_text or "no pending posts" in body_text:
@@ -429,14 +534,12 @@ class FacebookBot:
                 return True
                 
             # 3. Check if the header shows a count like "đang chờ\n · 2" or "pending\n · 1" using regex
-            # because Facebook's text layout often injects newlines
             if re.search(r'(đang chờ|pending( posts)?)\s*\n*\s*·\s*\d+', body_text):
                 logging.info("Detected pending posts by header count regex. Skipping group.")
                 return True
                 
             # 4. Fallback check for action buttons typical of pending posts
             if ("chỉnh sửa" in body_text and "xóa" in body_text) or ("edit" in body_text and "delete" in body_text):
-                # Ensure we are actually on a list that has these actions
                 if "đang chờ" in body_text or "pending" in body_text:
                     logging.info("Detected pending post action buttons (Edit/Delete). Skipping group.")
                     return True

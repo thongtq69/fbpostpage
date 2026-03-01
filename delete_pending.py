@@ -3,6 +3,7 @@ import time
 import logging
 import json
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
@@ -13,12 +14,54 @@ logging.basicConfig(
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
 
-def delete_all_pending(bot, url):
-    pending_url = url.rstrip('/') + "/my_pending_content"
-    logging.info(f"==========> Kiểm tra và xoá nhóm: {url} <==========")
+def navigate_to_pending_page(bot, group_url):
+    """Navigate to the pending content page via 3-dot menu → 'Nội dung của bạn'.
+    Falls back to direct URL if menu approach fails.
+    Returns True if successfully on pending page."""
     
+    # Use the shared method from FacebookBot
+    navigated = bot._navigate_to_pending_via_menu(group_url)
+    
+    if navigated:
+        # Click on 'Đang chờ' tab if visible
+        try:
+            pending_tab_selectors = [
+                "//span[text()='Đang chờ']",
+                "//span[text()='Pending']",
+                "//a[contains(@href,'pending')]",
+            ]
+            for sel in pending_tab_selectors:
+                tabs = bot.driver.find_elements(By.XPATH, sel)
+                for tab in tabs:
+                    if tab.is_displayed():
+                        tab.click()
+                        bot.random_sleep(3, 4)
+                        return True
+        except:
+            pass
+        return True
+    
+    # Fallback: direct URL
+    pending_url = group_url.rstrip('/') + "/my_pending_content"
+    logging.info(f"Falling back to direct URL: {pending_url}")
     bot.driver.get(pending_url)
     bot.random_sleep(4, 6)
+    
+    # Check if blocked
+    body_text = bot.driver.find_element(By.TAG_NAME, "body").text.lower()
+    if "tạm thời bị chặn" in body_text or "temporarily blocked" in body_text:
+        logging.warning("Bị Facebook chặn tạm thời! Chuyển sang nhóm tiếp theo...")
+        return False
+    
+    return True
+
+def delete_all_pending(bot, url):
+    logging.info(f"==========> Kiểm tra và xoá nhóm: {url} <==========")
+    
+    # Navigate to pending page via menu
+    if not navigate_to_pending_page(bot, url):
+        logging.warning("Không thể truy cập trang bài viết chờ. Bỏ qua nhóm này.")
+        return
     
     while True:
         try:
@@ -29,11 +72,10 @@ def delete_all_pending(bot, url):
                 break
             
             # Nếu còn bài, tiến hành tìm nút Xóa / Delete
-            # Thường nằm trong các thẻ div có role='button' hoặc span chứa chữ Xóa.
             xpath_delete = "//div[@role='button' and (contains(., 'Xóa') or contains(., 'Xoá') or contains(., 'Delete'))]"
             delete_buttons = bot.driver.find_elements(By.XPATH, xpath_delete)
             
-            # Lọc bỏ các phần tử không hiển thị hoặc không tương tác được (như Menu Xóa khác)
+            # Lọc bỏ các phần tử không hiển thị
             valid_btns = [b for b in delete_buttons if b.is_displayed()]
             
             if not valid_btns:
@@ -43,14 +85,13 @@ def delete_all_pending(bot, url):
             clicked = False
             for btn in valid_btns:
                 try:
-                    # Focus và click
                     bot.driver.execute_script("arguments[0].scrollIntoView(true);", btn)
                     time.sleep(1)
                     btn.click()
                     logging.info("Đã bấm nút 'Xóa' bài viết chờ...")
                     bot.random_sleep(2, 4)
                     
-                    # Cửa sổ xác nhận Xóa hiện lên, tìm tiếp nút Xóa/Confirm trong Dialog
+                    # Tìm nút Xóa/Confirm trong hộp thoại xác nhận
                     xpath_confirm = "//div[@role='dialog']//div[@role='button' and (contains(., 'Xóa') or contains(., 'Xoá') or contains(., 'Delete') or contains(., 'Confirm') or contains(., 'Xác nhận'))]"
                     confirm_buttons = bot.driver.find_elements(By.XPATH, xpath_confirm)
                     
@@ -65,11 +106,9 @@ def delete_all_pending(bot, url):
                             
                     if confirm_clicked:
                         clicked = True
-                        break # Xoá xong 1 bài thì thoát vòng lặp để load lại trang lấy list mới
+                        break
                     else:
-                        logging.warning("Mở được Xoá nhưng không tìm thấy nút Xác nhận Xóa trong hộp thoại!")
-                        # Bấm nút Hủy hoặc đóng hộp thoại nếu cần, tránh bị kẹt (phím ESC)
-                        from selenium.webdriver.common.keys import Keys
+                        logging.warning("Không tìm thấy nút Xác nhận Xóa trong hộp thoại!")
                         bot.driver.find_element(By.TAG_NAME, 'body').send_keys(Keys.ESCAPE)
                         bot.random_sleep(2, 3)
                         
@@ -81,10 +120,11 @@ def delete_all_pending(bot, url):
                 logging.info("Không xoá được bài nào trong lượt này. Dừng lại tránh lặp vô tận!")
                 break
                 
-            # Đã xoá thành công 1 post, tải lại trang để dọn dẹp các post còn lại
+            # Đã xoá thành công 1 post, navigate lại qua menu để tiếp tục
             logging.info("Tải lại trang để tiếp tục xoá bài kế tiếp...")
-            bot.driver.get(pending_url)
-            bot.random_sleep(4, 6)
+            if not navigate_to_pending_page(bot, url):
+                logging.warning("Không thể tải lại trang bài viết chờ. Dừng xoá.")
+                break
             
         except Exception as e:
             logging.error(f"Lỗi bất thường trong quá trình xoá: {e}")
@@ -94,14 +134,11 @@ def main():
     print("Khởi động Tool Dọn Dẹp Bài Viết Chờ...")
     bot = FacebookBot()
     try:
-        # Load lại danh sách cookies/login
         bot.login(is_gui=False)
         
-        # Chuyển page nếu có
         if bot.config.get('page_url'):
             bot.switch_to_page()
             
-        # Lấy danh sách nhóm
         groups = bot.config.get('group_urls', [])
         if not groups and bot.config.get('group_url'):
             groups = [bot.config['group_url']]
