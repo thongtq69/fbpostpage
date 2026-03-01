@@ -226,3 +226,409 @@ Stacktrace:
 2026-03-01 12:14:51,222 - INFO - Không tìm thấy thêm nút Xoá nào hiển thị trên màn hình. Chuyển nhóm...
 2026-03-01 12:14:51,222 - INFO - ==========> ĐÃ DỌN DẸP HOÀN TẤT TẤT CẢ CÁC NHÓM <==========
 2026-03-01 12:14:51,222 - INFO - Đang đóng trình duyệt...
+2026-03-01 12:29:52,822 - INFO - Loaded 9 images from config and 'pic' folder.
+2026-03-01 12:29:52,822 - INFO - Config loaded successfully.
+2026-03-01 12:29:53,314 - INFO - Detected Chrome version: 145
+2026-03-01 12:29:55,982 - INFO - patching driver executable /Users/bephi/Library/Application Support/undetected_chromedriver/undetected_chromedriver
+2026-03-01 12:29:57,982 - INFO - Driver initialized successfully.
+2026-03-01 12:29:57,983 - INFO - Starting login process...
+2026-03-01 12:30:02,989 - INFO - Found 8 cookies.
+2026-03-01 12:30:03,006 - INFO - Cookies loaded successfully.
+2026-03-01 12:30:03,006 - INFO - Refreshing page to apply cookies...
+2026-03-01 12:30:19,821 - INFO - Already logged in (detected via input[type='search']).
+2026-03-01 12:30:19,821 - INFO - Navigating to page to switch profile: https://www.facebook.com/profile.php?id=61585603883149
+2026-03-01 12:30:48,119 - INFO - Clicked 'Switch now' button.
+2026-03-01 12:30:53,667 - INFO - ==========> Kiểm tra và xoá nhóm: https://www.facebook.com/groups/chocudanvinhomeq9 <==========
+2026-03-01 12:31:26,985 - WARNING - Could not find 'Nội dung của bạn' in menu. Falling back to direct URL.
+2026-03-01 12:31:28,858 - INFO - Falling back to direct URL: https://www.facebook.com/groups/chocudanvinhomeq9/my_pending_content
+2026-03-01 12:31:35,001 - WARNING - Bị Facebook chặn tạm thời! Chuyển sang nhóm tiếp theo...
+2026-03-01 12:31:35,001 - WARNING - Không thể truy cập trang bài viết chờ. Bỏ qua nhóm này.
+2026-03-01 12:31:35,001 - INFO - ==========> Kiểm tra và xoá nhóm: https://www.facebook.com/groups/813436286236743 <==========
+2026-03-01 12:31:54,922 - WARNING - Could not find 'Nội dung của bạn' in menu. Falling back to direct URL.
+2026-03-01 12:31:56,293 - INFO - Falling back to direct URL: https://www.facebook.com/groups/813436286236743/my_pending_content
+2026-03-01 12:32:01,852 - WARNING - Bị Facebook chặn tạm thời! Chuyển sang nhóm tiếp theo...
+2026-03-01 12:32:01,852 - WARNING - Không thể truy cập trang bài viết chờ. Bỏ qua nhóm này.
+2026-03-01 12:32:01,852 - INFO - ==========> Kiểm tra và xoá nhóm: https://www.facebook.com/groups/thietkewebchatluong/ <==========
+2026-03-01 12:32:12,941 - WARNING - Could not find 'Nội dung của bạn' in menu. Falling back to direct URL.
+2026-03-01 12:32:14,803 - INFO - Falling back to direct URL: https://www.facebook.com/groups/thietkewebchatluong/my_pending_content
+2026-03-01 12:32:21,359 - WARNING - Bị Facebook chặn tạm thời! Chuyển sang nhóm tiếp theo...
+2026-03-01 12:32:21,359 - WARNING - Không thể truy cập trang bài viết chờ. Bỏ qua nhóm này.
+2026-03-01 12:32:21,359 - INFO - ==========> Kiểm tra và xoá nhóm: https://www.facebook.com/groups/3868126263305226 <==========
+2026-03-01 12:32:41,141 - WARNING - Could not find 'Nội dung của bạn' in menu. Falling back to direct URL.
+2026-03-01 12:32:42,787 - INFO - Falling back to direct URL: https://www.facebook.com/groups/3868126263305226/my_pending_content
+2026-03-01 12:32:48,969 - WARNING - Bị Facebook chặn tạm thời! Chuyển sang nhóm tiếp theo...
+2026-03-01 12:32:48,970 - WARNING - Không thể truy cập trang bài viết chờ. Bỏ qua nhóm này.
+2026-03-01 12:32:48,970 - INFO - ==========> ĐÃ DỌN DẸP HOÀN TẤT TẤT CẢ CÁC NHÓM <==========
+2026-03-01 12:32:48,970 - INFO - Đang đóng trình duyệt...
+2026-03-01 12:42:28,160 - INFO - Loaded 9 images from config and 'pic' folder.
+2026-03-01 12:42:28,160 - INFO - Config loaded successfully.
+2026-03-01 12:42:28,750 - INFO - Detected Chrome version: 145
+2026-03-01 12:42:31,566 - INFO - patching driver executable /Users/bephi/Library/Application Support/undetected_chromedriver/undetected_chromedriver
+2026-03-01 12:42:33,562 - INFO - Driver initialized successfully.
+2026-03-01 12:42:33,563 - INFO - Starting login process...
+2026-03-01 12:42:36,889 - INFO - Found 8 cookies.
+2026-03-01 12:42:36,903 - INFO - Cookies loaded successfully.
+2026-03-01 12:42:36,903 - INFO - Refreshing page to apply cookies...
+2026-03-01 12:42:56,469 - INFO - Already logged in (detected via input[type='search']).
+2026-03-01 12:42:56,470 - INFO - Navigating to page to switch profile: https://www.facebook.com/profile.php?id=61585603883149
+2026-03-01 12:43:27,871 - INFO - Clicked 'Switch now' button.
+2026-03-01 12:43:35,664 - INFO - ==========> Kiểm tra và xoá nhóm: https://www.facebook.com/groups/chocudanvinhomeq9 <==========
+2026-03-01 12:44:18,437 - WARNING - Could not find 3-dot menu on group page. Falling back to direct URL.
+2026-03-01 12:44:18,438 - INFO - Falling back to direct URL: https://www.facebook.com/groups/chocudanvinhomeq9/my_pending_content
+2026-03-01 12:44:23,570 - WARNING - Bị Facebook chặn tạm thời! Chuyển sang nhóm tiếp theo...
+2026-03-01 12:44:23,570 - WARNING - Không thể truy cập trang bài viết chờ. Bỏ qua nhóm này.
+2026-03-01 12:44:23,570 - INFO - ==========> Kiểm tra và xoá nhóm: https://www.facebook.com/groups/813436286236743 <==========
+2026-03-01 12:44:36,119 - WARNING - Could not find 3-dot menu on group page. Falling back to direct URL.
+2026-03-01 12:44:36,120 - INFO - Falling back to direct URL: https://www.facebook.com/groups/813436286236743/my_pending_content
+2026-03-01 12:44:42,767 - WARNING - Bị Facebook chặn tạm thời! Chuyển sang nhóm tiếp theo...
+2026-03-01 12:44:42,767 - WARNING - Không thể truy cập trang bài viết chờ. Bỏ qua nhóm này.
+2026-03-01 12:44:42,767 - INFO - ==========> Kiểm tra và xoá nhóm: https://www.facebook.com/groups/thietkewebchatluong/ <==========
+2026-03-01 12:44:50,328 - WARNING - Could not find 3-dot menu on group page. Falling back to direct URL.
+2026-03-01 12:44:50,329 - INFO - Falling back to direct URL: https://www.facebook.com/groups/thietkewebchatluong/my_pending_content
+2026-03-01 12:44:55,763 - WARNING - Bị Facebook chặn tạm thời! Chuyển sang nhóm tiếp theo...
+2026-03-01 12:44:55,763 - WARNING - Không thể truy cập trang bài viết chờ. Bỏ qua nhóm này.
+2026-03-01 12:44:55,763 - INFO - ==========> Kiểm tra và xoá nhóm: https://www.facebook.com/groups/3868126263305226 <==========
+2026-03-01 12:45:13,157 - WARNING - Could not find 3-dot menu on group page. Falling back to direct URL.
+2026-03-01 12:45:13,157 - INFO - Falling back to direct URL: https://www.facebook.com/groups/3868126263305226/my_pending_content
+2026-03-01 12:45:18,843 - WARNING - Bị Facebook chặn tạm thời! Chuyển sang nhóm tiếp theo...
+2026-03-01 12:45:18,843 - WARNING - Không thể truy cập trang bài viết chờ. Bỏ qua nhóm này.
+2026-03-01 12:45:18,843 - INFO - ==========> ĐÃ DỌN DẸP HOÀN TẤT TẤT CẢ CÁC NHÓM <==========
+2026-03-01 12:45:18,843 - INFO - Đang đóng trình duyệt...
+2026-03-01 12:51:02,974 - INFO - Loaded 9 images from config and 'pic' folder.
+2026-03-01 12:51:02,974 - INFO - Config loaded successfully.
+2026-03-01 12:51:03,342 - INFO - Detected Chrome version: 145
+2026-03-01 12:51:05,088 - INFO - patching driver executable /Users/bephi/Library/Application Support/undetected_chromedriver/undetected_chromedriver
+2026-03-01 12:51:07,091 - INFO - Driver initialized successfully.
+2026-03-01 12:51:07,092 - INFO - Starting login process...
+2026-03-01 12:51:38,958 - INFO - Found 8 cookies.
+2026-03-01 12:51:38,974 - INFO - Cookies loaded successfully.
+2026-03-01 12:51:38,974 - INFO - Refreshing page to apply cookies...
+2026-03-01 12:51:52,405 - INFO - Already logged in (detected via input[type='search']).
+2026-03-01 12:51:52,405 - INFO - Navigating to page to switch profile: https://www.facebook.com/profile.php?id=61585603883149
+2026-03-01 12:52:02,565 - INFO - Clicked 'Switch now' button.
+2026-03-01 12:52:10,323 - INFO - ==========> Kiểm tra và xoá nhóm: https://www.facebook.com/groups/chocudanvinhomeq9 <==========
+2026-03-01 12:52:21,847 - INFO - Đã bấm nút 'Quản lý bài viết'.
+2026-03-01 12:52:24,056 - WARNING - Lỗi khi cố gắng click nút xoá: Message: element click intercepted: Element <div aria-label="Xóa" class="x1i10hfl xjbqb8w x1ejq31n x18oe1m7 x1sy0etr xstzfhl x972fbf x10w94by x1qhh985 x14e42zd x1ypdohk x3ct3a4 xdj266r x14z9mp xat24cr x1lziwak xexx8yu xyri2b x18d9i69 x1c1uobl x16tdsg8 x1hl2dhg xggy1nq x1fmog5m xu25z0z x140muxe xo1y3bh x87ps6o x1lku1pv x1a2a7pz x9f619 x3nfvp2 xdt5ytf xl56j7k x1n2onr6 xh8yej3" role="button" tabindex="0">...</div> is not clickable at point (1155, 17). Other element would receive the click: <a aria-label="Thước phim" class="x1i10hfl xjbqb8w x1ejq31n x18oe1m7 x1sy0etr xstzfhl x972fbf x10w94by x1qhh985 x14e42zd x9f619 x1ypdohk x3ct3a4 xdj266r x14z9mp xat24cr x1lziwak xexx8yu xyri2b x18d9i69 x1c1uobl x16tdsg8 x1hl2dhg xggy1nq x1fmog5m xu25z0z x140muxe xo1y3bh x87ps6o x1lku1pv x1a2a7pz x6s0dn4 x78zum5 xdt5ytf x5yr21d xl56j7k x1n2onr6 xh8yej3" href="/reel/?s=tab" role="link" tabindex="0">...</a>
+  (Session info: chrome=145.0.7632.117); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+0   undetected_chromedriver             0x000000010554c5c8 undetected_chromedriver + 6698440
+1   undetected_chromedriver             0x0000000105543e4a undetected_chromedriver + 6663754
+2   undetected_chromedriver             0x0000000104f57ba5 undetected_chromedriver + 453541
+3   undetected_chromedriver             0x0000000104fb3639 undetected_chromedriver + 828985
+4   undetected_chromedriver             0x0000000104fb127b undetected_chromedriver + 819835
+5   undetected_chromedriver             0x0000000104fae7a9 undetected_chromedriver + 808873
+6   undetected_chromedriver             0x0000000104fad8a7 undetected_chromedriver + 805031
+7   undetected_chromedriver             0x0000000104fa0402 undetected_chromedriver + 750594
+8   undetected_chromedriver             0x0000000104f9fd58 undetected_chromedriver + 748888
+9   undetected_chromedriver             0x0000000104ff5559 undetected_chromedriver + 1099097
+10  undetected_chromedriver             0x0000000104f9e387 undetected_chromedriver + 742279
+11  undetected_chromedriver             0x0000000104f9f161 undetected_chromedriver + 745825
+12  undetected_chromedriver             0x0000000105506171 undetected_chromedriver + 6410609
+13  undetected_chromedriver             0x000000010550a582 undetected_chromedriver + 6428034
+14  undetected_chromedriver             0x00000001054e7169 undetected_chromedriver + 6283625
+15  undetected_chromedriver             0x000000010550afd8 undetected_chromedriver + 6430680
+16  undetected_chromedriver             0x00000001054d5c20 undetected_chromedriver + 6212640
+17  undetected_chromedriver             0x0000000105530c98 undetected_chromedriver + 6585496
+18  undetected_chromedriver             0x0000000105530e52 undetected_chromedriver + 6585938
+19  undetected_chromedriver             0x0000000105543a56 undetected_chromedriver + 6662742
+20  libsystem_pthread.dylib             0x00007ff81b614e4d _pthread_start + 115
+21  libsystem_pthread.dylib             0x00007ff81b610857 thread_start + 15
+
+2026-03-01 12:52:26,136 - WARNING - Lỗi khi cố gắng click nút xoá: Message: element click intercepted: Element <div aria-label="Xóa" class="x1i10hfl xjbqb8w x1ejq31n x18oe1m7 x1sy0etr xstzfhl x972fbf x10w94by x1qhh985 x14e42zd x1ypdohk x3ct3a4 xdj266r x14z9mp xat24cr x1lziwak xexx8yu xyri2b x18d9i69 x1c1uobl x16tdsg8 x1hl2dhg xggy1nq x1fmog5m xu25z0z x140muxe xo1y3bh x87ps6o x1lku1pv x1a2a7pz x9f619 x3nfvp2 xdt5ytf xl56j7k x1n2onr6 xh8yej3" role="button" tabindex="0">...</div> is not clickable at point (1155, 17). Other element would receive the click: <a aria-label="Thước phim" class="x1i10hfl xjbqb8w x1ejq31n x18oe1m7 x1sy0etr xstzfhl x972fbf x10w94by x1qhh985 x14e42zd x9f619 x1ypdohk x3ct3a4 xdj266r x14z9mp xat24cr x1lziwak xexx8yu xyri2b x18d9i69 x1c1uobl x16tdsg8 x1hl2dhg xggy1nq x1fmog5m xu25z0z x140muxe xo1y3bh x87ps6o x1lku1pv x1a2a7pz x6s0dn4 x78zum5 xdt5ytf x5yr21d xl56j7k x1n2onr6 xh8yej3" href="/reel/?s=tab" role="link" tabindex="0">...</a>
+  (Session info: chrome=145.0.7632.117); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+0   undetected_chromedriver             0x000000010554c5c8 undetected_chromedriver + 6698440
+1   undetected_chromedriver             0x0000000105543e4a undetected_chromedriver + 6663754
+2   undetected_chromedriver             0x0000000104f57ba5 undetected_chromedriver + 453541
+3   undetected_chromedriver             0x0000000104fb3639 undetected_chromedriver + 828985
+4   undetected_chromedriver             0x0000000104fb127b undetected_chromedriver + 819835
+5   undetected_chromedriver             0x0000000104fae7a9 undetected_chromedriver + 808873
+6   undetected_chromedriver             0x0000000104fad8a7 undetected_chromedriver + 805031
+7   undetected_chromedriver             0x0000000104fa0402 undetected_chromedriver + 750594
+8   undetected_chromedriver             0x0000000104f9fd58 undetected_chromedriver + 748888
+9   undetected_chromedriver             0x0000000104ff5559 undetected_chromedriver + 1099097
+10  undetected_chromedriver             0x0000000104f9e387 undetected_chromedriver + 742279
+11  undetected_chromedriver             0x0000000104f9f161 undetected_chromedriver + 745825
+12  undetected_chromedriver             0x0000000105506171 undetected_chromedriver + 6410609
+13  undetected_chromedriver             0x000000010550a582 undetected_chromedriver + 6428034
+14  undetected_chromedriver             0x00000001054e7169 undetected_chromedriver + 6283625
+15  undetected_chromedriver             0x000000010550afd8 undetected_chromedriver + 6430680
+16  undetected_chromedriver             0x00000001054d5c20 undetected_chromedriver + 6212640
+17  undetected_chromedriver             0x0000000105530c98 undetected_chromedriver + 6585496
+18  undetected_chromedriver             0x0000000105530e52 undetected_chromedriver + 6585938
+19  undetected_chromedriver             0x0000000105543a56 undetected_chromedriver + 6662742
+20  libsystem_pthread.dylib             0x00007ff81b614e4d _pthread_start + 115
+21  libsystem_pthread.dylib             0x00007ff81b610857 thread_start + 15
+
+2026-03-01 12:52:28,218 - WARNING - Lỗi khi cố gắng click nút xoá: Message: element click intercepted: Element <div aria-label="Xóa" class="x1i10hfl xjbqb8w x1ejq31n x18oe1m7 x1sy0etr xstzfhl x972fbf x10w94by x1qhh985 x14e42zd x1ypdohk x3ct3a4 xdj266r x14z9mp xat24cr x1lziwak xexx8yu xyri2b x18d9i69 x1c1uobl x16tdsg8 x1hl2dhg xggy1nq x1fmog5m xu25z0z x140muxe xo1y3bh x87ps6o x1lku1pv x1a2a7pz x9f619 x3nfvp2 xdt5ytf xl56j7k x1n2onr6 xh8yej3" role="button" tabindex="0">...</div> is not clickable at point (1155, 17). Other element would receive the click: <a aria-label="Thước phim" class="x1i10hfl xjbqb8w x1ejq31n x18oe1m7 x1sy0etr xstzfhl x972fbf x10w94by x1qhh985 x14e42zd x9f619 x1ypdohk x3ct3a4 xdj266r x14z9mp xat24cr x1lziwak xexx8yu xyri2b x18d9i69 x1c1uobl x16tdsg8 x1hl2dhg xggy1nq x1fmog5m xu25z0z x140muxe xo1y3bh x87ps6o x1lku1pv x1a2a7pz x6s0dn4 x78zum5 xdt5ytf x5yr21d xl56j7k x1n2onr6 xh8yej3" href="/reel/?s=tab" role="link" tabindex="0">...</a>
+  (Session info: chrome=145.0.7632.117); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+0   undetected_chromedriver             0x000000010554c5c8 undetected_chromedriver + 6698440
+1   undetected_chromedriver             0x0000000105543e4a undetected_chromedriver + 6663754
+2   undetected_chromedriver             0x0000000104f57ba5 undetected_chromedriver + 453541
+3   undetected_chromedriver             0x0000000104fb3639 undetected_chromedriver + 828985
+4   undetected_chromedriver             0x0000000104fb127b undetected_chromedriver + 819835
+5   undetected_chromedriver             0x0000000104fae7a9 undetected_chromedriver + 808873
+6   undetected_chromedriver             0x0000000104fad8a7 undetected_chromedriver + 805031
+7   undetected_chromedriver             0x0000000104fa0402 undetected_chromedriver + 750594
+8   undetected_chromedriver             0x0000000104f9fd58 undetected_chromedriver + 748888
+9   undetected_chromedriver             0x0000000104ff5559 undetected_chromedriver + 1099097
+10  undetected_chromedriver             0x0000000104f9e387 undetected_chromedriver + 742279
+11  undetected_chromedriver             0x0000000104f9f161 undetected_chromedriver + 745825
+12  undetected_chromedriver             0x0000000105506171 undetected_chromedriver + 6410609
+13  undetected_chromedriver             0x000000010550a582 undetected_chromedriver + 6428034
+14  undetected_chromedriver             0x00000001054e7169 undetected_chromedriver + 6283625
+15  undetected_chromedriver             0x000000010550afd8 undetected_chromedriver + 6430680
+16  undetected_chromedriver             0x00000001054d5c20 undetected_chromedriver + 6212640
+17  undetected_chromedriver             0x0000000105530c98 undetected_chromedriver + 6585496
+18  undetected_chromedriver             0x0000000105530e52 undetected_chromedriver + 6585938
+19  undetected_chromedriver             0x0000000105543a56 undetected_chromedriver + 6662742
+20  libsystem_pthread.dylib             0x00007ff81b614e4d _pthread_start + 115
+21  libsystem_pthread.dylib             0x00007ff81b610857 thread_start + 15
+
+2026-03-01 12:52:28,219 - INFO - Không xoá được bài nào trong lượt này. Dừng lại tránh lặp vô tận!
+2026-03-01 12:52:28,219 - INFO - ==========> Kiểm tra và xoá nhóm: https://www.facebook.com/groups/813436286236743 <==========
+2026-03-01 12:52:44,551 - INFO - Đã bấm nút 'Quản lý bài viết'.
+2026-03-01 12:52:46,783 - WARNING - Lỗi khi cố gắng click nút xoá: Message: element click intercepted: Element <div aria-label="Xóa" class="x1i10hfl xjbqb8w x1ejq31n x18oe1m7 x1sy0etr xstzfhl x972fbf x10w94by x1qhh985 x14e42zd x1ypdohk x3ct3a4 xdj266r x14z9mp xat24cr x1lziwak xexx8yu xyri2b x18d9i69 x1c1uobl x16tdsg8 x1hl2dhg xggy1nq x1fmog5m xu25z0z x140muxe xo1y3bh x87ps6o x1lku1pv x1a2a7pz x9f619 x3nfvp2 xdt5ytf xl56j7k x1n2onr6 xh8yej3" role="button" tabindex="0">...</div> is not clickable at point (1155, 17). Other element would receive the click: <a aria-label="Thước phim" class="x1i10hfl xjbqb8w x1ejq31n x18oe1m7 x1sy0etr xstzfhl x972fbf x10w94by x1qhh985 x14e42zd x9f619 x1ypdohk x3ct3a4 xdj266r x14z9mp xat24cr x1lziwak xexx8yu xyri2b x18d9i69 x1c1uobl x16tdsg8 x1hl2dhg xggy1nq x1fmog5m xu25z0z x140muxe xo1y3bh x87ps6o x1lku1pv x1a2a7pz x6s0dn4 x78zum5 xdt5ytf x5yr21d xl56j7k x1n2onr6 xh8yej3" href="/reel/?s=tab" role="link" tabindex="0">...</a>
+  (Session info: chrome=145.0.7632.117); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+0   undetected_chromedriver             0x000000010554c5c8 undetected_chromedriver + 6698440
+1   undetected_chromedriver             0x0000000105543e4a undetected_chromedriver + 6663754
+2   undetected_chromedriver             0x0000000104f57ba5 undetected_chromedriver + 453541
+3   undetected_chromedriver             0x0000000104fb3639 undetected_chromedriver + 828985
+4   undetected_chromedriver             0x0000000104fb127b undetected_chromedriver + 819835
+5   undetected_chromedriver             0x0000000104fae7a9 undetected_chromedriver + 808873
+6   undetected_chromedriver             0x0000000104fad8a7 undetected_chromedriver + 805031
+7   undetected_chromedriver             0x0000000104fa0402 undetected_chromedriver + 750594
+8   undetected_chromedriver             0x0000000104f9fd58 undetected_chromedriver + 748888
+9   undetected_chromedriver             0x0000000104ff5559 undetected_chromedriver + 1099097
+10  undetected_chromedriver             0x0000000104f9e387 undetected_chromedriver + 742279
+11  undetected_chromedriver             0x0000000104f9f161 undetected_chromedriver + 745825
+12  undetected_chromedriver             0x0000000105506171 undetected_chromedriver + 6410609
+13  undetected_chromedriver             0x000000010550a582 undetected_chromedriver + 6428034
+14  undetected_chromedriver             0x00000001054e7169 undetected_chromedriver + 6283625
+15  undetected_chromedriver             0x000000010550afd8 undetected_chromedriver + 6430680
+16  undetected_chromedriver             0x00000001054d5c20 undetected_chromedriver + 6212640
+17  undetected_chromedriver             0x0000000105530c98 undetected_chromedriver + 6585496
+18  undetected_chromedriver             0x0000000105530e52 undetected_chromedriver + 6585938
+19  undetected_chromedriver             0x0000000105543a56 undetected_chromedriver + 6662742
+20  libsystem_pthread.dylib             0x00007ff81b614e4d _pthread_start + 115
+21  libsystem_pthread.dylib             0x00007ff81b610857 thread_start + 15
+
+2026-03-01 12:52:48,858 - WARNING - Lỗi khi cố gắng click nút xoá: Message: element click intercepted: Element <div aria-label="Xóa" class="x1i10hfl xjbqb8w x1ejq31n x18oe1m7 x1sy0etr xstzfhl x972fbf x10w94by x1qhh985 x14e42zd x1ypdohk x3ct3a4 xdj266r x14z9mp xat24cr x1lziwak xexx8yu xyri2b x18d9i69 x1c1uobl x16tdsg8 x1hl2dhg xggy1nq x1fmog5m xu25z0z x140muxe xo1y3bh x87ps6o x1lku1pv x1a2a7pz x9f619 x3nfvp2 xdt5ytf xl56j7k x1n2onr6 xh8yej3" role="button" tabindex="0">...</div> is not clickable at point (1155, 17). Other element would receive the click: <a aria-label="Thước phim" class="x1i10hfl xjbqb8w x1ejq31n x18oe1m7 x1sy0etr xstzfhl x972fbf x10w94by x1qhh985 x14e42zd x9f619 x1ypdohk x3ct3a4 xdj266r x14z9mp xat24cr x1lziwak xexx8yu xyri2b x18d9i69 x1c1uobl x16tdsg8 x1hl2dhg xggy1nq x1fmog5m xu25z0z x140muxe xo1y3bh x87ps6o x1lku1pv x1a2a7pz x6s0dn4 x78zum5 xdt5ytf x5yr21d xl56j7k x1n2onr6 xh8yej3" href="/reel/?s=tab" role="link" tabindex="0">...</a>
+  (Session info: chrome=145.0.7632.117); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+0   undetected_chromedriver             0x000000010554c5c8 undetected_chromedriver + 6698440
+1   undetected_chromedriver             0x0000000105543e4a undetected_chromedriver + 6663754
+2   undetected_chromedriver             0x0000000104f57ba5 undetected_chromedriver + 453541
+3   undetected_chromedriver             0x0000000104fb3639 undetected_chromedriver + 828985
+4   undetected_chromedriver             0x0000000104fb127b undetected_chromedriver + 819835
+5   undetected_chromedriver             0x0000000104fae7a9 undetected_chromedriver + 808873
+6   undetected_chromedriver             0x0000000104fad8a7 undetected_chromedriver + 805031
+7   undetected_chromedriver             0x0000000104fa0402 undetected_chromedriver + 750594
+8   undetected_chromedriver             0x0000000104f9fd58 undetected_chromedriver + 748888
+9   undetected_chromedriver             0x0000000104ff5559 undetected_chromedriver + 1099097
+10  undetected_chromedriver             0x0000000104f9e387 undetected_chromedriver + 742279
+11  undetected_chromedriver             0x0000000104f9f161 undetected_chromedriver + 745825
+12  undetected_chromedriver             0x0000000105506171 undetected_chromedriver + 6410609
+13  undetected_chromedriver             0x000000010550a582 undetected_chromedriver + 6428034
+14  undetected_chromedriver             0x00000001054e7169 undetected_chromedriver + 6283625
+15  undetected_chromedriver             0x000000010550afd8 undetected_chromedriver + 6430680
+16  undetected_chromedriver             0x00000001054d5c20 undetected_chromedriver + 6212640
+17  undetected_chromedriver             0x0000000105530c98 undetected_chromedriver + 6585496
+18  undetected_chromedriver             0x0000000105530e52 undetected_chromedriver + 6585938
+19  undetected_chromedriver             0x0000000105543a56 undetected_chromedriver + 6662742
+20  libsystem_pthread.dylib             0x00007ff81b614e4d _pthread_start + 115
+21  libsystem_pthread.dylib             0x00007ff81b610857 thread_start + 15
+
+2026-03-01 12:52:50,928 - WARNING - Lỗi khi cố gắng click nút xoá: Message: element click intercepted: Element <div aria-label="Xóa" class="x1i10hfl xjbqb8w x1ejq31n x18oe1m7 x1sy0etr xstzfhl x972fbf x10w94by x1qhh985 x14e42zd x1ypdohk x3ct3a4 xdj266r x14z9mp xat24cr x1lziwak xexx8yu xyri2b x18d9i69 x1c1uobl x16tdsg8 x1hl2dhg xggy1nq x1fmog5m xu25z0z x140muxe xo1y3bh x87ps6o x1lku1pv x1a2a7pz x9f619 x3nfvp2 xdt5ytf xl56j7k x1n2onr6 xh8yej3" role="button" tabindex="0">...</div> is not clickable at point (1155, 17). Other element would receive the click: <a aria-label="Thước phim" class="x1i10hfl xjbqb8w x1ejq31n x18oe1m7 x1sy0etr xstzfhl x972fbf x10w94by x1qhh985 x14e42zd x9f619 x1ypdohk x3ct3a4 xdj266r x14z9mp xat24cr x1lziwak xexx8yu xyri2b x18d9i69 x1c1uobl x16tdsg8 x1hl2dhg xggy1nq x1fmog5m xu25z0z x140muxe xo1y3bh x87ps6o x1lku1pv x1a2a7pz x6s0dn4 x78zum5 xdt5ytf x5yr21d xl56j7k x1n2onr6 xh8yej3" href="/reel/?s=tab" role="link" tabindex="0">...</a>
+  (Session info: chrome=145.0.7632.117); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+0   undetected_chromedriver             0x000000010554c5c8 undetected_chromedriver + 6698440
+1   undetected_chromedriver             0x0000000105543e4a undetected_chromedriver + 6663754
+2   undetected_chromedriver             0x0000000104f57ba5 undetected_chromedriver + 453541
+3   undetected_chromedriver             0x0000000104fb3639 undetected_chromedriver + 828985
+4   undetected_chromedriver             0x0000000104fb127b undetected_chromedriver + 819835
+5   undetected_chromedriver             0x0000000104fae7a9 undetected_chromedriver + 808873
+6   undetected_chromedriver             0x0000000104fad8a7 undetected_chromedriver + 805031
+7   undetected_chromedriver             0x0000000104fa0402 undetected_chromedriver + 750594
+8   undetected_chromedriver             0x0000000104f9fd58 undetected_chromedriver + 748888
+9   undetected_chromedriver             0x0000000104ff5559 undetected_chromedriver + 1099097
+10  undetected_chromedriver             0x0000000104f9e387 undetected_chromedriver + 742279
+11  undetected_chromedriver             0x0000000104f9f161 undetected_chromedriver + 745825
+12  undetected_chromedriver             0x0000000105506171 undetected_chromedriver + 6410609
+13  undetected_chromedriver             0x000000010550a582 undetected_chromedriver + 6428034
+14  undetected_chromedriver             0x00000001054e7169 undetected_chromedriver + 6283625
+15  undetected_chromedriver             0x000000010550afd8 undetected_chromedriver + 6430680
+16  undetected_chromedriver             0x00000001054d5c20 undetected_chromedriver + 6212640
+17  undetected_chromedriver             0x0000000105530c98 undetected_chromedriver + 6585496
+18  undetected_chromedriver             0x0000000105530e52 undetected_chromedriver + 6585938
+19  undetected_chromedriver             0x0000000105543a56 undetected_chromedriver + 6662742
+20  libsystem_pthread.dylib             0x00007ff81b614e4d _pthread_start + 115
+21  libsystem_pthread.dylib             0x00007ff81b610857 thread_start + 15
+
+2026-03-01 12:52:50,929 - INFO - Không xoá được bài nào trong lượt này. Dừng lại tránh lặp vô tận!
+2026-03-01 12:52:50,929 - INFO - ==========> Kiểm tra và xoá nhóm: https://www.facebook.com/groups/thietkewebchatluong/ <==========
+2026-03-01 12:53:00,872 - INFO - Đã bấm nút 'Quản lý bài viết'.
+2026-03-01 12:53:03,089 - WARNING - Lỗi khi cố gắng click nút xoá: Message: element click intercepted: Element <div aria-label="Xóa" class="x1i10hfl xjbqb8w x1ejq31n x18oe1m7 x1sy0etr xstzfhl x972fbf x10w94by x1qhh985 x14e42zd x1ypdohk x3ct3a4 xdj266r x14z9mp xat24cr x1lziwak xexx8yu xyri2b x18d9i69 x1c1uobl x16tdsg8 x1hl2dhg xggy1nq x1fmog5m xu25z0z x140muxe xo1y3bh x87ps6o x1lku1pv x1a2a7pz x9f619 x3nfvp2 xdt5ytf xl56j7k x1n2onr6 xh8yej3" role="button" tabindex="0">...</div> is not clickable at point (1155, 17). Other element would receive the click: <a aria-label="Thước phim" class="x1i10hfl xjbqb8w x1ejq31n x18oe1m7 x1sy0etr xstzfhl x972fbf x10w94by x1qhh985 x14e42zd x9f619 x1ypdohk x3ct3a4 xdj266r x14z9mp xat24cr x1lziwak xexx8yu xyri2b x18d9i69 x1c1uobl x16tdsg8 x1hl2dhg xggy1nq x1fmog5m xu25z0z x140muxe xo1y3bh x87ps6o x1lku1pv x1a2a7pz x6s0dn4 x78zum5 xdt5ytf x5yr21d xl56j7k x1n2onr6 xh8yej3" href="/reel/?s=tab" role="link" tabindex="0">...</a>
+  (Session info: chrome=145.0.7632.117); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+0   undetected_chromedriver             0x000000010554c5c8 undetected_chromedriver + 6698440
+1   undetected_chromedriver             0x0000000105543e4a undetected_chromedriver + 6663754
+2   undetected_chromedriver             0x0000000104f57ba5 undetected_chromedriver + 453541
+3   undetected_chromedriver             0x0000000104fb3639 undetected_chromedriver + 828985
+4   undetected_chromedriver             0x0000000104fb127b undetected_chromedriver + 819835
+5   undetected_chromedriver             0x0000000104fae7a9 undetected_chromedriver + 808873
+6   undetected_chromedriver             0x0000000104fad8a7 undetected_chromedriver + 805031
+7   undetected_chromedriver             0x0000000104fa0402 undetected_chromedriver + 750594
+8   undetected_chromedriver             0x0000000104f9fd58 undetected_chromedriver + 748888
+9   undetected_chromedriver             0x0000000104ff5559 undetected_chromedriver + 1099097
+10  undetected_chromedriver             0x0000000104f9e387 undetected_chromedriver + 742279
+11  undetected_chromedriver             0x0000000104f9f161 undetected_chromedriver + 745825
+12  undetected_chromedriver             0x0000000105506171 undetected_chromedriver + 6410609
+13  undetected_chromedriver             0x000000010550a582 undetected_chromedriver + 6428034
+14  undetected_chromedriver             0x00000001054e7169 undetected_chromedriver + 6283625
+15  undetected_chromedriver             0x000000010550afd8 undetected_chromedriver + 6430680
+16  undetected_chromedriver             0x00000001054d5c20 undetected_chromedriver + 6212640
+17  undetected_chromedriver             0x0000000105530c98 undetected_chromedriver + 6585496
+18  undetected_chromedriver             0x0000000105530e52 undetected_chromedriver + 6585938
+19  undetected_chromedriver             0x0000000105543a56 undetected_chromedriver + 6662742
+20  libsystem_pthread.dylib             0x00007ff81b614e4d _pthread_start + 115
+21  libsystem_pthread.dylib             0x00007ff81b610857 thread_start + 15
+
+2026-03-01 12:53:05,155 - WARNING - Lỗi khi cố gắng click nút xoá: Message: element click intercepted: Element <div aria-label="Xóa" class="x1i10hfl xjbqb8w x1ejq31n x18oe1m7 x1sy0etr xstzfhl x972fbf x10w94by x1qhh985 x14e42zd x1ypdohk x3ct3a4 xdj266r x14z9mp xat24cr x1lziwak xexx8yu xyri2b x18d9i69 x1c1uobl x16tdsg8 x1hl2dhg xggy1nq x1fmog5m xu25z0z x140muxe xo1y3bh x87ps6o x1lku1pv x1a2a7pz x9f619 x3nfvp2 xdt5ytf xl56j7k x1n2onr6 xh8yej3" role="button" tabindex="0">...</div> is not clickable at point (1155, 17). Other element would receive the click: <a aria-label="Thước phim" class="x1i10hfl xjbqb8w x1ejq31n x18oe1m7 x1sy0etr xstzfhl x972fbf x10w94by x1qhh985 x14e42zd x9f619 x1ypdohk x3ct3a4 xdj266r x14z9mp xat24cr x1lziwak xexx8yu xyri2b x18d9i69 x1c1uobl x16tdsg8 x1hl2dhg xggy1nq x1fmog5m xu25z0z x140muxe xo1y3bh x87ps6o x1lku1pv x1a2a7pz x6s0dn4 x78zum5 xdt5ytf x5yr21d xl56j7k x1n2onr6 xh8yej3" href="/reel/?s=tab" role="link" tabindex="0">...</a>
+  (Session info: chrome=145.0.7632.117); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+0   undetected_chromedriver             0x000000010554c5c8 undetected_chromedriver + 6698440
+1   undetected_chromedriver             0x0000000105543e4a undetected_chromedriver + 6663754
+2   undetected_chromedriver             0x0000000104f57ba5 undetected_chromedriver + 453541
+3   undetected_chromedriver             0x0000000104fb3639 undetected_chromedriver + 828985
+4   undetected_chromedriver             0x0000000104fb127b undetected_chromedriver + 819835
+5   undetected_chromedriver             0x0000000104fae7a9 undetected_chromedriver + 808873
+6   undetected_chromedriver             0x0000000104fad8a7 undetected_chromedriver + 805031
+7   undetected_chromedriver             0x0000000104fa0402 undetected_chromedriver + 750594
+8   undetected_chromedriver             0x0000000104f9fd58 undetected_chromedriver + 748888
+9   undetected_chromedriver             0x0000000104ff5559 undetected_chromedriver + 1099097
+10  undetected_chromedriver             0x0000000104f9e387 undetected_chromedriver + 742279
+11  undetected_chromedriver             0x0000000104f9f161 undetected_chromedriver + 745825
+12  undetected_chromedriver             0x0000000105506171 undetected_chromedriver + 6410609
+13  undetected_chromedriver             0x000000010550a582 undetected_chromedriver + 6428034
+14  undetected_chromedriver             0x00000001054e7169 undetected_chromedriver + 6283625
+15  undetected_chromedriver             0x000000010550afd8 undetected_chromedriver + 6430680
+16  undetected_chromedriver             0x00000001054d5c20 undetected_chromedriver + 6212640
+17  undetected_chromedriver             0x0000000105530c98 undetected_chromedriver + 6585496
+18  undetected_chromedriver             0x0000000105530e52 undetected_chromedriver + 6585938
+19  undetected_chromedriver             0x0000000105543a56 undetected_chromedriver + 6662742
+20  libsystem_pthread.dylib             0x00007ff81b614e4d _pthread_start + 115
+21  libsystem_pthread.dylib             0x00007ff81b610857 thread_start + 15
+
+2026-03-01 12:53:07,215 - WARNING - Lỗi khi cố gắng click nút xoá: Message: element click intercepted: Element <div aria-label="Xóa" class="x1i10hfl xjbqb8w x1ejq31n x18oe1m7 x1sy0etr xstzfhl x972fbf x10w94by x1qhh985 x14e42zd x1ypdohk x3ct3a4 xdj266r x14z9mp xat24cr x1lziwak xexx8yu xyri2b x18d9i69 x1c1uobl x16tdsg8 x1hl2dhg xggy1nq x1fmog5m xu25z0z x140muxe xo1y3bh x87ps6o x1lku1pv x1a2a7pz x9f619 x3nfvp2 xdt5ytf xl56j7k x1n2onr6 xh8yej3" role="button" tabindex="0">...</div> is not clickable at point (1155, 17). Other element would receive the click: <a aria-label="Thước phim" class="x1i10hfl xjbqb8w x1ejq31n x18oe1m7 x1sy0etr xstzfhl x972fbf x10w94by x1qhh985 x14e42zd x9f619 x1ypdohk x3ct3a4 xdj266r x14z9mp xat24cr x1lziwak xexx8yu xyri2b x18d9i69 x1c1uobl x16tdsg8 x1hl2dhg xggy1nq x1fmog5m xu25z0z x140muxe xo1y3bh x87ps6o x1lku1pv x1a2a7pz x6s0dn4 x78zum5 xdt5ytf x5yr21d xl56j7k x1n2onr6 xh8yej3" href="/reel/?s=tab" role="link" tabindex="0">...</a>
+  (Session info: chrome=145.0.7632.117); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+0   undetected_chromedriver             0x000000010554c5c8 undetected_chromedriver + 6698440
+1   undetected_chromedriver             0x0000000105543e4a undetected_chromedriver + 6663754
+2   undetected_chromedriver             0x0000000104f57ba5 undetected_chromedriver + 453541
+3   undetected_chromedriver             0x0000000104fb3639 undetected_chromedriver + 828985
+4   undetected_chromedriver             0x0000000104fb127b undetected_chromedriver + 819835
+5   undetected_chromedriver             0x0000000104fae7a9 undetected_chromedriver + 808873
+6   undetected_chromedriver             0x0000000104fad8a7 undetected_chromedriver + 805031
+7   undetected_chromedriver             0x0000000104fa0402 undetected_chromedriver + 750594
+8   undetected_chromedriver             0x0000000104f9fd58 undetected_chromedriver + 748888
+9   undetected_chromedriver             0x0000000104ff5559 undetected_chromedriver + 1099097
+10  undetected_chromedriver             0x0000000104f9e387 undetected_chromedriver + 742279
+11  undetected_chromedriver             0x0000000104f9f161 undetected_chromedriver + 745825
+12  undetected_chromedriver             0x0000000105506171 undetected_chromedriver + 6410609
+13  undetected_chromedriver             0x000000010550a582 undetected_chromedriver + 6428034
+14  undetected_chromedriver             0x00000001054e7169 undetected_chromedriver + 6283625
+15  undetected_chromedriver             0x000000010550afd8 undetected_chromedriver + 6430680
+16  undetected_chromedriver             0x00000001054d5c20 undetected_chromedriver + 6212640
+17  undetected_chromedriver             0x0000000105530c98 undetected_chromedriver + 6585496
+18  undetected_chromedriver             0x0000000105530e52 undetected_chromedriver + 6585938
+19  undetected_chromedriver             0x0000000105543a56 undetected_chromedriver + 6662742
+20  libsystem_pthread.dylib             0x00007ff81b614e4d _pthread_start + 115
+21  libsystem_pthread.dylib             0x00007ff81b610857 thread_start + 15
+
+2026-03-01 12:53:07,216 - INFO - Không xoá được bài nào trong lượt này. Dừng lại tránh lặp vô tận!
+2026-03-01 12:53:07,216 - INFO - ==========> Kiểm tra và xoá nhóm: https://www.facebook.com/groups/3868126263305226 <==========
+2026-03-01 12:53:26,711 - INFO - Đã bấm nút 'Quản lý bài viết'.
+2026-03-01 12:53:28,957 - WARNING - Lỗi khi cố gắng click nút xoá: Message: element click intercepted: Element <div aria-label="Xóa" class="x1i10hfl xjbqb8w x1ejq31n x18oe1m7 x1sy0etr xstzfhl x972fbf x10w94by x1qhh985 x14e42zd x1ypdohk x3ct3a4 xdj266r x14z9mp xat24cr x1lziwak xexx8yu xyri2b x18d9i69 x1c1uobl x16tdsg8 x1hl2dhg xggy1nq x1fmog5m xu25z0z x140muxe xo1y3bh x87ps6o x1lku1pv x1a2a7pz x9f619 x3nfvp2 xdt5ytf xl56j7k x1n2onr6 xh8yej3" role="button" tabindex="0">...</div> is not clickable at point (1155, 17). Other element would receive the click: <a aria-label="Thước phim" class="x1i10hfl xjbqb8w x1ejq31n x18oe1m7 x1sy0etr xstzfhl x972fbf x10w94by x1qhh985 x14e42zd x9f619 x1ypdohk x3ct3a4 xdj266r x14z9mp xat24cr x1lziwak xexx8yu xyri2b x18d9i69 x1c1uobl x16tdsg8 x1hl2dhg xggy1nq x1fmog5m xu25z0z x140muxe xo1y3bh x87ps6o x1lku1pv x1a2a7pz x6s0dn4 x78zum5 xdt5ytf x5yr21d xl56j7k x1n2onr6 xh8yej3" href="/reel/?s=tab" role="link" tabindex="0">...</a>
+  (Session info: chrome=145.0.7632.117); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+0   undetected_chromedriver             0x000000010554c5c8 undetected_chromedriver + 6698440
+1   undetected_chromedriver             0x0000000105543e4a undetected_chromedriver + 6663754
+2   undetected_chromedriver             0x0000000104f57ba5 undetected_chromedriver + 453541
+3   undetected_chromedriver             0x0000000104fb3639 undetected_chromedriver + 828985
+4   undetected_chromedriver             0x0000000104fb127b undetected_chromedriver + 819835
+5   undetected_chromedriver             0x0000000104fae7a9 undetected_chromedriver + 808873
+6   undetected_chromedriver             0x0000000104fad8a7 undetected_chromedriver + 805031
+7   undetected_chromedriver             0x0000000104fa0402 undetected_chromedriver + 750594
+8   undetected_chromedriver             0x0000000104f9fd58 undetected_chromedriver + 748888
+9   undetected_chromedriver             0x0000000104ff5559 undetected_chromedriver + 1099097
+10  undetected_chromedriver             0x0000000104f9e387 undetected_chromedriver + 742279
+11  undetected_chromedriver             0x0000000104f9f161 undetected_chromedriver + 745825
+12  undetected_chromedriver             0x0000000105506171 undetected_chromedriver + 6410609
+13  undetected_chromedriver             0x000000010550a582 undetected_chromedriver + 6428034
+14  undetected_chromedriver             0x00000001054e7169 undetected_chromedriver + 6283625
+15  undetected_chromedriver             0x000000010550afd8 undetected_chromedriver + 6430680
+16  undetected_chromedriver             0x00000001054d5c20 undetected_chromedriver + 6212640
+17  undetected_chromedriver             0x0000000105530c98 undetected_chromedriver + 6585496
+18  undetected_chromedriver             0x0000000105530e52 undetected_chromedriver + 6585938
+19  undetected_chromedriver             0x0000000105543a56 undetected_chromedriver + 6662742
+20  libsystem_pthread.dylib             0x00007ff81b614e4d _pthread_start + 115
+21  libsystem_pthread.dylib             0x00007ff81b610857 thread_start + 15
+
+2026-03-01 12:53:31,048 - WARNING - Lỗi khi cố gắng click nút xoá: Message: element click intercepted: Element <div aria-label="Xóa" class="x1i10hfl xjbqb8w x1ejq31n x18oe1m7 x1sy0etr xstzfhl x972fbf x10w94by x1qhh985 x14e42zd x1ypdohk x3ct3a4 xdj266r x14z9mp xat24cr x1lziwak xexx8yu xyri2b x18d9i69 x1c1uobl x16tdsg8 x1hl2dhg xggy1nq x1fmog5m xu25z0z x140muxe xo1y3bh x87ps6o x1lku1pv x1a2a7pz x9f619 x3nfvp2 xdt5ytf xl56j7k x1n2onr6 xh8yej3" role="button" tabindex="0">...</div> is not clickable at point (1155, 17). Other element would receive the click: <a aria-label="Thước phim" class="x1i10hfl xjbqb8w x1ejq31n x18oe1m7 x1sy0etr xstzfhl x972fbf x10w94by x1qhh985 x14e42zd x9f619 x1ypdohk x3ct3a4 xdj266r x14z9mp xat24cr x1lziwak xexx8yu xyri2b x18d9i69 x1c1uobl x16tdsg8 x1hl2dhg xggy1nq x1fmog5m xu25z0z x140muxe xo1y3bh x87ps6o x1lku1pv x1a2a7pz x6s0dn4 x78zum5 xdt5ytf x5yr21d xl56j7k x1n2onr6 xh8yej3" href="/reel/?s=tab" role="link" tabindex="0">...</a>
+  (Session info: chrome=145.0.7632.117); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+0   undetected_chromedriver             0x000000010554c5c8 undetected_chromedriver + 6698440
+1   undetected_chromedriver             0x0000000105543e4a undetected_chromedriver + 6663754
+2   undetected_chromedriver             0x0000000104f57ba5 undetected_chromedriver + 453541
+3   undetected_chromedriver             0x0000000104fb3639 undetected_chromedriver + 828985
+4   undetected_chromedriver             0x0000000104fb127b undetected_chromedriver + 819835
+5   undetected_chromedriver             0x0000000104fae7a9 undetected_chromedriver + 808873
+6   undetected_chromedriver             0x0000000104fad8a7 undetected_chromedriver + 805031
+7   undetected_chromedriver             0x0000000104fa0402 undetected_chromedriver + 750594
+8   undetected_chromedriver             0x0000000104f9fd58 undetected_chromedriver + 748888
+9   undetected_chromedriver             0x0000000104ff5559 undetected_chromedriver + 1099097
+10  undetected_chromedriver             0x0000000104f9e387 undetected_chromedriver + 742279
+11  undetected_chromedriver             0x0000000104f9f161 undetected_chromedriver + 745825
+12  undetected_chromedriver             0x0000000105506171 undetected_chromedriver + 6410609
+13  undetected_chromedriver             0x000000010550a582 undetected_chromedriver + 6428034
+14  undetected_chromedriver             0x00000001054e7169 undetected_chromedriver + 6283625
+15  undetected_chromedriver             0x000000010550afd8 undetected_chromedriver + 6430680
+16  undetected_chromedriver             0x00000001054d5c20 undetected_chromedriver + 6212640
+17  undetected_chromedriver             0x0000000105530c98 undetected_chromedriver + 6585496
+18  undetected_chromedriver             0x0000000105530e52 undetected_chromedriver + 6585938
+19  undetected_chromedriver             0x0000000105543a56 undetected_chromedriver + 6662742
+20  libsystem_pthread.dylib             0x00007ff81b614e4d _pthread_start + 115
+21  libsystem_pthread.dylib             0x00007ff81b610857 thread_start + 15
+
+2026-03-01 12:53:33,087 - WARNING - Lỗi khi cố gắng click nút xoá: Message: element click intercepted: Element <div aria-label="Xóa" class="x1i10hfl xjbqb8w x1ejq31n x18oe1m7 x1sy0etr xstzfhl x972fbf x10w94by x1qhh985 x14e42zd x1ypdohk x3ct3a4 xdj266r x14z9mp xat24cr x1lziwak xexx8yu xyri2b x18d9i69 x1c1uobl x16tdsg8 x1hl2dhg xggy1nq x1fmog5m xu25z0z x140muxe xo1y3bh x87ps6o x1lku1pv x1a2a7pz x9f619 x3nfvp2 xdt5ytf xl56j7k x1n2onr6 xh8yej3" role="button" tabindex="0">...</div> is not clickable at point (1155, 17). Other element would receive the click: <a aria-label="Thước phim" class="x1i10hfl xjbqb8w x1ejq31n x18oe1m7 x1sy0etr xstzfhl x972fbf x10w94by x1qhh985 x14e42zd x9f619 x1ypdohk x3ct3a4 xdj266r x14z9mp xat24cr x1lziwak xexx8yu xyri2b x18d9i69 x1c1uobl x16tdsg8 x1hl2dhg xggy1nq x1fmog5m xu25z0z x140muxe xo1y3bh x87ps6o x1lku1pv x1a2a7pz x6s0dn4 x78zum5 xdt5ytf x5yr21d xl56j7k x1n2onr6 xh8yej3" href="/reel/?s=tab" role="link" tabindex="0">...</a>
+  (Session info: chrome=145.0.7632.117); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementclickinterceptedexception
+Stacktrace:
+0   undetected_chromedriver             0x000000010554c5c8 undetected_chromedriver + 6698440
+1   undetected_chromedriver             0x0000000105543e4a undetected_chromedriver + 6663754
+2   undetected_chromedriver             0x0000000104f57ba5 undetected_chromedriver + 453541
+3   undetected_chromedriver             0x0000000104fb3639 undetected_chromedriver + 828985
+4   undetected_chromedriver             0x0000000104fb127b undetected_chromedriver + 819835
+5   undetected_chromedriver             0x0000000104fae7a9 undetected_chromedriver + 808873
+6   undetected_chromedriver             0x0000000104fad8a7 undetected_chromedriver + 805031
+7   undetected_chromedriver             0x0000000104fa0402 undetected_chromedriver + 750594
+8   undetected_chromedriver             0x0000000104f9fd58 undetected_chromedriver + 748888
+9   undetected_chromedriver             0x0000000104ff5559 undetected_chromedriver + 1099097
+10  undetected_chromedriver             0x0000000104f9e387 undetected_chromedriver + 742279
+11  undetected_chromedriver             0x0000000104f9f161 undetected_chromedriver + 745825
+12  undetected_chromedriver             0x0000000105506171 undetected_chromedriver + 6410609
+13  undetected_chromedriver             0x000000010550a582 undetected_chromedriver + 6428034
+14  undetected_chromedriver             0x00000001054e7169 undetected_chromedriver + 6283625
+15  undetected_chromedriver             0x000000010550afd8 undetected_chromedriver + 6430680
+16  undetected_chromedriver             0x00000001054d5c20 undetected_chromedriver + 6212640
+17  undetected_chromedriver             0x0000000105530c98 undetected_chromedriver + 6585496
+18  undetected_chromedriver             0x0000000105530e52 undetected_chromedriver + 6585938
+19  undetected_chromedriver             0x0000000105543a56 undetected_chromedriver + 6662742
+20  libsystem_pthread.dylib             0x00007ff81b614e4d _pthread_start + 115
+21  libsystem_pthread.dylib             0x00007ff81b610857 thread_start + 15
+
+2026-03-01 12:53:33,087 - INFO - Không xoá được bài nào trong lượt này. Dừng lại tránh lặp vô tận!
+2026-03-01 12:53:33,087 - INFO - ==========> ĐÃ DỌN DẸP HOÀN TẤT TẤT CẢ CÁC NHÓM <==========
+2026-03-01 12:53:33,087 - INFO - Đang đóng trình duyệt...

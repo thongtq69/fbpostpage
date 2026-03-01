@@ -3,7 +3,6 @@ import time
 import logging
 import json
 from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
@@ -14,53 +13,55 @@ logging.basicConfig(
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
 
-def navigate_to_pending_page(bot, group_url):
-    """Navigate to the pending content page via 3-dot menu → 'Nội dung của bạn'.
-    Falls back to direct URL if menu approach fails.
-    Returns True if successfully on pending page."""
+def navigate_to_pending(bot, group_url):
+    """Navigate to pending content by going to group page first, then clicking 'Quản lý bài viết'.
+    Returns True if successfully navigated, False otherwise."""
+    # Step 1: Navigate to the group page
+    bot.driver.get(group_url)
+    bot.random_sleep(3, 5)
     
-    # Use the shared method from FacebookBot
-    navigated = bot._navigate_to_pending_via_menu(group_url)
+    # Step 2: Find and click "Quản lý bài viết" / "Manage posts" button
+    manage_selectors = [
+        "//span[contains(text(), 'Quản lý bài viết')]",
+        "//a[contains(text(), 'Quản lý bài viết')]",
+        "//span[contains(text(), 'Manage posts')]",
+        "//a[contains(text(), 'Manage posts')]",
+        "//a[contains(@href, 'my_pending_content')]",
+    ]
     
-    if navigated:
-        # Click on 'Đang chờ' tab if visible
+    for selector in manage_selectors:
         try:
-            pending_tab_selectors = [
-                "//span[text()='Đang chờ']",
-                "//span[text()='Pending']",
-                "//a[contains(@href,'pending')]",
-            ]
-            for sel in pending_tab_selectors:
-                tabs = bot.driver.find_elements(By.XPATH, sel)
-                for tab in tabs:
-                    if tab.is_displayed():
-                        tab.click()
-                        bot.random_sleep(3, 4)
-                        return True
+            btn = WebDriverWait(bot.driver, 3).until(
+                EC.element_to_be_clickable((By.XPATH, selector))
+            )
+            btn.click()
+            bot.random_sleep(3, 5)
+            logging.info(f"Đã bấm nút 'Quản lý bài viết'.")
+            return True
         except:
-            pass
-        return True
+            continue
     
-    # Fallback: direct URL
+    # Fallback: try direct URL if button not found
     pending_url = group_url.rstrip('/') + "/my_pending_content"
-    logging.info(f"Falling back to direct URL: {pending_url}")
+    logging.info(f"Không tìm thấy nút, thử URL trực tiếp: {pending_url}")
     bot.driver.get(pending_url)
     bot.random_sleep(4, 6)
     
-    # Check if blocked
+    # Check if page loaded correctly (not error page)
     body_text = bot.driver.find_element(By.TAG_NAME, "body").text.lower()
-    if "tạm thời bị chặn" in body_text or "temporarily blocked" in body_text:
-        logging.warning("Bị Facebook chặn tạm thời! Chuyển sang nhóm tiếp theo...")
+    if "trang này không hiển thị" in body_text or "this page isn't available" in body_text or "liên kết đã hỏng" in body_text:
+        logging.warning(f"Trang pending không khả dụng cho {group_url}. Bỏ qua nhóm này.")
         return False
     
     return True
 
+
 def delete_all_pending(bot, url):
     logging.info(f"==========> Kiểm tra và xoá nhóm: {url} <==========")
     
-    # Navigate to pending page via menu
-    if not navigate_to_pending_page(bot, url):
-        logging.warning("Không thể truy cập trang bài viết chờ. Bỏ qua nhóm này.")
+    # Navigate to pending content via group page button
+    if not navigate_to_pending(bot, url):
+        logging.info("Không thể truy cập trang bài viết chờ. Bỏ qua nhóm này.")
         return
     
     while True:
@@ -85,13 +86,14 @@ def delete_all_pending(bot, url):
             clicked = False
             for btn in valid_btns:
                 try:
+                    # Focus và click
                     bot.driver.execute_script("arguments[0].scrollIntoView(true);", btn)
                     time.sleep(1)
                     btn.click()
                     logging.info("Đã bấm nút 'Xóa' bài viết chờ...")
                     bot.random_sleep(2, 4)
                     
-                    # Tìm nút Xóa/Confirm trong hộp thoại xác nhận
+                    # Cửa sổ xác nhận Xóa hiện lên
                     xpath_confirm = "//div[@role='dialog']//div[@role='button' and (contains(., 'Xóa') or contains(., 'Xoá') or contains(., 'Delete') or contains(., 'Confirm') or contains(., 'Xác nhận'))]"
                     confirm_buttons = bot.driver.find_elements(By.XPATH, xpath_confirm)
                     
@@ -108,7 +110,8 @@ def delete_all_pending(bot, url):
                         clicked = True
                         break
                     else:
-                        logging.warning("Không tìm thấy nút Xác nhận Xóa trong hộp thoại!")
+                        logging.warning("Mở được Xoá nhưng không tìm thấy nút Xác nhận!")
+                        from selenium.webdriver.common.keys import Keys
                         bot.driver.find_element(By.TAG_NAME, 'body').send_keys(Keys.ESCAPE)
                         bot.random_sleep(2, 3)
                         
@@ -120,10 +123,10 @@ def delete_all_pending(bot, url):
                 logging.info("Không xoá được bài nào trong lượt này. Dừng lại tránh lặp vô tận!")
                 break
                 
-            # Đã xoá thành công 1 post, navigate lại qua menu để tiếp tục
+            # Đã xoá thành công 1 post, tải lại trang pending qua nút quản lý
             logging.info("Tải lại trang để tiếp tục xoá bài kế tiếp...")
-            if not navigate_to_pending_page(bot, url):
-                logging.warning("Không thể tải lại trang bài viết chờ. Dừng xoá.")
+            if not navigate_to_pending(bot, url):
+                logging.info("Không thể quay lại trang pending. Dừng.")
                 break
             
         except Exception as e:
@@ -134,11 +137,14 @@ def main():
     print("Khởi động Tool Dọn Dẹp Bài Viết Chờ...")
     bot = FacebookBot()
     try:
+        # Load lại danh sách cookies/login
         bot.login(is_gui=False)
         
+        # Chuyển page nếu có
         if bot.config.get('page_url'):
             bot.switch_to_page()
             
+        # Lấy danh sách nhóm
         groups = bot.config.get('group_urls', [])
         if not groups and bot.config.get('group_url'):
             groups = [bot.config['group_url']]
